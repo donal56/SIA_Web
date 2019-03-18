@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+
+#Header {
+	
+	border-bottom: 2px solid #31AFBD;
+	
+}
+
+
+#left {
+	float:right;
+	color: #2FAEBD;
+}
+
+
+#Footer {	
+	
+	position:absolute; 
+	left:0px; 
+	right:0px; 
+	bottom:0px;
+
+	background-color: #3199DA; 
+	display: flex;
+  	justify-content: center;
+ 	align-items: center;
+}
+
+
+.textInfo {
+		
+	color: white;
+	font-size: 10px;
+	
+}
