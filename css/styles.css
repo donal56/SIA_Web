@@ -1,9 +1,12 @@
 @charset "utf-8";
 
-
 #Header {
-	
+	position:absolute; 
+	left:0px; 
+	right:0px; 
+	top: 0px;
 	border-bottom: 2px solid #31AFBD;
+	height:10%;
 	
 }
 
@@ -13,6 +16,17 @@
 	color: #2FAEBD;
 }
 
+#middle {
+	position:absolute; 
+	top: 10%;
+	bottom: 10%;
+	left:0px; 
+	right:0px; 
+	height: auto;
+	overflow: scroll;
+	
+}
+
 
 #Footer {	
 	
@@ -20,7 +34,7 @@
 	left:0px; 
 	right:0px; 
 	bottom:0px;
-
+	height: 10%;
 	background-color: #3199DA; 
 	display: flex;
   	justify-content: center;
@@ -29,8 +43,72 @@
 
 
 .textInfo {
-		
 	color: white;
 	font-size: 10px;
+}
+#txtCheckin {
+	position: relative;
+	top: 3%;
+	left: 3%;
+	width: 97%;
+	color:#3C9EDC;
+	font-size: 36px;
+}
+
+#contCheck {
+	position: absolute;
+	top: 20%;
+	left: 25%;
+	right: 25%;
+	height: 50%;
+	width: auto;
+	min-width: 350px;
+	border: 2px solid #E2E2E2;
+	text-align: center;
+}
+
+
+#contCheck .datos {
+	position: relative;
+	top: 10%;
+	left: 10%;
+	width: 30%;
+	height: 100%;
+	float: left;
+	font-size: 100%;
 	
+}
+#contCheck .datos h4{
+	font-size: 100%;
+	text-align: center;
+	border-bottom: 2px solid #E2E2E2;
+}
+#contCheck .datos input{
+	width: 100%;
+} 
+#contCheck .datos label{
+	text-align: left;
+	width: 100%;
+} 
+
+#contCheck .datos #btnContinuar{
+
+	background-color: #3199DA;
+	color: white;
+
+} 
+
+#contCheck .pase{
+	position: relative;
+	font-size: 100%;
+	top: 10%;
+	width: 50%;
+	height: 90%;
+	float: right;
+	
+}
+
+#contCheck .pase img{
+	width: 70%;
+
 }
