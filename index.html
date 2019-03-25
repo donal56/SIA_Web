@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+		<title>AeroAlpes</title>
+		<meta name= "template"  content="text/html;" http-equiv="content-type" charset="utf-8">
+		<link rel= 'icon' type= 'image/ico' href= 'img/favicon.ico'>
+
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+		<link rel="stylesheet" href="css/bootstrap-select.css" type="text/css">
+		<link rel="stylesheet" href="css/bootstrap-select.css" type="text/css" >
+		<link rel="stylesheet" href= "css/styles.css" type="text/css">
+
+		<script src="js/jquery.min.js" type="text/javascript" ></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" ></script>
+		<script src="js/bootstrap-select.js" type="text/javascript" ></script>
+
+		<script>
+			function solicitar(url)
+			{
+				'use strict';
+				$('#main').load(url, function (data)
+				{
+						$(this).html(data);
+				});
+			}
+	</script>
+
+	</head>
+
+<body>
+
+<div id= "header">
+		<a href= 'main.html'> <img class= 'logo' src= "img/logo1.png" alt= "Logo"> </a>
+
+		<span class= 'langSel'>
+		<select class= "selectpicker" data-width= '130%' onchange= "changeLanguage(this.form)">
+
+			<option data-content="<img src= 'img/MX-flag.png' style= 'width: 30%'>  Español" title= 'Español' value= "es-MX" selected></option>
+			<option data-content="<img src= 'img/US-flag.png' style= 'width: 30%'>  English" title= 'English'	value= "en-US"></option>
+
+		</select>
+		</span>
+
+		<span class= 'usuario'>
+			<span style= "color: #31AFBD; font-size: 1.2em"> Usuario </span>
+			<img src="img/man-user.png" alt= "Usuario" height="30">
+		<span>
+
+</div>
+
+<div id= "main">
+		<script>
+				solicitar('checkin.html')
+		</script>
+</div>
+
+<div id= "footer">
+		<img src=" img/logo2.png" alt=" Logo" align=" left" style= 'height: 100%; margin: 0; padding: none; padding-right: 10px;'>
+
+		<div class="textInfo">
+			Col.Nueva Villahermosa<br>
+			Calle Progreso #120 Piso 7 <br>
+			Contacto (993) 297 82 61
+		</div>
+
+</div>
+
+</body>
+
+</html>
