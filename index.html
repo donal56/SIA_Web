@@ -25,6 +25,16 @@
 						$(this).html(data);
 				});
 			}
+
+			function resize()
+			{
+		    if ($(window).width() <350)
+		      $(".logo").attr('src', 'img/logo1-min.png');
+				else
+					$(".logo").attr('src', 'img/logo1.png');
+		}
+		$(window).on('resize', resize);
+
 	</script>
 
 	</head>
@@ -44,7 +54,7 @@
 		</span>
 
 		<span class= 'usuario'>
-			<span style= "color: #31AFBD; font-size: 1.2em"> Usuario </span>
+			<span style= "color: #31AFBD; font-size: 1.2em"; > Usuario </span>
 			<img src="img/man-user.png" alt= "Usuario" height="30">
 		<span>
 

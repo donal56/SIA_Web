@@ -4,31 +4,34 @@
 	<head>
 		<title>AeroAlpes Template</title>
 	</head>
-	
+
 <body>
 
-<div id="txtCheckin">
+<div class='title'>
 		Check-In
 </div>
 
 <div id="contCheck">
 
-		<div class="datos" >
-			<h4><b>Ingresa tus datos</b></h4>
-			<br>
+		<div id="datos" >
+			<span style= 'font-size: 18px;'>Ingresa tus datos</span>
+			<hr>
+
 			<label for="numBoleto">Número de boleto</label>
-			<input type="text" name="txtBoleto" id="txtBoleto" ><br>
+			<div class="input-group mb-1">
+					<input type="text" name="numBoleto" class="form-control" placeholder="#">
+			</div
+
 			<br>
-			<button id="btnContinuar">Continuar
-			&nbsp;&nbsp;&nbsp;&nbsp;&#x25b6;
-			</button>
+			<br>
+			<button type="button" class="btn btn-primary btn-sm">Continuar&nbsp;&nbsp;&#x25b6;</button>
 
 		</div>
 
 		<div class="pase">
-			<img src="img/pase.png" alt="pase">
-			<br>
-			<b>Consigue tu pase de abordar electronico para ahorrar tiempo</b>
+			<img style= 'width: 70%' src="img/pase.png" alt="pase">
+			<br><br>
+			Consigue tu pase de abordar electronico para ahorrar tiempo
 		</div>
 
 </div>
