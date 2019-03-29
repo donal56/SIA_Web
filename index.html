@@ -4,38 +4,36 @@
 	<head>
 
 		<title>AeroAlpes</title>
-		<meta name= "template"  content="text/html;" http-equiv="content-type" charset="utf-8">
+		<meta name= "index"  content="text/html;" http-equiv="content-type" charset="utf-8">
+		<meta name= "viewport" content="width= device-width, initial-scale= 1, user-scalable= no">
 		<link rel= 'icon' type= 'image/ico' href= 'img/favicon.ico'>
 
-		<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-		<link rel="stylesheet" href="css/bootstrap-select.css" type="text/css">
-		<link rel="stylesheet" href="css/bootstrap-select.css" type="text/css" >
-		<link rel="stylesheet" href= "css/styles.css" type="text/css">
+		<!--Bootstrap, Bootstrap-select, propios-->
+		<link 	rel= "stylesheet" 
+				href= "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+				integrity= "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+				crossorigin= "anonymous"
+				type= "text/css">
+		<link 	rel= "stylesheet" 	
+				href= "https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/css/bootstrap-select.min.css"
+				type= "text/css">
+		<link 	rel= "stylesheet" 	
+				href= "css/styles.css" 
+				type= "text/css">
 
-		<script src="js/jquery.min.js" type="text/javascript" ></script>
-		<script src="js/bootstrap.min.js" type="text/javascript" ></script>
-		<script src="js/bootstrap-select.js" type="text/javascript" ></script>
-
-		<script>
-			function solicitar(url)
-			{
-				'use strict';
-				$('#main').load(url, function (data)
-				{
-						$(this).html(data);
-				});
-			}
-
-			function resize()
-			{
-		    if ($(window).width() <350)
-		      $(".logo").attr('src', 'img/logo1-min.png');
-				else
-					$(".logo").attr('src', 'img/logo1.png');
-		}
-		$(window).on('resize', resize);
-
-	</script>
+		<!--JQuery, Popper.JS, Bootstrap, Bootrasp-select-->
+		<!--El orden es importante-->
+		<script	src= "https://code.jquery.com/jquery-3.3.1.min.js"
+				integrity= "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+				crossorigin= "anonymous"></script>
+		<script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+				integrity= "sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
+				crossorigin= "anonymous"></script>
+		<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+				integrity= "sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" 
+				crossorigin= "anonymous"></script>
+		<script src= "https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.7/dist/js/bootstrap-select.min.js"></script>
+		<script src= "js/functions.js"></script>
 
 	</head>
 
@@ -45,7 +43,7 @@
 		<a href= 'main.html'> <img class= 'logo' src= "img/logo1.png" alt= "Logo"> </a>
 
 		<span class= 'langSel'>
-		<select class= "selectpicker" data-width= '130%' onchange= "changeLanguage(this.form)">
+		<select class= "selectpicker show-tick" data-width= '130%' onchange= "changeLanguage(this.form)">
 
 			<option data-content="<img src= 'img/MX-flag.png' style= 'width: 30%'>  Español" title= 'Español' value= "es-MX" selected></option>
 			<option data-content="<img src= 'img/US-flag.png' style= 'width: 30%'>  English" title= 'English'	value= "en-US"></option>

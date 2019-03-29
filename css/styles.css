@@ -30,7 +30,7 @@ body
 .langSel						/*Esto deberia ir al reves, para que langSel sea relativo en right a usuario*/
 {
 	position: absolute;
-	right: 140px;
+	right: 160px;
 	margin: 10px;					/*Mal. Esto esta trucado para estar centrado verticalmente*/
 }
 
@@ -81,7 +81,7 @@ body
 .title						/*Este se usara para los encabezados*/
 {
 	position: relative;
-	top: 3%;
+	top: 5%;
 	left: 3%;
 	color:#3C9EDC;
 	font-size: 36px;
