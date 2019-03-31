@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<title>AeroAlpes principal</title>
+		<meta name= "index"  content="text/html;" http-equiv="content-type" charset="utf-8">
+		<meta name= "viewport" content="width= device-width, initial-scale= 1, user-scalable= no">
+		<link rel= 'icon' type= 'image/ico' href= 'img/favicon.ico'>
+		
+		<link href="css/styles.css" rel="stylesheet" type="text/css">
+		
+		
+		<link rel="stylesheet" type="text/css" href="http://cdn.dhtmlx.com/edge/dhtmlx.css"/>
+		<script src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
+		
+</head>
+		
+<body>
+	
+	<div id="srchForm">
+		<form action="/my-handling-form-page" method="post" id= "formOptions">
+			 <label for="opTipo">
+				 Tipo
+				<br><select name="tipo" >
+					<option value="Sencillo">Sencillo</option>
+					<option value="Redondo">Redondo</option>			
+					</select>
+
+			 </label>
+
+			  <label for="opOrigen">
+				 Origen
+				 <br><input type="text" id="opOrigen" > 
+			 </label>
+
+			  <label for="opDestino">
+				 Destino 
+				 <br><input type="text" id="opDestino" > 
+			 </label>
+
+			  <label for="opPasajeros">
+				 Pasajeros
+				 <br><input type="text" id="opPasajeros" > 
+			 </label>
+
+			  <label for="opClase">
+				 Clase
+				 <br><input type="text" id="opClase" > 
+			 </label>
+
+			  <label for="opFechaSal">
+				 Fecha de Salida
+				 <br><input type="text" id="opFechaSal" > 
+			 </label>
+
+			  <label for="opFechaReg">
+				 Fecha de Regreso
+				 <br><input type="text" id="opFechaReg" > 
+			 </label>
+
+		</form>
+	
+		<button type="button" form="flyOptions" id="btnSearch">Buscar Vuelos &nbsp;&nbsp;&#x25b6;</button>
+		
+	</div>
+	
+	 
+</body>
+
+<script>
+var calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
+	calendar.hideTime();
+</script>
+
+</html>

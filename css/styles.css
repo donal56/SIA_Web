@@ -75,9 +75,9 @@ body
 	min-height: 55px;
 	background-color: #3199DA;
 	display: flex;
-  justify-content: center;
+  	justify-content: center;
  	align-items: center;
-	z-index: 10;
+	
 }
 
 .textInfo
@@ -142,3 +142,45 @@ body
 	float: right;
 	vertical-align: center;
 }
+
+/* main.html styles */
+
+#srchForm {
+	margin: 2em auto;
+    width: 80%;
+}
+
+#formOptions {
+	width: 100%;
+  	padding: 10px 5px;
+	overflow: hidden;	
+	background-color: #3198DA;
+
+
+}
+
+#formOptions label {
+	float: left;
+	font-size:calc(10px + 1vw);
+	font-weight: bold;
+	color: white;
+	width: 25%;
+	padding: 5px 10px;
+
+}
+
+#formOptions input, select {
+	width: 95%;
+	font-size:90%;
+}
+
+#btnSearch {
+	font-size:calc(10px + .8vw);
+	padding: 10px;
+	color: white;
+	float: right;
+	margin: 2em 0;
+	background-color:#3197DA;
+	
+}
+

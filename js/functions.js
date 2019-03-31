@@ -27,3 +27,4 @@ function resize()
 
 $(window).on('load', resize);
 $(window).on('resize', resize);
+
