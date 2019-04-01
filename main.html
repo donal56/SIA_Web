@@ -8,10 +8,20 @@
 		
 		<link href="css/styles.css" rel="stylesheet" type="text/css">
 		
-		
+
 		<link rel="stylesheet" type="text/css" href="http://cdn.dhtmlx.com/edge/dhtmlx.css"/>
 		<script src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
 		
+		<script	src= "https://code.jquery.com/jquery-3.3.1.min.js"
+				integrity= "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+				crossorigin= "anonymous">
+		</script>
+		
+		<link rel="stylesheet"  type="text/css" href="css/carousel.css">
+		<script src="js/carousel.js"></script>
+		
+
+
 </head>
 		
 <body>
@@ -44,7 +54,12 @@
 
 			  <label for="opClase">
 				 Clase
-				 <br><input type="text" id="opClase" > 
+				 <br><select name="opClase" >
+					<option value="vip">Vip</option>
+					<option value="Ejecutivo">Ejecutivo</option>		
+					<option value="Turista">Turista</option>		
+					</select>
+
 			 </label>
 
 			  <label for="opFechaSal">
@@ -58,17 +73,25 @@
 			 </label>
 
 		</form>
-	
-		<button type="button" form="flyOptions" id="btnSearch">Buscar Vuelos &nbsp;&nbsp;&#x25b6;</button>
+
+		<button type="button" form="flyOptions" class="btnSearch">Buscar Vuelos &nbsp;&nbsp;&#x25b6;</button>
 		
 	</div>
-	
-	 
+	<p class="bigText">¡Descubre!</p>
+	<div id="wrapper_bu">
+		<div id="bu1"><p class="txt_Center txt_h1">1</p></div>
+		<div id="bu2"><p class="txt_Center txt_h1">2</p></div>
+		<div id="bu3"><p class="txt_Center txt_h1">3</p></div>
+		<div id="bu4"><p class="txt_Center txt_h1">4</p></div>
+		<div id="bu5"><p class="txt_Center txt_h1">5</p></div>
+	</div>
+
 </body>
 
 <script>
 var calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
 	calendar.hideTime();
 </script>
+
 
 </html>
