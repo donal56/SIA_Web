@@ -1,4 +1,6 @@
+﻿
 Options -Indexes
+DirectoryIndex index.php index.html index.htm 
 
 <IfModule mod_expires.c>
   ExpiresActive On
