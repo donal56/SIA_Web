@@ -22,7 +22,15 @@
 
 			  <label for="opOrigen">
 				 Origen
-				 <br><input type="text" id="opOrigen" > 
+				 <br><select name="opOrigen" >
+					<?php
+				  		$query = $conexion -> query ("SELECT * FROM rutas");
+          				while ($valores = mysqli_fetch_array($query)) {
+						echo '<option value="'.$valores['idRuta'].'">'.$valores['origen'].'</option>';
+						}
+				  	?>		
+					</select>
+					
 			 </label>
 
 			  <label for="opDestino">

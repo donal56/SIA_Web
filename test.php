@@ -7,7 +7,7 @@ mysqli_select_db($conexion, "sia2019_db") or die('No se pudo seleccionar la base
 
 $con_time = microtime(true);
 
-$query = 'SELECT * FROM Avion';
+$query = 'SELECT * FROM aviones';
 $resultado = mysqli_query($conexion, $query) or die('Consulta fallida: ' . mysqli_error($conexion));
 
 $sel_time = microtime(true);

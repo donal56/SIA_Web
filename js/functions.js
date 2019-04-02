@@ -5,15 +5,6 @@ $(document).ready(function() {
  $(".loader").delay(2000).fadeOut("slow");
 });
 
-function solicitar(url)
-{
-	'use strict';
-	$('#main').load(url, function (data)
-	{
-		$(this).html(data);
-	});
-}
-
 function resize()
 {
 	'use strict';
