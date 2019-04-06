@@ -1,14 +1,20 @@
 <!doctype html>
 <html>
+
+<head>
+	<!--dhtmlx js&css-->
+	<link rel="stylesheet" type="text/css" href="http://cdn.dhtmlx.com/edge/dhtmlx.css"/>
+	<script src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
 	
+	<link rel="stylesheet"  type="text/css" href="views/css/carousel.css">
+	<script src="views/js/carousel.js"></script>
+		
+	<script src="views/js/main.js"></script>
+		
+</head>
+
 <body>
 	
-		<link rel="stylesheet"  type="text/css" href="css/carousel.css">
-		<script src="js/carousel.js"></script>
-		
-		<script src="js/main.js"></script>
-		
-		
 	<div id="srchForm">
 		<form action="/my-handling-form-page" method="post" id= "formOptions">
 			 <label for="opTipo">
@@ -24,10 +30,9 @@
 				 Origen
 				 <br><select name="opOrigen" >
 					<?php
-				  		$query = $conexion -> query ("SELECT * FROM rutas");
-          				while ($valores = mysqli_fetch_array($query)) {
-						echo '<option value="'.$valores['idRuta'].'">'.$valores['origen'].'</option>';
-						}
+				  	foreach ($origins as $origin) {
+    					echo '<option value="'.$origin["origen"].'">'.iconv('latin1', 'UTF-8//IGNORE', $origin["origen"]).'</option>';
+					}
 				  	?>		
 					</select>
 					
@@ -35,7 +40,14 @@
 
 			  <label for="opDestino">
 				 Destino 
-				 <br><input type="text" id="opDestino" > 
+				 <br><select name="opDestino" >
+					<?php
+				  	foreach ($destins as $destin) {
+    					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
+						
+					}
+				  	?>		
+					</select>
 			 </label>
 
 			  <label for="opPasajeros">
