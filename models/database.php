@@ -1,6 +1,6 @@
 <?php
 class  Connection{
-	private static $connect;
+	private $connect;
 	public function getConnect(){
 		$this -> connect = new mysqli("64.62.211.134",
 							  "sia2019",
@@ -9,7 +9,7 @@ class  Connection{
 	}
 	
 	public function getStatement($query){
-		self::getConnect(); 
+		$this->getConnect(); 
 		$stm = $this->connect -> query($query);
 		$this-> connect -> close();
 	

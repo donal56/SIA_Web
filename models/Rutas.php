@@ -1,12 +1,13 @@
 <?php
 
 class moRutas{
-	private static $stm;
+	private $stm;
 	private $result;
 	
 	public function getOrigins(){
+		$connection = new Connection();
 		$this->result = array();
-		$this-> stm = Connection::getStatement("SELECT origen FROM rutas GROUP BY origen"); 
+		$this-> stm = $connection->getStatement("SELECT origen FROM rutas GROUP BY origen"); 
 
 		while ($row = $this-> stm -> fetch_assoc()){
 			$this->result[] = $row ;
@@ -18,8 +19,9 @@ class moRutas{
 	}
 	
 	public function getDestinations(){
+		$connection = new Connection();
 		$this->result = array();
-		$this-> stm = Connection::getStatement("SELECT destino FROM rutas GROUP BY destino"); 
+		$this-> stm = $connection->getStatement("SELECT destino FROM rutas GROUP BY destino"); 
 		
 		while ($row = $this-> stm -> fetch_assoc()){
 			$this ->result[] = $row ;
