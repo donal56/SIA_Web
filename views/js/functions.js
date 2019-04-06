@@ -9,9 +9,9 @@ function resize()
 {
 	'use strict';
 	if ($(window).width() <=480){
-		$(".logo").attr('src', 'img/logo1-min.png');
+		$(".logo").attr('src', 'views/img/logo1-min.png');
 	}else{
-		$(".logo").attr('src', 'img/logo1.png');
+		$(".logo").attr('src', 'views/img/logo1.png');
 	}
 	
 }
