@@ -1,15 +1,11 @@
 <!doctype html>
 <html>
 
-<head>
-	<!--dhtmlx js&css-->
-	<link rel="stylesheet" type="text/css" href="http://cdn.dhtmlx.com/edge/dhtmlx.css"/>
-	<script src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
-	
-	<link rel="stylesheet"  type="text/css" href="views/css/carousel.css">
-	<script src="views/js/carousel.js"></script>
+<head>	
+	<link rel="stylesheet"  type="text/css" href="/views/css/carousel.css">
+	<script src="/views/js/carousel.js"></script>
 		
-	<script src="views/js/main.js"></script>
+	<script src="/views/js/main.js"></script>
 		
 </head>
 
@@ -17,37 +13,35 @@
 	
 	<div id="srchForm">
 		<form action="/my-handling-form-page" method="post" id= "formOptions">
-			 <label for="opTipo">
-				 Tipo
-				<br><select name="tipo" >
+			 <label for="opTipo">Tipo<br>
+			 
+			 	<select name="tipo" >
 					<option value="Sencillo">Sencillo</option>
 					<option value="Redondo">Redondo</option>			
-					</select>
+				</select>
 
 			 </label>
 
-			  <label for="opOrigen">
-				 Origen
-				 <br><select name="opOrigen" >
+			  <label for="opOrigen">Origen<br>
+			  	<select name="opOrigen" >
 					<?php
 				  	foreach ($origins as $origin) {
     					echo '<option value="'.$origin["origen"].'">'.iconv('latin1', 'UTF-8//IGNORE', $origin["origen"]).'</option>';
 					}
 				  	?>		
-					</select>
+				</select>
 					
 			 </label>
 
-			  <label for="opDestino">
-				 Destino 
-				 <br><select name="opDestino" >
+			 <label for="opDestino">Destino<br>
+			 	<select name="opDestino" >
 					<?php
 				  	foreach ($destins as $destin) {
     					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
 						
 					}
 				  	?>		
-					</select>
+				</select>
 			 </label>
 
 			  <label for="opPasajeros">
@@ -80,25 +74,19 @@
 		<button type="button" form="flyOptions" class="btnSearch">Buscar Vuelos &nbsp;&nbsp;&#x25b6;</button>
 		
 	</div>
+	
 	<p class="bigText">¡Descubre!</p>
+		
 	<div id="wrapper_bu">
 		<div id="bu1"><p class="txt_Center txt_h1">1</p></div>
 		<div id="bu2"><p class="txt_Center txt_h1">2</p></div>
 		<div id="bu3"><p class="txt_Center txt_h1">3</p></div>
 		<div id="bu4"><p class="txt_Center txt_h1">4</p></div>
 		<div id="bu5"><p class="txt_Center txt_h1">5</p></div>
-		
-		
 			
 	</div>
 
 </body>
-
-<script>
-	initCalendar();
-	passCount();
-</script>
-
 
 
 </html>

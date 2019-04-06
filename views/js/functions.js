@@ -1,9 +1,15 @@
-$.fn.selectpicker.Constructor.BootstrapVersion = '4';
+var langCombo;
 
 $(document).ready(function() {
 	'use strict';	
  $(".loader").delay(2000).fadeOut("slow");
 });
+
+function initLang() {
+	'use strict';	
+	langCombo = dhtmlXComboFromSelect("language");
+ 
+}
 
 function resize()
 {

@@ -4,11 +4,15 @@ var baby = 0;
 var myPop;
 var calendar;
 
+$(function(){
+	'use strict';
+    $('#srchForm').ready(initCalendar());
+});
+
 function initCalendar(){
 	'use strict';
-	
-		calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
-		calendar.hideTime();
+	calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
+	calendar.hideTime();
 }
 
 function showPass(inp) {
