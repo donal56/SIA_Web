@@ -2,30 +2,35 @@
 <html>
 
 <head>	
-	<link rel="stylesheet"  type="text/css" href="/views/css/carousel.css">
-	<script src="/views/js/carousel.js"></script>
+	<link 	rel= "stylesheet"  
+			type= "text/css" 
+			href= "views/css/carousel.css">
+	<script type= "text/javascript" 
+			src= "views/js/carousel.js"></script>
 		
-	<script src="/views/js/main.js"></script>
+	<script type= "text/javascript" 
+			src= "views/js/main.js"></script>
 		
 </head>
 
 <body>
 	
 	<div id="srchForm">
-		<form action="/my-handling-form-page" method="post" id= "formOptions">
-			 <label for="opTipo">Tipo<br>
+		<form action= "views/Vuelos.phtml" method= "post" id= "flyOptions">
+			 <label for= "tipo">Tipo<br>
 			 
-			 	<select name="tipo" >
+			 	<select name= "tipo" >
 					<option value="Sencillo">Sencillo</option>
 					<option value="Redondo">Redondo</option>			
 				</select>
 
 			 </label>
 
-			  <label for="opOrigen">Origen<br>
-			  	<select name="opOrigen" >
+			  <label for= "origen">Origen<br>
+			  	<select name= "origen" >
 					<?php
-				  	foreach ($origins as $origin) {
+				  	foreach ($origins as $origin) 
+					{
     					echo '<option value="'.$origin["origen"].'">'.iconv('latin1', 'UTF-8//IGNORE', $origin["origen"]).'</option>';
 					}
 				  	?>		
@@ -33,8 +38,8 @@
 					
 			 </label>
 
-			 <label for="opDestino">Destino<br>
-			 	<select name="opDestino" >
+			 <label for= "destino">Destino<br>
+			 	<select name= "destino" >
 					<?php
 				  	foreach ($destins as $destin) {
     					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
@@ -44,34 +49,34 @@
 				</select>
 			 </label>
 
-			  <label for="opPasajeros">
+			  <label for= "pasajeros">
 				 Pasajeros
-				 <br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();"  > 
+				 <br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros"> 
 			 </label>
 
-			  <label for="opClase">
+			  <label for= "clase">
 				 Clase
-				 <br><select name="opClase" >
-					<option value="vip">Vip</option>
-					<option value="Ejecutivo">Ejecutivo</option>		
-					<option value="Turista">Turista</option>		
+				 <br><select name= "clase" >
+					<option value= "vip">VIP</option>
+					<option value= "Ejecutivo">Ejecutivo</option>		
+					<option value= "Turista">Turista</option>		
 					</select>
 
 			 </label>
 
-			  <label for="opFechaSal">
+			  <label for="fechaSal">
 				 Fecha de Salida
-				 <br><input type="text" id="opFechaSal" > 
+				 <br><input name= "fechaSal" type="text" id="opFechaSal" > 
 			 </label>
 
-			  <label for="opFechaReg">
+			  <label for= "fechaReg">
 				 Fecha de Regreso
-				 <br><input type="text" id="opFechaReg" > 
+				 <br><input name= "fechaReg" type="text" id="opFechaReg" > 
 			 </label>
 
 		</form>
 
-		<button type="button" form="flyOptions" class="btnSearch">Buscar Vuelos &nbsp;&nbsp;&#x25b6;</button>
+		<input type= "submit" form= "flyOptions" class= "btnSearch">Buscar Vuelos &nbsp;&nbsp;&#x25b6;</input>
 		
 	</div>
 	

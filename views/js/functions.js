@@ -1,13 +1,14 @@
-var langCombo;
-
-$(document).ready(function() {
+$(document).ready(function() 
+{
 	'use strict';	
- $(".loader").delay(2000).fadeOut("slow");
+	$(".loader").delay(1500).fadeOut("slow");
 });
 
-function initLang() {
+function initLang() 
+{
 	'use strict';	
-	langCombo = dhtmlXComboFromSelect("language");
+	var langCombo = dhtmlXComboFromSelect("language");
+	langCombo.readonly(true);
  
 }
 

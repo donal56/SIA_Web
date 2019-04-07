@@ -4,20 +4,24 @@ var baby = 0;
 var myPop;
 var calendar;
 
-$(function(){
+$(function()
+{
 	'use strict';
     $('#srchForm').ready(initCalendar());
 });
 
-function initCalendar(){
+function initCalendar()
+{
 	'use strict';
 	calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
 	calendar.hideTime();
 }
 
-function showPass(inp) {
+function showPass(inp) 
+{
 	'use strict';
-	if (!myPop) {
+	if (!myPop) 
+	{
 		myPop = new dhtmlXPopup();
 		myPop.attachHTML("<div class='pasajeros'>" +
 						 	 "Adultos <br>"+
@@ -36,9 +40,12 @@ function showPass(inp) {
 						 "</div>");
 		
 	}
-	if (myPop.isVisible()) {
+	if (myPop.isVisible()) 
+	{
 		myPop.hide();
-	} else {
+	} 
+	else 
+	{
 		var x = window.dhx4.absLeft(inp);
 		var y = window.dhx4.absTop(inp);
 		var w = inp.offsetWidth;
@@ -48,41 +55,51 @@ function showPass(inp) {
 	}
 }
 		
-function hidePass() {
+function hidePass() 
+{
 	'use strict';
-	if (myPop) {
+	if (myPop) 
+	{
 		myPop.hide();
 	}
 }
 
-function passCount(){
+function passCount()
+{
 	'use strict';
-	$("input[name='radButton']").click(function() {
-		
-		switch(this.id){
+	$("input[name='radButton']").click(function() 
+	{
+		switch(this.id)
+		{
 			 case "addAdult":
    				adult++;
     			break;
+				
 			case "subAdult":
-   				if(adult > 0){
+   				if(adult > 0)
+				{	
 					adult--;
 				}
-			
     			break;
+				
 			case "addKid":
    				kid++;
     			break;
 			case "subKid":
-				if(kid > 0){
-   				kid--;
+				if(kid > 0)
+				{
+					kid--;
 				}
     			break;
+				
 			case "addBaby":
    				baby++;
     			break;
+			
 			case "subBaby":
-   				if(baby> 0){
-   				baby--;
+   				if(baby> 0)
+				{
+					baby--;
 				}
     			break;
 		}
@@ -91,7 +108,7 @@ function passCount(){
  		$('.pasajeros #lbKid').text(kid);
 		$('.pasajeros #lbBaby').text(baby);
 		
-		document.getElementById('opPasajeros').value=("adultos:"+adult+" niños:"+kid+" bebes:"+baby);
+		document.getElementById('opPasajeros').value=("Adultos: "+adult+" ,niños: "+kid+", bebes: "+baby);
 		
 	});
 
