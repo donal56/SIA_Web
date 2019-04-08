@@ -9,7 +9,7 @@
 			src= "views/js/carousel.js"></script>
 		
 	<script type= "text/javascript" 
-			src= "views/js/main.js"></script>
+			src= "views/js/home.js"></script>
 		
 </head>
 
@@ -49,14 +49,37 @@
 				</select>
 			 </label>
 
-			  <label for= "pasajeros">
-				 Pasajeros
-				 <br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros"> 
-			 </label>
+			 <label for= "pasajeros">
+				Pasajeros
+				<br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros"> 
+			
+				<div id="pax" style="display:none;">
+					
+					<span>Adultos<br>
+						<button id='subAdult' name = 'radButton'>-</button>
+							<label id='lbAdult'>0</label>
+						<button id='addAdult' name = 'radButton'>+</button>
+					</span>
+					
+					<span>Menores <br>
+						<button id='subKid' name = 'radButton'>-</button>
+							<label id='lbKid'>0</label>
+						<button id='addKid' name = 'radButton'>+</button>
+					</span>
+					
+					<span>Bebes <br>
+						<button id='subBaby' name = 'radButton'>-</button>
+							<label id='lbBaby'>0</label>
+						<button id='addBaby' name = 'radButton'>+</button>
+					</span>
 
-			  <label for= "clase">
-				 Clase
-				 <br><select name= "clase" >
+				</div>
+				
+ 			 </label>
+ 			 
+			 <label for= "clase">
+				Clase
+				<br><select name= "clase" >
 					<option value= "vip">VIP</option>
 					<option value= "Ejecutivo">Ejecutivo</option>		
 					<option value= "Turista">Turista</option>		
@@ -91,6 +114,7 @@
 		<div id="bu5"><p class="txt_Center txt_h1">5</p></div>
 			
 	</div>
+	
 
 </body>
 

@@ -23,21 +23,7 @@ function showPass(inp)
 	if (!myPop) 
 	{
 		myPop = new dhtmlXPopup();
-		myPop.attachHTML("<div class='pasajeros'>" +
-						 	 "Adultos <br>"+
-							 "<input type='radio' id='subAdult' name = 'radButton'>"+
-							 "<label id='lbAdult'>0</label>"+
-							 "<input type='radio' id='addAdult' name = 'radButton' >"+
-						 	 "<br> Menores <br>"+
-						 	 "<input type='radio' id='subKid' name = 'radButton'>"+
-							 "<label id='lbKid'>0</label>"+
-							 "<input type='radio' id='addKid' name = 'radButton' >"+
-						 	 " <br> Bebes <br>"+
-						 	"<input type='radio' id='subBaby' name = 'radButton'>"+
-							 "<label id='lbBaby'>0</label>"+
-							 "<input type='radio' id='addBaby' name = 'radButton' >"+
-						 
-						 "</div>");
+		myPop.attachObject("pax");
 		
 	}
 	if (myPop.isVisible()) 
@@ -67,7 +53,7 @@ function hidePass()
 function passCount()
 {
 	'use strict';
-	$("input[name='radButton']").click(function() 
+	$("button[name='radButton']").click(function() 
 	{
 		switch(this.id)
 		{
@@ -104,9 +90,9 @@ function passCount()
     			break;
 		}
       
-		$('.pasajeros #lbAdult').text(adult);
- 		$('.pasajeros #lbKid').text(kid);
-		$('.pasajeros #lbBaby').text(baby);
+		$('#pax #lbAdult').text(adult);
+ 		$('#pax #lbKid').text(kid);
+		$('#pax #lbBaby').text(baby);
 		
 		document.getElementById('opPasajeros').value=("Adultos: "+adult+" ,niños: "+kid+", bebes: "+baby);
 		

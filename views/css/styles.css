@@ -183,7 +183,24 @@ body
 	background-color:#3197DA;	
 }
 
+#pax span{
+	float: left;
+	padding: 5px 10px;
+	text-align: center;
+}
 
+#pax span label{
+	font-weight: bold;
+}
+
+#pax span button[name="radButton"]{
+	background-color: #6CACE4;
+	border-radius: 50%;
+	border: none;
+	width: 20px;
+	height: 20px;
+	color: white;
+}
 
 /*********Vuelos**********/ 
 

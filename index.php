@@ -45,7 +45,7 @@
 		<a href= 'index.php'> <img class= 'logo' src= "views/img/logo1.png" alt= "Logo"> </a>
 
 		<span class='langSel'>
-			<select id="language" style="width:150%;" mode="image" onchange= "changeLanguage(this.form) style="cursor:pointer"">
+			<select id="language" style="width:150%;" mode="image" onchange= "changeLanguage(this.form) style='cursor:pointer'">
 				<option value= "es-MX" img_src= "views/img/MX-flag.png">Español</option>
 				<option value= "en-US" img_src= "views/img/US-flag.png">English</option>
 			</select>		
@@ -60,9 +60,9 @@
 
 <div id= "main">
 	<?php 
-		//require_once("controllers/CntrlRuta.php");
+		require_once("controllers/CntrlRuta.php");
 		//require_once("controllers/CntrlVuelo.php");
-		require_once("views/Checkin.phtml");
+		//require_once("views/Checkin.phtml");
 	?>
 		
 	<div id= "footer">
