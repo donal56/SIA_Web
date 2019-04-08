@@ -59,19 +59,21 @@
 </div>
 
 <div id= "main">
-		<?php 
-			require_once("controllers/CntrlVuelo.php");
-		?>
-</div>
-
-<div id= "footer">
-		<img src="views/img/logo2.png" alt=" Logo" align=" left" style= 'height: 100%; margin: 0; padding: none; padding-right: 10px;'>
-
-		<div class="textInfo">
+	<?php 
+		//require_once("controllers/CntrlRuta.php");
+		//require_once("controllers/CntrlVuelo.php");
+		require_once("views/Checkin.phtml");
+	?>
+		
+	<div id= "footer">
+		<div class = "textInfo">
+			<img src="views/img/logo2.png" alt="Logo">	
 			Col.Nueva Villahermosa<br>
 			Calle Progreso #120 Piso 7 <br>
 			Contacto (993) 297 82 61
 		</div>
+
+	</div>
 
 </div>
 

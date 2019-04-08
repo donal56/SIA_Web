@@ -20,22 +20,20 @@ body
 
 #header
 {
-	position: absolute;
-	left: 0px;
+	position: fixed;
 	top: 0px;
+	left: 0px;
 	border-bottom: 1px solid #31AFBD;
 	width: 100%;
-	height: 8%;
-	min-height: 55px;
-	vertical-align: middle;
-	z-index: 50;
+	height: 55px;
 	background-color: white;
+	z-index: 50;
 }
 
 
 .logo
 {
-	position: relative;
+	position: absolute;
 	left: 2px;
 	margin: 2px;
 	height: 85%;
@@ -59,45 +57,42 @@ body
 #main						/*Deberia ser relativa al header*/
 {
 	position: absolute;
-	top: 8%;
+	height: 1vmin;
+	top: 55px;
 	width: 100%;
-	height: 90%;
-	overflow: auto;
+	left: 0px;
+	
 }
 
 #footer
 {
+	position:absolute;
 	background-image: linear-gradient(45deg, #359BDB, #5AB1E6);
-	position: absolute;
 	width: 100%;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	height: 8%;
-	min-height: 55px;
-	display: flex;
-  	justify-content: center;
- 	align-items: center;
-	z-index: 50;
+	overflow: hidden;
+}
+
+#footer img{
+	float: left;
+	height: 50px;
 }
 
 .textInfo
 {
+	margin: 0 auto;
+	width: 210px;
 	color: white;
 	font-size: 10px;
-	margin: 0;
-	padding: none;
-	padding-left: 10px;
 }
 
-/******************************************************/
+/*************************checkin.phtml*****************************/
 
+.checkin{
+	min-height: calc(100vh - 105px);
+}
 
 .title						/*Este se usara para los encabezados*/
 {
-	position: relative;
-	top: 5%;
-	left: 3%;
 	color:#3C9EDC;
 	font-size: 36px;
 	font-weight: 100;
@@ -106,15 +101,9 @@ body
 #contCheck
 {
 	/*Centar div dinamico (Absoluto o fijo)*/
-	right: 0;
-	left: 0;
-	margin-right: auto;
-	margin-left: auto;
-
-	position: absolute;
+	overflow: hidden;
+	margin: 0px auto;
 	top: 25%;
-	height: auto;
-	width: auto;
 	padding: 50px 20px;
 	min-width: 300px;
 	max-width: 600px;
@@ -125,7 +114,6 @@ body
 
 #datos
 {
-	position: relative;
 	top: 10%;
 	left: 10%;
 	width: 30%;
@@ -136,21 +124,19 @@ body
 
 #contCheck .pase
 {
-	position: relative;
 	width: 50%;
 	height: 100%;
 	float: right;
 	vertical-align: center;
 }
 
-/* main.html styles */
+/* main.phtml styles */
 
 #srchForm 
 {
 	margin: 2em auto;
     width: 70%;
 	overflow: hidden;
-	z-index: 1;
 }
 
 #flyOptions 
@@ -158,6 +144,7 @@ body
 	font-family: Segoe UI;
   	padding: 10px 5px;
 	overflow: inherit;	
+	background-color: #3198DA;
 }
 
 #flyOptions label 
@@ -198,7 +185,7 @@ body
 
 
 
-/*********************/ Vuelos
+/*********Vuelos**********/ 
 
 .azul
 {
