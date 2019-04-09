@@ -106,12 +106,15 @@
 	<p class="bigText">¡Descubre!</p>
 		
 	<div id="wrapper_bu">
-	
-		<div id="bu1"><p class="txt_Center txt_h1">1</p></div>
-		<div id="bu2"><p class="txt_Center txt_h1">2</p></div>
-		<div id="bu3"><p class="txt_Center txt_h1">3</p></div>
-		<div id="bu4"><p class="txt_Center txt_h1">4</p></div>
-		<div id="bu5"><p class="txt_Center txt_h1">5</p></div>
+		<?php
+			$i = 1;	
+			foreach ($destins as $destin) {
+				if($i <= 5){
+					echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</p></div>'."\n";
+					$i++;
+				}	
+			}		
+		?>
 			
 	</div>
 	

@@ -8,6 +8,7 @@ var Conclave=(function(){
 			var buarr=["holder_bu_awayL2","holder_bu_awayL1","holder_bu_center","holder_bu_awayR1","holder_bu_awayR2"];
 			for(var i=1;i<=buarr.length;++i){
 				$("#bu"+i).removeClass().addClass(buarr[i-1]+" holder_bu");
+				document.getElementById("bu"+i).style.backgroundImage = "url(views/img/destinos/" + $("#bu"+i+" p").text() + ".jpg)";
 			}
 		},
 		clickReg:function(){
@@ -36,7 +37,7 @@ var Conclave=(function(){
 		},
 		auto:function(){
 			for(i=1;i<=1;++i){
-				$(".holder_bu").delay(4000).trigger('click',"bu"+i).delay(4000);
+				$(".holder_bu").delay(2000).trigger('click',"bu"+i).delay(2000);
 				console.log("called");
 			}
 		}

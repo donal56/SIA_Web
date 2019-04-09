@@ -134,7 +134,7 @@ body
 
 #srchForm 
 {
-	margin: 2em auto;
+	margin: 2em auto 0px;
     width: 70%;
 	overflow: hidden;
 }
@@ -178,7 +178,7 @@ body
 	padding: 10px;
 	color: white;
 	float: right;
-	margin: 2em 0;
+	margin: 2em 0px 0px;
 	border: none;
 	background-color:#3197DA;	
 }
