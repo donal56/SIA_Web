@@ -10,13 +10,13 @@ class  Connection
 							  "sia2019_db");
 	}
 	
-	public function getStatement($query)
+	public function getStatement($que)
 	{
 		$this->getConnect(); 
-		$stm = $this->connect -> query($query);
-		$this-> connect -> close();
+		$result = $this->connect -> query($que);
+		
 	
-		return $stm;
+		return $result;
 	}		
 }
 ?>

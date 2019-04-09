@@ -1,22 +1,18 @@
 <div class= 'title'> Vuelos </div>
 				
 <?php 
-	// $tipo= $_POST['tipo'];
-	// $origen= $_POST['origen'];
-	// $destino= $_POST['destino'];
-	// $pasajeros= $_POST['pasajeros'];
-	// $clase= $_POST['clase'];
-	// $f1= $_POST['fechaSal'];
-	// $f2= $_POST['fechaReg'];
-
-	$tipo= "Sencillo";
-	$origen= "Ciudad de México";
-	$destino= "Cancún";
-	$pasajeros= "1 2 3";
-	$clase= "VIP";
-	$f1= "2019-03-02";
-	$f2= "";
+	$content= "";
 	
-	echo '<script> alert("' . $v -> getVuelos($tipo, $origen, $destino, $pasajeros, $clase, $f1, $f2) . '"); </script>' ;	
+	if(!empty($vuelos))
+	{
+		foreach( $vuelos as $vuelo)
+		{
+			$content = $content . "<div class= 'cuadroAzul'>" . $vuelo['idVuelo'] . "</div>";
+		}
+	}
+	else
+	{
+		echo "<div style= 'text-align: center; padding: 20px'><br><span style= 'font-size: 200%; padding: 10px'> No hay vuelos disponibles :( </span><br><br>";
+		echo "<img src= 'views/img/plane.png' width= 20%></div><br>";
+	}		
 ?>
-	

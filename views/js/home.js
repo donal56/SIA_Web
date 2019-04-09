@@ -4,6 +4,49 @@ var baby = 0;
 var myPop;
 var calendar;
 
+function submitVuelo()
+{
+	var tipo = 	$('#tipo').val();
+	var ori = 	$('#origen').val();
+	var des =  	$('#destino').val();
+	var pas1 =  adult;
+	var pas2 =  kid;
+	var pas3 =  baby;
+	var clase = $('#clase').val();
+	var f1 = 	$('#opFechaSal').val();
+	var f2 = 	$('#opFechaReg').val();
+	
+	$.ajax(
+	{
+		type: 'GET',
+		url: 'views/Vuelos.phtml',
+		data: 	{ 
+					tipo : tipo, 
+					ori : origen, 
+					des : destino, 
+					pas1 : pas1,
+					pas2 : pas2,
+					pas3 : pas3,
+					clase : clase, 
+					f1 : fechaSal, 
+					f2 : fechaReg 
+				},
+		success: function(response) 
+		{
+		   
+		},
+		error: function(response) 
+		{
+		   alert(response);
+		},
+		contentType: 'application/x-www-form-urlencoded; charset= iso-8859-1',
+		complete: function (response) 	
+		{
+          $('#main').html(response.responseText);
+		}
+	});
+}
+
 $(function()
 {
 	'use strict';
@@ -94,8 +137,8 @@ function passCount()
  		$('#pax #lbKid').text(kid);
 		$('#pax #lbBaby').text(baby);
 		
-		document.getElementById('opPasajeros').value=("Adultos: "+adult+" ,niños: "+kid+", bebes: "+baby);
+		var count= adult + kid + baby;
+ 		document.getElementById('opPasajeros').value=(count + " pasajero(s)");
 		
 	});
-
 }

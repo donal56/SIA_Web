@@ -16,10 +16,10 @@
 <body>
 	
 	<div id="srchForm">
-		<form action= "views/Vuelos.phtml" method= "post" id= "flyOptions">
-			 <label for= "tipo">Tipo<br>
+		<form id= "flyOptions">
+			 <label for= "tipo" >Tipo<br>
 			 
-			 	<select name= "tipo" >
+			 	<select name= "tipo" id= "tipo" readonly>
 					<option value="Sencillo">Sencillo</option>
 					<option value="Redondo">Redondo</option>			
 				</select>
@@ -27,7 +27,7 @@
 			 </label>
 
 			  <label for= "origen">Origen<br>
-			  	<select name= "origen" >
+			  	<select name= "origen" id= "origen" readonly>
 					<?php
 				  	foreach ($origins as $origin) 
 					{
@@ -39,7 +39,7 @@
 			 </label>
 
 			 <label for= "destino">Destino<br>
-			 	<select name= "destino" >
+			 	<select name= "destino" id= "destino" readonly>
 					<?php
 				  	foreach ($destins as $destin) {
     					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
@@ -51,7 +51,7 @@
 
 			 <label for= "pasajeros">
 				Pasajeros
-				<br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros"> 
+				<br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros" readonly> 
 			
 				<div id="pax" style="display:none;">
 					
@@ -79,7 +79,7 @@
  			 
 			 <label for= "clase">
 				Clase
-				<br><select name= "clase" >
+				<br><select name= "clase" id= "clase" readonly>
 					<option value= "vip">VIP</option>
 					<option value= "Ejecutivo">Ejecutivo</option>		
 					<option value= "Turista">Turista</option>		
@@ -89,17 +89,17 @@
 
 			  <label for="fechaSal">
 				 Fecha de Salida
-				 <br><input name= "fechaSal" type="text" id="opFechaSal" > 
+				 <br><input name= "fechaSal" type="text" id="opFechaSal" readonly> 
 			 </label>
 
 			  <label for= "fechaReg">
 				 Fecha de Regreso
-				 <br><input name= "fechaReg" type="text" id="opFechaReg" > 
+				 <br><input name= "fechaReg" type="text" id="opFechaReg" readonly> 
 			 </label>
 
 		</form>
 
-		<input type= "submit" form= "flyOptions" class= "btnSearch">Buscar Vuelos &nbsp;&nbsp;&#x25b6;</input>
+		<input type= "button" id= "submitVuelo" class= "btnSearch" onClick= "submitVuelo();" value= "Buscar Vuelos &nbsp;&nbsp;&#x25b6"> </input> 
 		
 	</div>
 	

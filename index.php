@@ -45,7 +45,11 @@
 		<a href= 'index.php'> <img class= 'logo' src= "views/img/logo1.png" alt= "Logo"> </a>
 
 		<span class='langSel'>
+<<<<<<< HEAD
 			<select id="language" style="width:150%;" mode="image" onchange= "changeLanguage(this.form); style='cursor:pointer'">
+=======
+			<select id="language" style="width:160%;" mode="image" onchange= "changeLanguage(this.form) style='cursor:pointer'">
+>>>>>>> Login, avances en vuelos
 				<option value= "es-MX" img_src= "views/img/MX-flag.png">Español</option>
 				<option value= "en-US" img_src= "views/img/US-flag.png">English</option>
 			</select>		
@@ -53,21 +57,20 @@
 
 		<span class= 'usuario'>
 			<span style= "color: #31AFBD; font-size: 1.2em" > Usuario </span>
-			<img src="views/img/man-user.png" alt= "Usuario" height="30">
+			<img src="views/img/man-user.png" alt= "Usuario" height="30" onclick="showLogin(this);" onblur="hideLogin();">
 		</span>
-
 </div>
 
 <div id= "main">
 	<?php 
-		require_once("controllers/CntrlRuta.php");
-		//require_once("controllers/CntrlVuelo.php");
+		//require_once("controllers/CntrlRuta.php");
+		require_once("controllers/CntrlVuelo.php");
 		//require_once("views/Checkin.phtml");
 	?>
 		
 	<div id= "footer">
 		<div class = "textInfo">
-			<img src="views/img/logo2.png" alt="Logo">	
+			<img src="views/img/logo2.png" alt="Logo" style= 'margin-right: 10px'>	
 			Col.Nueva Villahermosa<br>
 			Calle Progreso #120 Piso 7 <br>
 			Contacto (993) 297 82 61
