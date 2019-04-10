@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 	require_once("models/database.php");
 ?>
 
@@ -45,7 +45,7 @@
 		<a href= 'index.php'> <img class= 'logo' src= "views/img/logo1.png" alt= "Logo"> </a>
 
 		<span class='langSel'>
-			<select id="language" style="width:160%;" mode="image" onchange= "changeLanguage(this.form) style='cursor:pointer'">
+			<select id="language" style="width:160%;" mode="image" onchange= "changeLanguage(this.form); style='cursor:pointer'">
 
 				<option value= "es-MX" img_src= "views/img/MX-flag.png">Español</option>
 				<option value= "en-US" img_src= "views/img/US-flag.png">English</option>

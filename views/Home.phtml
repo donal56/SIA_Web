@@ -31,7 +31,7 @@
 					<?php
 				  	foreach ($origins as $origin) 
 					{
-    					echo '<option value="'.$origin["origen"].'">'.iconv('latin1', 'UTF-8//IGNORE', $origin["origen"]).'</option>';
+    					echo '<option value="'.$origin["origen"].'">'.$origin["origen"].'</option>';
 					}
 				  	?>		
 				</select>
@@ -42,7 +42,7 @@
 			 	<select name= "destino" id= "destino" readonly>
 					<?php
 				  	foreach ($destins as $destin) {
-    					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
+    					echo '<option value="'.$destin["destino"].'">'.$destin["destino"].'</option>';
 						
 					}
 				  	?>		
@@ -110,7 +110,7 @@
 			$i = 1;	
 			foreach ($destins as $destin) {
 				if($i <= 5){
-					echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</p></div>'."\n";
+					echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.$destin["destino"].'</p></div>'."\n";
 					$i++;
 				}	
 			}		
