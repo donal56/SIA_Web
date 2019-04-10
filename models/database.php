@@ -13,6 +13,7 @@ class  Connection
 	public function getStatement($que)
 	{
 		$this->getConnect(); 
+		$this->connect -> query("SET NAMES utf8");   
 		$result = $this->connect -> query($que);
 		
 	

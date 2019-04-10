@@ -19,35 +19,33 @@
 
 		 </label>
 
-		  <label for= "origen">Origen<br>
-			<select name= "origen" id= "origen" readonly>
-				<?php
-				foreach ($origins as $origin) 
-				{
-					echo '<option value="'.$origin["origen"].'">'.iconv('latin1', 'UTF-8//IGNORE', $origin["origen"]).'</option>';
-				}
-				?>		
-			</select>
-				
-		 </label>
-
-		 <label for= "destino">Destino<br>
-			<select name= "destino" id= "destino" readonly>
-				<?php
-				foreach ($destins as $destin) {
-					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
-					
-				}
-				?>		
-			</select>
-		 </label>
+			 <label for= "origen">Origen<br>
+			  	<select name= "origen" id= "origen" readonly>
+					<?php
+						foreach ($origins as $origin) 
+						{
+							echo '<option value="'.$origin["origen"].'">'.$origin["origen"].'</option>';
+						}
+				  	?>		
+				</select>
+			</label>
+			
+			<label for= "destino">Destino<br>
+			 	<select name= "destino" id= "destino" readonly>
+					<?php
+						foreach ($destins as $destin) 
+						{
+							echo '<option value="'.$destin["destino"].'">'.$destin["destino"].'</option>';
+						}
+				  	?>		
+				</select>
+			 </label>
 
 		 <label for= "pasajeros">
 			Pasajeros
 			<br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros" readonly> 
 		
-			<div id="pax" style="display:none;">
-				
+			<div id="pax" style="display:none;">		
 				<span>Adultos<br>
 					<button id='subAdult' name = 'radButton'>-</button>
 						<label id='lbAdult'>0</label>
@@ -65,9 +63,7 @@
 						<label id='lbBaby'>0</label>
 					<button id='addBaby' name = 'radButton'>+</button>
 				</span>
-
 			</div>
-			
 		 </label>
 		 
 		 <label for= "clase">
@@ -98,15 +94,18 @@
 
 <p class="bigText">¡Descubre!</p>
 	
-<div id="wrapper_bu">
-	<?php
-		$i = 1;	
-		foreach ($destins as $destin) {
-			if($i <= 5){
-				echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</p></div>'."\n";
-				$i++;
-			}	
-		}		
-	?>
-		
-</div>
+	<div id="wrapper_bu">
+		<?php
+			$i = 1;	
+			foreach ($destins as $destin) {
+				if($i <= 5){
+					echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.$destin["destino"].'</p></div>'."\n";
+					$i++;
+				}	
+			}		
+		?>
+			
+	</div>
+	
+
+</body>
