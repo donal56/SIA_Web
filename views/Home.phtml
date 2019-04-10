@@ -1,125 +1,112 @@
-<!doctype html>
-<html>
-
-<head>	
-	<link 	rel= "stylesheet"  
-			type= "text/css" 
-			href= "views/css/carousel.css">
-	<script type= "text/javascript" 
-			src= "views/js/carousel.js"></script>
-		
-	<script type= "text/javascript" 
-			src= "views/js/home.js"></script>
-		
-</head>
-
-<body>
+<link 	rel= "stylesheet"  
+		type= "text/css" 
+		href= "views/css/carousel.css">
+<script type= "text/javascript" 
+		src= "views/js/carousel.js"></script>
 	
-	<div id="srchForm">
-		<form id= "flyOptions">
-			 <label for= "tipo" >Tipo<br>
-			 
-			 	<select name= "tipo" id= "tipo" readonly>
-					<option value="Sencillo">Sencillo</option>
-					<option value="Redondo">Redondo</option>			
-				</select>
+<script type= "text/javascript" 
+		src= "views/js/home.js"></script>
 
-			 </label>
 
-			  <label for= "origen">Origen<br>
-			  	<select name= "origen" id= "origen" readonly>
-					<?php
-				  	foreach ($origins as $origin) 
-					{
-    					echo '<option value="'.$origin["origen"].'">'.iconv('latin1', 'UTF-8//IGNORE', $origin["origen"]).'</option>';
-					}
-				  	?>		
-				</select>
-					
-			 </label>
+<div id="srchForm">
+	<form id= "flyOptions">
+		 <label for= "tipo" >Tipo<br>
+		 
+			<select name= "tipo" id= "tipo" readonly>
+				<option value="Sencillo">Sencillo</option>
+				<option value="Redondo">Redondo</option>			
+			</select>
 
-			 <label for= "destino">Destino<br>
-			 	<select name= "destino" id= "destino" readonly>
-					<?php
-				  	foreach ($destins as $destin) {
-    					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
-						
-					}
-				  	?>		
-				</select>
-			 </label>
+		 </label>
 
-			 <label for= "pasajeros">
-				Pasajeros
-				<br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros" readonly> 
-			
-				<div id="pax" style="display:none;">
-					
-					<span>Adultos<br>
-						<button id='subAdult' name = 'radButton'>-</button>
-							<label id='lbAdult'>0</label>
-						<button id='addAdult' name = 'radButton'>+</button>
-					</span>
-					
-					<span>Menores <br>
-						<button id='subKid' name = 'radButton'>-</button>
-							<label id='lbKid'>0</label>
-						<button id='addKid' name = 'radButton'>+</button>
-					</span>
-					
-					<span>Bebes <br>
-						<button id='subBaby' name = 'radButton'>-</button>
-							<label id='lbBaby'>0</label>
-						<button id='addBaby' name = 'radButton'>+</button>
-					</span>
-
-				</div>
+		  <label for= "origen">Origen<br>
+			<select name= "origen" id= "origen" readonly>
+				<?php
+				foreach ($origins as $origin) 
+				{
+					echo '<option value="'.$origin["origen"].'">'.iconv('latin1', 'UTF-8//IGNORE', $origin["origen"]).'</option>';
+				}
+				?>		
+			</select>
 				
- 			 </label>
- 			 
-			 <label for= "clase">
-				Clase
-				<br><select name= "clase" id= "clase" readonly>
-					<option value= "vip">VIP</option>
-					<option value= "Ejecutivo">Ejecutivo</option>		
-					<option value= "Turista">Turista</option>		
-					</select>
+		 </label>
 
-			 </label>
+		 <label for= "destino">Destino<br>
+			<select name= "destino" id= "destino" readonly>
+				<?php
+				foreach ($destins as $destin) {
+					echo '<option value="'.$destin["destino"].'">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</option>';
+					
+				}
+				?>		
+			</select>
+		 </label>
 
-			  <label for="fechaSal">
-				 Fecha de Salida
-				 <br><input name= "fechaSal" type="text" id="opFechaSal" readonly> 
-			 </label>
-
-			  <label for= "fechaReg">
-				 Fecha de Regreso
-				 <br><input name= "fechaReg" type="text" id="opFechaReg" readonly> 
-			 </label>
-
-		</form>
-
-		<input type= "button" id= "submitVuelo" class= "btnSearch" onClick= "submitVuelo();" value= "Buscar Vuelos &nbsp;&nbsp;&#x25b6"> </input> 
+		 <label for= "pasajeros">
+			Pasajeros
+			<br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros" readonly> 
 		
-	</div>
-	
-	<p class="bigText">¡Descubre!</p>
-		
-	<div id="wrapper_bu">
-		<?php
-			$i = 1;	
-			foreach ($destins as $destin) {
-				if($i <= 5){
-					echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</p></div>'."\n";
-					$i++;
-				}	
-			}		
-		?>
+			<div id="pax" style="display:none;">
+				
+				<span>Adultos<br>
+					<button id='subAdult' name = 'radButton'>-</button>
+						<label id='lbAdult'>0</label>
+					<button id='addAdult' name = 'radButton'>+</button>
+				</span>
+				
+				<span>Menores <br>
+					<button id='subKid' name = 'radButton'>-</button>
+						<label id='lbKid'>0</label>
+					<button id='addKid' name = 'radButton'>+</button>
+				</span>
+				
+				<span>Bebes <br>
+					<button id='subBaby' name = 'radButton'>-</button>
+						<label id='lbBaby'>0</label>
+					<button id='addBaby' name = 'radButton'>+</button>
+				</span>
+
+			</div>
 			
-	</div>
+		 </label>
+		 
+		 <label for= "clase">
+			Clase
+			<br><select name= "clase" id= "clase" readonly>
+				<option value= "vip">VIP</option>
+				<option value= "Ejecutivo">Ejecutivo</option>		
+				<option value= "Turista">Turista</option>		
+				</select>
+
+		 </label>
+
+		  <label for="fechaSal">
+			 Fecha de Salida
+			 <br><input name= "fechaSal" type="text" id="opFechaSal" readonly> 
+		 </label>
+
+		  <label for= "fechaReg">
+			 Fecha de Regreso
+			 <br><input name= "fechaReg" type="text" id="opFechaReg" readonly> 
+		 </label>
+
+	</form>
+
+	<input type= "button" id= "submitVuelo" class= "btnSearch" onClick= "submitVuelo();" value= "Buscar Vuelos &nbsp;&nbsp;&#x25b6"> </input> 
 	
+</div>
 
-</body>
-
-
-</html>
+<p class="bigText">¡Descubre!</p>
+	
+<div id="wrapper_bu">
+	<?php
+		$i = 1;	
+		foreach ($destins as $destin) {
+			if($i <= 5){
+				echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.iconv('latin1', 'UTF-8//IGNORE', $destin["destino"]).'</p></div>'."\n";
+				$i++;
+			}	
+		}		
+	?>
+		
+</div>

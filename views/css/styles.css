@@ -5,6 +5,28 @@ body
 	font-family: Segoe UI Light;
 }
 
+a:visited,  a:link
+{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover, a:active
+{
+	text-decoration: none;
+	color: #31AFBD;
+}
+
+hr 
+{
+    border: none;
+    height: 1px;
+    background-color: #31AFBD;
+	text-align: center;
+	width: 105%;
+    margin: 0px;
+}
+
 .loader 
 {	
 	background: url(../img/plane_load.gif) center no-repeat #fff;

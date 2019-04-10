@@ -53,16 +53,21 @@
 		</span>
 
 		<span class= 'usuario'> Usuario&nbsp;
-			<img src="views/img/man-user.png" alt= "Usuario" height="30" onclick="showLogin(this);" onblur="hideLogin();">
+			<img src= "views/img/man-user.png" alt= "Usuario" height="30" onclick="showLogin(this);" onblur="hideLogin();">
 		</span>
+		
+		<div id="opcionesUsuario" style= "display:none; font-family: Segoe UI Semibold;">
+			<a onclick= 'solicitar("views/Checkin.phtml")'>Check-in</a> <hr> <a onclick="alert('Por implementar')">Cerrar sesión</a>
+		</div>
 </div>
 
 <div id= "main">
-	<?php 
-		require_once("controllers/CntrlRuta.php");
-		//require_once("controllers/CntrlVuelo.php");
-		//require_once("views/Checkin.phtml");
-	?>
+		<?php 
+			require_once("controllers/CntrlRuta.php");
+			//require_once("controllers/CntrlVuelo.php");
+			//require_once("views/Checkin.phtml");
+		?>
+
 		
 	<div id= "footer">
 		<div class = "textInfo">
