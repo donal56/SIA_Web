@@ -18,9 +18,13 @@ function initLang()
 function resize()
 {
 	'use strict';
-	if ($(window).width() <=480){
+	// 320px sería el mínimo práctico
+	if ($(window).width() <=480)
+	{
 		$(".logo").attr('src', 'views/img/logo1-min.png');
-	}else{
+	}
+	else
+	{
 		$(".logo").attr('src', 'views/img/logo1.png');
 	}
 	
@@ -40,13 +44,14 @@ function showLogin(obj)
 		formLog = menu.attachForm	([
 										{type: "settings", position: "label-top"},
 										{type: "fieldset", label: "Iniciar sesión", width: 250, name: "title", list: [ 
-										{type: "input", label: "Correo electrónico", name: "email", required: true, validate: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$", width: 220},
-										{type: "password", label: "Contraseña", name: "pwd", required: true, validate: "validPass", width: 220, note: {text:"La contraseña debe contener por lo menos 8 carácteres, incluyendo mayúsculas, minúsculas y números."}},
+										{type: "input", label: "Correo electrónico", name: "email", required: true, validate: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$", width: 220, style: "background-color: #FAFAFA"},
+										{type: "password", label: "Contraseña", name: "pwd", required: true, validate: "validPass", width: 220, note: {text:"La contraseña debe contener por lo menos 8 carácteres, incluyendo mayúsculas, minúsculas y números.", style: "background-color: #FAFAFA"}},
 										{type: "checkbox", label: "Crear una cuenta nueva", name: "wantsAnAccount", checked: false, position: "label-right"},
 										{type: "button", value: "Iniciar sesión", name: "sign", width: 180}]}
 									]);
 		
 		formLog.enableLiveValidation(true);
+		formLog.setSkin("material");
 		
 		formLog.attachEvent("onChange", function(name, command)
 		{

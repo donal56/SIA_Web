@@ -9,7 +9,7 @@
 
 		<title>AeroAlpes</title>
 		<meta name= "index"  content="text/html" http-equiv="content-type" charset="utf-8">
-		<meta name= "viewport" content="width= device-width, initial-scale= 1, user-scalable= no">
+		<meta name= "viewport" content="width= device-width, initial-scale= 1, user-scalable= no" id= "viewport">
 		<link rel= 'icon' type= 'image/ico' href= 'views/img/favicon.ico'>
 
 		<!--JQuery-->
@@ -55,8 +55,7 @@
 			</select>		
 		</span>
 
-		<span class= 'usuario'>
-			<span style= "color: #31AFBD; font-size: 1.2em" > Usuario </span>
+		<span class= 'usuario'> Usuario&nbsp;
 			<img src="views/img/man-user.png" alt= "Usuario" height="30" onclick="showLogin(this);" onblur="hideLogin();">
 		</span>
 </div>
@@ -64,8 +63,8 @@
 <div id= "main">
 	<?php 
 		//require_once("controllers/CntrlRuta.php");
-		require_once("controllers/CntrlVuelo.php");
-		//require_once("views/Checkin.phtml");
+		//require_once("controllers/CntrlVuelo.php");
+		require_once("views/Checkin.phtml");
 	?>
 		
 	<div id= "footer">
