@@ -11,10 +11,10 @@ class moVuelos
 		
 		if($tipo == "Sencillo")
 		{	
-$bar = <<<LABEL
-SELECT * FROM vuelos INNER JOIN rutas ON vuelos.rutas_idRuta = rutas.idRuta WHERE rutas.origen='$origen' AND rutas.destino='$destino' AND vuelos.fecha ='$f1';				
+		$str = <<<LABEL
+		SELECT * FROM vuelos INNER JOIN rutas ON vuelos.rutas_idRuta = rutas.idRuta WHERE rutas.origen='$origen' AND rutas.destino='$destino' AND vuelos.fecha ='$f1';				
 LABEL;
-			$this->query = $connection->getStatement($bar);
+			$this->query = $connection->getStatement($str);
 			
 			while ($registro = $this -> query -> fetch_assoc())
 			{

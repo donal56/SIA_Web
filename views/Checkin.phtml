@@ -1,5 +1,13 @@
+<script type= "text/javascript" 
+		src= "js/checkin.js">
+</script>
+
+<script type= "text/javascript" 
+		src= "https://unpkg.com/jspdf@latest/dist/jspdf.min.js">
+</script>
+
 <div class='title'>
-		Check-In
+	Check-In
 </div>
 
 <div id="contCheck">
@@ -7,15 +15,15 @@
 		<div id="datos" >
 			<span style= 'font-size: 18px;'>Ingresa tus datos</span>
 			<hr>
-
-			<label for="numBoleto">Número de boleto</label>
+			<br>
+			<label for="noBoleto">Número de boleto</label>
 			<div class="input-group mb-1">
-					<input type="text" name="numBoleto" class="form-control" placeholder="#">
+					<input id= "noBoleto" type="text" name="numBoleto" class="form-control" placeholder="#">
 			</div>
 
 			<br>
 			<br>
-			<button type="button" class="btn btn-primary btn-sm">Continuar&nbsp;&nbsp;&#x25b6;</button>
+			<button type="button" class="btn btn-primary btn-sm" onclick= "generarPase(document.getElementByID('noBoleto').value);">Continuar&nbsp;&nbsp;&#x25b6;</button>
 
 		</div>
 

@@ -1,5 +1,5 @@
 <?php
-class  Connection
+class Connection
 {
 	private $connect;
 	public function getConnect()

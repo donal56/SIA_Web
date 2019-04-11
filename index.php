@@ -1,5 +1,15 @@
 ﻿<?php 
 	require_once("models/database.php");
+	session_start();
+	
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
+	{
+		
+	} 
+	else 
+	{
+		
+	}
 ?>
 
 <!DOCTYPE html>
@@ -52,12 +62,13 @@
 			</select>		
 		</span>
 
-		<span class= 'usuario'> Usuario&nbsp;
+		<span class= 'usuario'> 
+			<span id= "userLabel">Usuario&nbsp;</span>
 			<img src= "views/img/man-user.png" alt= "Usuario" height="30" onclick="showLogin(this);" onblur="hideLogin();">
 		</span>
 		
 		<div id="opcionesUsuario" style= "display:none; font-family: Segoe UI Semibold;">
-			<a onclick= 'solicitar("views/Checkin.phtml")'>Check-in</a> <hr> <a onclick="alert('Por implementar')">Cerrar sesión</a>
+			<a onclick= 'solicitar("views/Checkin.phtml")'>Check-in</a> <hr> <a onclick="cerrarSesion()">Cerrar sesión</a>
 		</div>
 </div>
 
