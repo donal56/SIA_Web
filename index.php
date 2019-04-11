@@ -1,6 +1,5 @@
 ﻿<?php 
 	require_once("models/database.php");
-	session_start();
 	
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
 	{
@@ -42,7 +41,9 @@
 		<script type= "text/javascript" 
 				src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
 		
-
+		<script type="text/javascript" 
+				src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js">
+		</script>
 
 		
 	</head>

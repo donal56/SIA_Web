@@ -114,7 +114,7 @@ function showLogin(obj)
 				}
 				else if(id == "sign" && wantsAnAccount)
 				{
-					alert("Creare una cuenta con los datos: \n" + email + "\n" + pass);
+					sendMail();
 				}
 			});
 		}
@@ -174,6 +174,25 @@ function cerrarSesion()
 			}
         }
     });
+}
+
+function sendMail(){
+	'use strict';
+	emailjs.init("user_goIYNBMDATyLynMATWvrs");
+	var service_id = "default_service";
+	var template_id = "template_gQVegU8l";
+	
+	var template_params = {
+	email: formLog.getItemValue("email"),
+	};
+	
+	emailjs.send(service_id,template_id,template_params)
+		.then(function(){ 
+			alert("Gracias por registrarte , email enviado");
+		}, function(err) {
+		   alert("Mnesaje no enviado!\r\n Response:\n " + JSON.stringify(err));
+		});
+	
 }
 
 $(window).on('load', resize);
