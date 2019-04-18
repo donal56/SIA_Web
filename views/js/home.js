@@ -67,6 +67,7 @@ function showPass(inp)
 	{
 		myPop = new dhtmlXPopup();
 		myPop.attachObject("pax");
+		passCount();
 		
 	}
 	if (myPop.isVisible()) 
@@ -80,7 +81,6 @@ function showPass(inp)
 		var w = inp.offsetWidth;
 		var h = inp.offsetHeight;
 		myPop.show(x,y,w,h);
-		passCount();
 	}
 }
 		
@@ -126,7 +126,7 @@ function passCount()
     			break;
 			
 			case "subBaby":
-   				if(baby> 0)
+   				if(baby > 0)
 				{
 					baby--;
 				}

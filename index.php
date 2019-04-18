@@ -1,6 +1,5 @@
 ﻿<?php 
 	require_once("models/database.php");
-	session_start();
 	
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
 	{
@@ -41,10 +40,11 @@
 				href="http://cdn.dhtmlx.com/edge/dhtmlx.css"/>
 		<script type= "text/javascript" 
 				src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
-		
+				
+		<!--email using smtp-->
+		<script type= "text/javascript" 
+				src="https://smtpjs.com/v3/smtp.js"></script>
 
-
-		
 	</head>
 
 <body  onload="initLang();" >

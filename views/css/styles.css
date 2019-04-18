@@ -3,6 +3,7 @@
 body
 {	
 	font-family: Segoe UI Light;
+	overflow-x: hidden;
 }
 
 a:visited,  a:link
