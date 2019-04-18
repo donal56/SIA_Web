@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var menu, formLog;
 var logged = 0;
 
@@ -40,6 +41,7 @@ function resize()
 
 function validPass(data)
 {
+	'use strict';
 	return data.length >= 8 && data.search(/a-zA-Z0-9/);
 }
 
@@ -114,7 +116,7 @@ function showLogin(obj)
 				}
 				else if(id == "sign" && wantsAnAccount)
 				{
-					sendMail();
+					sendMail("#footer","¡Gracias por Registrarte!");
 				}
 			});
 		}
@@ -144,6 +146,7 @@ function hideLogin()
 
 function wait(ms)
 {
+	'use strict';
 	var start = new Date().getTime();
 	var end = start;
 	while(end < start + ms) 
@@ -154,6 +157,7 @@ function wait(ms)
 
 function cerrarSesion()
 {
+	'use strict';
 	 $.ajax({
         type: "POST",
         url: "controllers/CntrlUsuario.php",
@@ -176,22 +180,19 @@ function cerrarSesion()
     });
 }
 
-function sendMail(){
+function sendMail(divMessage,subject){
 	'use strict';
-	emailjs.init("user_goIYNBMDATyLynMATWvrs");
-	var service_id = "default_service";
-	var template_id = "template_gQVegU8l";
-	
-	var template_params = {
-	email: formLog.getItemValue("email"),
-	};
-	
-	emailjs.send(service_id,template_id,template_params)
-		.then(function(){ 
-			alert("Gracias por registrarte , email enviado");
-		}, function(err) {
-		   alert("Mnesaje no enviado!\r\n Response:\n " + JSON.stringify(err));
-		});
+	// html message use display:none
+	var content = $(divMessage).eq(0).clone();	
+	Email.send({
+		SecureToken : "ec85c9d3-7782-43cb-8179-63d4d1ed2b0f",
+		To : formLog.getItemValue("email"),
+		From : "notifier@aeroalpes.tk",
+		Subject : subject,
+		Body : content.get(0).outerHTML
+	}).then(
+	  message => alert(message)
+	);
 	
 }
 

@@ -40,12 +40,11 @@
 				href="http://cdn.dhtmlx.com/edge/dhtmlx.css"/>
 		<script type= "text/javascript" 
 				src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
-		
-		<script type="text/javascript" 
-				src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js">
-		</script>
+				
+		<!--email using smtp-->
+		<script type= "text/javascript" 
+				src="https://smtpjs.com/v3/smtp.js"></script>
 
-		
 	</head>
 
 <body  onload="initLang();" >
