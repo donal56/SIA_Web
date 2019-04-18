@@ -19,7 +19,7 @@ function submitVuelo()
 	$.ajax(
 	{
 		type: 'GET',
-		url: 'views/Vuelos.phtml',
+		url: 'controllers/CntrlVuelo.php',
 		data: 	{ 
 					tipo : tipo, 
 					ori : origen, 

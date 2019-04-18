@@ -250,3 +250,10 @@ hr
 	color: black;
 	font-size: 20px;
 }
+
+.messageCentered
+{
+	text-align: center;
+	padding: 20px;
+	font-size: 200%;
+}
