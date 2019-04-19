@@ -44,7 +44,6 @@ LABEL;
 			$query -> free();
 			
 		}
-		$this->query -> free();	
 		return $cad;
 	}
 }

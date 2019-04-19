@@ -165,14 +165,19 @@ hr
 
 /* main.phtml styles */
 
-#wrappper_for_overflow
+#srchForm 
 {
-	font-family: Segoe UI;
-  	padding: 10px 5px;
-	background-color: #3198DA;
 	margin: 2em auto 0px;
     width: 70%;
 	overflow: hidden;
+}
+
+#flyOptions 
+{
+	font-family: Segoe UI;
+  	padding: 10px 5px;
+	overflow: inherit;	
+	background-color: #3198DA;
 }
 
 #flyOptions label 
@@ -201,23 +206,19 @@ hr
 	font-size: 75%;
 }
 
-.btnSearch 
-{
-	position: relative;
-	top: 30px;
-	right: 15%;
-	clear: both;
-	float:right;
-	margin-bottom: 50px;
+.btnSearch {
+	
+	font-size:calc(8px + .6vw);
 	font-family: Segoe UI Light;
-    padding: 10px;
-	border: none;	
     cursor:pointer;
-	font-size: 115%;
+	padding: 5px;
 	color: white;
-	width: 12%;
-	background-color:#3197DA;	
+	float: right;
+	margin: 1em 0px 0px;
+	border: none;
+	background-color:#3197DA;
 }
+
 
 #pax span{
 	float: left;

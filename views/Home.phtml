@@ -7,9 +7,9 @@
 <script type= "text/javascript" 
 		src= "views/js/home.js"></script>
 
-<form id= "flyOptions">
 
-	<div id= "wrappper_for_overflow">
+<div id="srchForm">
+	<form id= "flyOptions">
 		 <label for= "tipo" >Tipo<br>
 		 
 			<select name= "tipo" id= "tipo" readonly>
@@ -20,24 +20,24 @@
 		 </label>
 
 			 <label for= "origen">Origen<br>
-				<select name= "origen" id= "origen" readonly>
+			  	<select name= "origen" id= "origen" readonly>
 					<?php
 						foreach ($origins as $origin) 
 						{
 							echo '<option value="'.$origin["origen"].'">'.$origin["origen"].'</option>';
 						}
-					?>		
+				  	?>		
 				</select>
 			</label>
 			
 			<label for= "destino">Destino<br>
-				<select name= "destino" id= "destino" readonly>
+			 	<select name= "destino" id= "destino" readonly>
 					<?php
 						foreach ($destins as $destin) 
 						{
 							echo '<option value="'.$destin["destino"].'">'.$destin["destino"].'</option>';
 						}
-					?>		
+				  	?>		
 				</select>
 			 </label>
 
@@ -75,22 +75,23 @@
 				<option value= "Turista">Turista</option>		
 				</select>
 
-		</label>
+		 </label>
 
-		<label for="fechaSal">
+		  <label for="fechaSal">
 			 Fecha de Salida
 			 <br><input name= "fechaSal" type="text" id="opFechaSal" readonly> 
-		</label>
+		 </label>
 
-		<label for= "fechaReg">
+		  <label for= "fechaReg">
 			 Fecha de Regreso
 			 <br><input name= "fechaReg" type="text" id="opFechaReg" readonly> 
-		</label>
-	</div>
+		 </label>
 
-	<input type= "button" class= "btnSearch" value= "Buscar Vuelos &nbsp;&nbsp;&#x25b6" onclick= "recuperarVuelos()">;
+	</form>
+
+	<button type= "button" class= "btnSearch" onclick= "recuperarVuelos();">Buscar Vuelos &nbsp &#x25b6</button>
 	
-</form>
+</div>
 
 <p class="bigText">¡Descubre!</p>
 	
