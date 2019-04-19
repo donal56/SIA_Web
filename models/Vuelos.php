@@ -1,42 +1,50 @@
 <?php
 class moVuelos
 {
-	private $query;
-	private $result;
-	
-	public function getVuelos($tipo, $origen, $destino, $pasajeros, $clase, $f1, $f2)
+	public function getVuelos($tipo, $origen, $destino, $adultos, $niños, $bebes, $clase, $f1, $f2)
 	{
+		$cad = "";
 		$connection = new Connection();
-		$this->result = array();
-		
+
 		if($tipo == "Sencillo")
 		{	
 			$str = <<<LABEL
 			SELECT * FROM vuelos INNER JOIN rutas ON vuelos.rutas_idRuta = rutas.idRuta WHERE rutas.origen='$origen' AND rutas.destino='$destino' AND vuelos.fecha ='$f1';				
 LABEL;
-			$otro= "";
-		
-			$this->query = $connection->getStatement($str);
+			$query = $connection->getStatement($str);
 			
-			while ($registro = $this -> query -> fetch_assoc())
+			if($query->num_rows !== 0)
 			{
-				$this->result[] = $registro;
-			}
-			$this -> query -> free();
-			
-			if(!empty($content))
-			{
-				foreach( $content as $vuelo)
+				$cad= "<div class= 'subtitle'> Ida </div>";
+				while($row = mysqli_fetch_array($query)) 
 				{
-					$otro = $otro . "<div class= 'cuadroAzul'>" . $vuelo[0] . "</div>"."\n";
+					$cad= $cad . "<div class= 'cuadro azul'> Vuelo " . $row['idVuelo'] . " Origen " . $row['horaSalida'] . "<img src= 'views/img/conector.png' width= 20%>" . " Destino " . $row['horaLlegada'];
+					
+					if($clase == "VIP")
+					{
+						$cad= $cad . " " . $row['precioVIP'];
+					}
+					else if ($clase == "Ejecutivo")
+					{
+						$cad= $cad . " " . $row['precioEjecutivo'];
+					}
+					else
+					{
+						$cad= $cad . " " . $row['precioTurista'];
+					}
+					
+					$cad= $cad . "<input type= 'button' value= 'Elegir'></input> </div>";
 				}
 			}
 			else
 			{
-				echo "<div class= 'messageCentered'><br> No hay vuelos disponibles :( <br><br><img src= 'views/img/plane.png' width= 20%></div><br>";
-			}	
+				$cad = "No hay vuelos disponibles :( <br><br><img src= 'views/img/plane.png' width= 20%><br>";
+			}
+
+			$query -> free();
+			
 		}
-		return $otro;
+		return $cad;
 	}
 }
 ?>
