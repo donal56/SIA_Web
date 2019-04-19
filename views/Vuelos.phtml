@@ -1,19 +1,2 @@
 <div class= 'title'> Vuelos </div>
-				
-<?php 
-	$content= "";
-	
-	if(!empty($vuelos))
-	{
-		foreach( $vuelos as $vuelo)
-		{
-			$content = $content . "<div class= 'cuadroAzul'>" . $vuelo['origen'] . "</div>"."\n";
-		}
-	}
-	else
-	{
-		echo "<div style= 'text-align: center; padding: 20px'><br><span style= 'font-size: 200%; padding: 10px'> No hay vuelos disponibles :( </span><br><br>";
-		echo "<img src= 'views/img/plane.png' width= 20%></div><br>";
-	}	
-		echo $content;
-?>
+<div id= 'vuelosDisponibles'></div>

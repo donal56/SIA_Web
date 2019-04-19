@@ -73,6 +73,7 @@
 </div>
 
 <div id= "main">
+
 		<?php 
 			//require_once("controllers/CntrlRuta.php");
 			//require_once("controllers/CntrlVuelo.php");
