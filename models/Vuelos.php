@@ -22,7 +22,7 @@ LABEL;
 			}
 			$this -> query -> free();
 		}
-		
+		$this->query -> free();	
 		return $this->result;
 	}
 }

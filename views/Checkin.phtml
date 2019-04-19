@@ -1,5 +1,5 @@
 <script type= "text/javascript" 
-		src= "js/checkin.js">
+		src= "views/js/checkin.js">
 </script>
 
 <script type= "text/javascript" 
@@ -17,13 +17,13 @@
 			<hr>
 			<br>
 			<label for="noBoleto">Número de boleto</label>
-			<div class="input-group mb-1">
-					<input id= "noBoleto" type="text" name="numBoleto" class="form-control" placeholder="#">
+			<div>
+				<input id= "noBoleto" type="text" name="numBoleto" placeholder="#">
 			</div>
 
 			<br>
 			<br>
-			<button type="button" class="btn btn-primary btn-sm" onclick= "generarPase(document.getElementByID('noBoleto').value);">Continuar&nbsp;&nbsp;&#x25b6;</button>
+			<button type="button" class="btnSearch" onclick= "generarPase(document.getElementByID('noBoleto').value);">Continuar&nbsp;&nbsp;&#x25b6;</button>
 
 		</div>
 
