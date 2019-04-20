@@ -1,3 +1,17 @@
+$(document).ready(function(){
+	'use strict';
+	$("#datos").submit(function(event){
+	$.get('controllers/CntrlCheckin.php',$(this).serialize(),function(data) {
+		//php "echo" data into a div
+     	$('#contCheck').html(data);
+	});
+	// Prevent default form action
+    event.preventDefault();
+   
+	});
+});
+	
+
 function generarPase(boleto)
 {
 	var doc = new jsPDF(
@@ -17,3 +31,4 @@ function generarPase(boleto)
 	
 	doc.save('pase-de-abordar-' + boleto + '.pdf');
 }
+

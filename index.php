@@ -75,9 +75,9 @@
 <div id= "main">
 
 		<?php 
-			require_once("controllers/CntrlRuta.php");
+			//require_once("controllers/CntrlRuta.php");
 			//require_once("controllers/CntrlVuelo.php");
-			//require_once("controllers/CntrlCheckin.php");
+			require_once("controllers/CntrlCheckin.php");
 
 		?>
 

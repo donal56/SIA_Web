@@ -219,6 +219,10 @@ hr
 	background-color:#3197DA;
 }
 
+#datos .btnSearch { 
+	float: none; 
+	margin: 2em 0px 0px;
+}
 
 #pax span{
 	float: left;

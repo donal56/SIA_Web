@@ -1,5 +1,6 @@
 ﻿Options -Indexes
 DirectoryIndex index.php index.html index.htm 
+AddType application/x-httpd-php .phtml
 
 <IfModule mod_expires.c>
   ExpiresActive On

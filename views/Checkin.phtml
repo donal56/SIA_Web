@@ -11,21 +11,16 @@
 </div>
 
 <div id="contCheck">
-
-		<div id="datos" >
+		<form id="datos">
 			<span style= 'font-size: 18px;'>Ingresa tus datos</span>
 			<hr>
 			<br>
-			<label for="noBoleto">Número de boleto</label>
-			<div>
+			<label for="noBoleto">Número de boleto
 				<input id= "noBoleto" type="text" name="numBoleto" placeholder="#">
-			</div>
+			</label>
+			<button type="submit" class="btnSearch" >Continuar&nbsp;&nbsp;&#x25b6;</button>
 
-			<br>
-			<br>
-			<button type="button" class="btnSearch" onclick= "generarPase(document.getElementByID('noBoleto').value);">Continuar&nbsp;&nbsp;&#x25b6;</button>
-
-		</div>
+		</form>
 
 		<div class="pase">
 			<img style= 'width: 70%' src="views/img/pase.png" alt="pase">
