@@ -37,9 +37,9 @@
 		<!--dhtmlx css & js-->
 		<link 	rel="stylesheet" 
 				type="text/css" 
-				href="http://cdn.dhtmlx.com/edge/dhtmlx.css"/>
+				href="https://cdn.dhtmlx.com/edge/dhtmlx.css"/>
 		<script type= "text/javascript" 
-				src="http://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
+				src="https://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
 				
 		<!--email using smtp-->
 		<script type= "text/javascript" 
@@ -52,7 +52,7 @@
 <div class= "loader"></div>
 
 <div id= "header">
-		<a href= 'index.php'> <img class= 'logo' src= "views/img/logo1.png" alt= "Logo"> </a>
+		<a href= '/'> <img class= 'logo' src= "views/img/logo1.png" alt= "Logo"> </a>
 
 		<span class='langSel'>
 			<select id="language" style="width:160%;" mode="image" onchange= "changeLanguage(this.form); style='cursor:pointer'">
@@ -75,9 +75,9 @@
 <div id= "main">
 
 		<?php 
-			//require_once("controllers/CntrlRuta.php");
+			require_once("controllers/CntrlRuta.php");
 			//require_once("controllers/CntrlVuelo.php");
-			require_once("controllers/CntrlCheckin.php");
+			//require_once("controllers/CntrlCheckin.php");
 
 		?>
 

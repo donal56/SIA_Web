@@ -171,6 +171,7 @@ function cerrarSesion()
 				logged= 0;
 				menu.unload();
 				menu = null;
+				window.location.replace("/");
 			}
 			else
 			{
