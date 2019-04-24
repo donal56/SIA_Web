@@ -253,20 +253,21 @@ hr
 .cuadro
 {
 	width: 90%;
-	height: 80px;
-	margin: 20px auto;
+	height: max-content;
+	margin: 30px auto;
 	color: white;
-	font-size: 20px;
+	font-size: 2.2vw;
 	overflow-y: hidden;
 	overflow-x: auto;
-	padding: 20px 10px;
+	padding: 1.8vw 5px;
+	vertical-align: middle;
 }
 
 #vuelosDisponibles
 {
-	text-align: center;
-	padding: 20px;
+	padding: 1.5vw;
 	font-size: 160%;
+	text-align: center;
 }
 
 .subtitle						/*Este se usara para los encabezados*/
@@ -274,9 +275,82 @@ hr
 	color:#3C9EDC;
 	font-size: 30px;
 	font-weight: 100;
-	position:relative;
+	position: relative;
 	text-align: left;
 	top: 3vh;
 	left: 3vw;
 	padding-bottom: 5px;
+}
+
+.subcuadro
+{
+	text-align: center;
+	display: inline-block;
+	padding: 0 1.8vw;
+	vertical-align: middle;
+	line-height: 1.3em;
+}
+
+.boton1						/*Utiles en un futuro*/
+{
+	background-color: #FFFFFF;
+	border: none;
+	font-size: 1.6vw;
+	transition-duration: 0.4s;
+	width: 90%;
+	height: 30px;
+}
+
+.boton1:hover 		/**********************************/
+{
+	background-color: #E8E3E3;
+	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.18), 0 12px 30px 0 rgba(0,0,0,0.12);	
+}
+
+.radioContainer
+{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	font-size: 1.6vw;
+	user-select: none;
+	padding-left: 2vw;
+	transition-duration: 0.2s;
+}
+
+.radioContainer input
+{
+	display: none;
+}
+
+.radioContainer .circle
+{
+	display: inline-block;
+	width: 1.8vw;
+	height: 1.8vw;
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+}
+
+.radioContainer:hover .circle
+{
+	background-color: #E8E3E3;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.10), 0 6px 10px 0 rgba(0,0,0,0.08);
+}
+
+.radioContainer input:checked + .circle::after
+{
+	content: "";
+	height: 0.9vw;
+	width: 0.9vw;
+	background-color: #359BDB;
+	position: absolute;
+	border-radius: 50%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	
 }

@@ -1,5 +1,5 @@
 ﻿<?php 
-	require_once($_SERVER['DOCUMENT_ROOT']."/models/database.php");
+	require_once($_SERVER['DOCUMENT_ROOT']."/SIA_Web/models/database.php");
 	
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
 	{
@@ -75,9 +75,9 @@
 <div id= "main">
 
 		<?php 
-			//require_once("controllers/CntrlRuta.php");
+			require_once("controllers/CntrlRuta.php");
 			//require_once("controllers/CntrlVuelo.php");
-			require_once("controllers/CntrlCheckin.php");
+			//require_once("controllers/CntrlCheckin.php");
 
 		?>
 

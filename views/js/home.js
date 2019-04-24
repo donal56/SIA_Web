@@ -18,7 +18,7 @@ function recuperarVuelos()
 	$.ajax(
 	{
 		method: 'GET',
-	url: 'controllers/CntrlVuelo.php',
+		url: 'controllers/CntrlVuelo.php',
 		data: 	{ 
 					tipo : $('#tipo').val(), 
 					ori : $('#origen').val(), 
