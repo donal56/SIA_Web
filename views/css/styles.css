@@ -163,6 +163,15 @@ hr
 	vertical-align: center;
 }
 
+#btnTransparent{
+	background:transparent;
+    border:none;
+    outline:none;
+    display:block;
+    width:150px;
+    cursor:pointer;
+}
+
 /* main.phtml styles */
 
 #srchForm 

@@ -43,7 +43,7 @@
 				
 		<!--email using smtp-->
 		<script type= "text/javascript" 
-				src="https://smtpjs.com/v3/smtp.js"></script>
+				src="https://smtpjs.com/v3/smtp.js" async ></script>
 
 	</head>
 
