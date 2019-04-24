@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 var menu, formLog;
 var logged = 0;
+var userEmail;
 
 $(document).ready(function() 
 {
@@ -104,6 +105,7 @@ function showLogin(obj)
 						if (logged)
 						{
 							document.getElementById("userLabel").innerHTML= email.split('@')[0];
+							userEmail = email;
 							alert("Inicio de sesión exitoso.");
 							menu.unload();
 							menu = null;
@@ -171,6 +173,7 @@ function cerrarSesion()
 				logged= 0;
 				menu.unload();
 				menu = null;
+				window.location.replace("/");
 			}
 			else
 			{
