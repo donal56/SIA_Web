@@ -1,5 +1,6 @@
 ﻿<?php 
-	require_once($_SERVER['DOCUMENT_ROOT']."/SIA_Web/models/database.php");
+	$root = $_SERVER['DOCUMENT_ROOT'];
+	require_once($root."/models/database.php");
 	
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
 	{

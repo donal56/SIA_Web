@@ -118,7 +118,7 @@ function showLogin(obj)
 				}
 				else if(id == "sign" && wantsAnAccount)
 				{
-					sendMail("#footer","¡Gracias por Registrarte!");
+					sendMail($("#srchForm").clone(),"¡Gracias por Registrarte!");
 				}
 			});
 		}
@@ -183,16 +183,15 @@ function cerrarSesion()
     });
 }
 
-function sendMail(divMessage,subject){
+function sendMail(body,subject){
 	'use strict';
-	// html message use display:none
-	var content = $(divMessage).eq(0).clone();	
+	// html message use display:none¿
 	Email.send({
 		SecureToken : "ec85c9d3-7782-43cb-8179-63d4d1ed2b0f",
 		To : formLog.getItemValue("email"),
 		From : "notifier@aeroalpes.tk",
 		Subject : subject,
-		Body : content.get(0).outerHTML
+		Body : body.get(0).outerHTML
 	}).then(
 	  message => alert(message)
 	);

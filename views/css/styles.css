@@ -163,12 +163,11 @@ hr
 	vertical-align: center;
 }
 
-#btnTransparent{
+.btnTransparent{
+	display: inline-block;
 	background:transparent;
     border:none;
     outline:none;
-    display:block;
-    width:150px;
     cursor:pointer;
 }
 
@@ -215,21 +214,19 @@ hr
 	font-size: 75%;
 }
 
-.btnSearch {
-	
+.btnSIA {
+	display: inline-block;
 	font-size:calc(8px + .6vw);
 	font-family: Segoe UI Light;
     cursor:pointer;
 	padding: 5px;
 	color: white;
-	float: right;
 	margin: 1em 0px 0px;
 	border: none;
 	background-color:#3197DA;
 }
 
-#datos .btnSearch { 
-	float: none; 
+#datos .btnSIA { 
 	margin: 2em 0px 0px;
 }
 

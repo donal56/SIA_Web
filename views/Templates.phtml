@@ -1,0 +1,33 @@
+<?php
+
+function ticketChecked(){
+	echo <<<EOT
+	<p>Presiona para confirmar su boleto No: {$_GET['numBoleto']} 
+	<br>se enviará el pase de abordar a su correo
+	<br>{$_GET['email']}</p>
+	
+	<button type="button" class="btnTransparent" onclick="confirm();" style="width:150px" >	
+		<img style="width:100%" src="views/img/check.png" alt="check" title="¡Click para Confirmar!">	
+	</button><br>
+	
+	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
+		ó regresar &nbsp; ▶
+	</button>
+				
+EOT;
+}
+
+function ticketError(){
+	echo <<<EOT
+	<img style="width:100px" src="views/img/error.png" alt="check">	
+	
+	<p>No se ha encontrado su boleto con el número: {$_GET["numBoleto"]} </p>
+	
+	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
+		Reintentar &nbsp; ▶
+	</button>
+	
+EOT;
+}
+
+?>
