@@ -27,7 +27,11 @@
 			case 1:
 				
 					if($moBoleto->confirmID($_GET["numBoleto"])){
-						successConfirm();
+						$req = array(
+							"html" => 	successConfirm(),
+							"mail" =>   htmlEmail(),
+						);
+						echo json_encode($req);
 						
 					}else{
 						errorConfirm();
