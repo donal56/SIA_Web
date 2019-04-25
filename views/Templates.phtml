@@ -30,4 +30,33 @@ function ticketError(){
 EOT;
 }
 
+function successConfirm(){
+	echo <<<EOT
+	<p>Su boleto No: {$_GET["numBoleto"]} a sido confirmado
+	<br>se ha enviado el pase de abordar a su correo
+	<br>{$_GET['email']}</p>
+	
+	<img style="width:150px" src="views/img/pase.png" alt="check"><br>
+	
+	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
+		Regresar &nbsp; ▶
+	</button>
+				
+EOT;
+}
+
+function errorConfirm(){
+	echo <<<EOT
+	<img style="width:100px" src="views/img/error.png" alt="check">	
+	
+	<p>Lo sentimos no hemos confirmar su boleto con el número: {$_GET["numBoleto"]} 
+	<br>Contacte al servicio a clientes de AeroAlpes</p>
+	
+	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
+		Regresar &nbsp; ▶
+	</button>
+	
+EOT;
+}
+
 ?>

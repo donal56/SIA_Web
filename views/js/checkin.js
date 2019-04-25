@@ -14,16 +14,18 @@ $(document).ready(function(){
 	});		
 	// Prevent default form action
     event.preventDefault();
+	event.stopImmediatePropagation();
    
 	});
 });
 	
 
 function confirm(){
+	'use strict';
 	$.get('controllers/CntrlCheckin.php',{	
 											func:1,
 										  	email: userEmail,
-										  	numBoleto:noBoleto
+										  	numBoleto: noBoleto
 										 },function(data) {
     	$('#contCheck').html(data);
 	});

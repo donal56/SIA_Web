@@ -22,10 +22,9 @@ class moBoletos{
 	
 	public function confirmID($boleto){
 		$connection = new Connection();
-		$this-> stm = $connection->getStatement("UPDATE boletos SET status = 1 WHERE idBoleto = '$boleto'");
-		if ($this-> stm ->num_rows != null) {
+		
+		if ($connection->getStatement("UPDATE boletos SET status = 1 WHERE idBoleto = '$boleto'")) {
 			return true;
-			$this->stm -> free();
 		}
 		else {
 			return false;

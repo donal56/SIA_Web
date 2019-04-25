@@ -15,7 +15,7 @@ class Connection
 		$this->getConnect(); 
 		$this->connect -> query("SET NAMES utf8");   
 		$result = $this->connect -> query($que);
-		
+		$this -> connect ->close();
 	
 		return $result;
 	}		

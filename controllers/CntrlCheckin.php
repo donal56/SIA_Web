@@ -16,19 +16,24 @@
 			case 0:
 
 					if($moBoleto->isValidID($_GET["numBoleto"],$_GET["email"])){
-
 						ticketChecked();
 
 					}else{
-
 						ticketError();			
 					}
 
 			break;
 
 			case 1:
-				echo 'confirmar';
-
+				
+					if($moBoleto->confirmID($_GET["numBoleto"])){
+						successConfirm();
+						
+					}else{
+						errorConfirm();
+						
+					}
+				
 			break;
 		}
 				
