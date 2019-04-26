@@ -361,3 +361,40 @@ hr
 	transform: translate(-42%, -46%);
 	
 }
+
+/**************Asientos***********/
+
+.front-indicator
+{
+	width: 145px;
+	margin: 5px 32px 15px 32px;
+	background-color: #f6f6f6;
+	color: #adadad;
+	text-align: center;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+.seatsImage
+{
+	border-right: 1px dotted #adadad;
+	width: 200px;
+	padding: 20px;
+	float: left;
+	
+}
+
+div.seatCharts-seat.available.first-class 
+{
+    background-color: #3a78c3;
+}
+
+div.seatCharts-seat.available.second-class 
+{
+    background-color: #00FF00;
+}
+
+div.seatCharts-seat.available.economy-class 
+{
+    background-color: #0000FFF;
+}

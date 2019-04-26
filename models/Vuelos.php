@@ -20,9 +20,9 @@ LABEL;
 			$cad= $cad . $this -> printVuelos("Regreso", $str, $clase, $adultos, $niños, $bebes);
 		}	
 		
-		$cad= $cad . "<button type= 'button' class= 'btnSIA' style= 'float: right; position: relative; right: 5vw; margin-bottom: 5vh' onclick= 'seleccionarAsientos('" . $tipo ."', '" . $origen ."', '" . $destino ."', '" . $adultos ."', '" . $niños ."', '" . $bebes ."', '" . $clase ."', '" . $f1 ."', '" . $f2 . "');'>Continuar &nbsp &#x25b6 </button>";
+		$cad= $cad . "<button type= 'button' class= 'btnSIA' style= 'float: right; position: relative; right: 5vw; margin-bottom: 5vh' onclick= \"seleccionarAsientos('" . $tipo ."', '" . $origen ."', '" . $destino ."', '" . $adultos ."', '" . $niños ."', '" . $bebes ."', '" . $clase ."', '" . $f1 ."', '" . $f2 . "');\">Continuar &nbsp &#x25b6 </button>";
 		
-		return $cad;
+		return "<form id= 'seleccionarVuelo'>" . $cad . "</form>";
 	}
 	
 	
@@ -32,7 +32,7 @@ LABEL;
 		$connection = new Connection();
 		$query = $connection->getStatement($string);
 		
-		$cad_aux= "<div class= 'subtitle'>" . $titulo .  "</div><form id= 'seleccionarVuelo'>";
+		$cad_aux= "<div class= 'subtitle'>" . $titulo .  "</div>";
 		$factor= 1.0 * intval($adultos) + 0.7 * intval($niños) + 0.5 * intval($bebes);
 		
 		if($query->num_rows !== 0)
@@ -69,7 +69,7 @@ Boleto para niños: $" . (intval($row['precioTurista']) * 0.7) . "
 Boleto para bebes: $" . (intval($row['precioTurista']) * 0.5) . "'>$" . (intval($row['precioTurista']) * $factor);
 				}
 				
-				$cad_aux= $cad_aux . "</span><br><label class= 'radioContainer'>Elegir <input type= 'radio' value= '" . $row['idVuelo'] . "' name= '" . $titulo . "' required><span class= 'circle'></span></label></div></div></form>";
+				$cad_aux= $cad_aux . "</span><br><label class= 'radioContainer'>Elegir <input type= 'radio' value= '" . $row['idVuelo'] . "' name= '" . $titulo . "'><span class= 'circle'></span></label></div></div>";
 			}
 		}
 		else

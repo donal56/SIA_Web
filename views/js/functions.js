@@ -108,7 +108,7 @@ function showLogin(obj)
 						{
 							document.getElementById("userLabel").innerHTML= email.split('@')[0];
 
-							wait(2000);
+							wait(1000);
 							alert("Inicio de sesión exitoso.");
 							menu.unload();
 							menu = null;

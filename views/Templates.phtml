@@ -11,7 +11,7 @@ function ticketChecked(){
 	</button><br>
 	
 	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
-		ó regresar &nbsp; ▶
+		Regresar &nbsp; ▶
 	</button>
 				
 EOT;
@@ -61,7 +61,7 @@ EOT;
 
 function htmlEmail(){
 ob_start(); 
-require $_SERVER['DOCUMENT_ROOT']."/views/emailBoard.phtml"; 
+require ".../views/emailBoard.phtml"; 
 $contents = ob_get_contents(); 
 ob_end_clean(); 
 

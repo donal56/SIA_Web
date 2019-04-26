@@ -6,23 +6,49 @@ class moAsientos
 		$cad = "";
 	
 		$str = <<<LABEL
-			SELECT * FROM vuelos INNER JOIN rutas ON vuelos.rutas_idRuta = rutas.idRuta WHERE rutas.origen='$origen' AND rutas.destino='$destino' AND vuelos.fecha ='$f1' AND rutas.estado= 1;				
+			SELECT asientosAvion.asientoInicio, asientosAvion.asientoFin FROM vuelos INNER JOIN aviones 
+			ON vuelos.aviones_idAvion = aviones.idAvion INNER JOIN asientosAvion 
+			ON aviones.modelosAvion_idModelo = asientosAvion.modelosAvion_idModelo 
+			WHERE vuelos.idVuelo = $v1 AND asientosAvion.clase = '$clase';				
 LABEL;
-			
-		$cad= $cad . $this -> printVuelos("Ida", $str, $clase, $adultos, $niños, $bebes);
-			
-		if($tipo == "Redondo")
+		$connection = new Connection();
+		$query = $connection->getStatement($str);
+		
+		if($query->num_rows !== 0)
+		{			
+			while($row = mysqli_fetch_array($query)) 
+			{
+				$cad= $cad . "<script> initSeater(" . $row['asientosAvion.asientoInicio'] . ", " . $row['asientosAvion.asientoFin'] . ", " . totalSeats($v1) . ", '" . $clase ."'); </script>"
+				
+			}
+		}
+		else
 		{
-			$str = <<<LABEL
-			SELECT * FROM vuelos INNER JOIN rutas ON vuelos.rutas_idRuta = rutas.idRuta WHERE rutas.origen='$destino' AND rutas.destino='$origen' AND vuelos.fecha ='$f2' AND rutas.estado= 1;				
-LABEL;
+			$cad= "Error al recuperar los asientos disponibles";
+		}
 			
-			$cad= $cad . $this -> printVuelos("Regreso", $str, $clase, $adultos, $niños, $bebes);
-		}	
-		
-		$cad= $cad . "<button type= 'button' class= 'btnSIA' style= 'float: right; position: relative; right: 5vw; margin-bottom: 5vh' onclick= 'seleccionarAsientos('" . $tipo ."', '" . $origen ."', '" . $destino ."', '" . $adultos ."', '" . $niños ."', '" . $bebes ."', '" . $clase ."', '" . $f1 ."', '" . $f2 . "');'>Continuar &nbsp &#x25b6 </button>";
-		
 		return $cad;
+	}
+	
+	public function totalSeats($vuelo)
+	{
+		$totalSeats= 0;
+		
+		$str = <<<LABEL
+			SELECT max(asientosAvion.asientoFin) as total FROM vuelos INNER JOIN aviones 
+			ON vuelos.aviones_idAvion = aviones.idAvion INNER JOIN asientosAvion 
+			ON aviones.modelosAvion_idModelo = asientosAvion.modelosAvion_idModelo 
+			WHERE vuelos.idVuelo = $vuelo;				
+LABEL;
+		$connection = new Connection();
+		$query = $connection->getStatement($str);
+				
+		while($row = mysqli_fetch_array($query)) 
+		{
+			$totalSeats = $row['total'];
+		}
+		
+		return $totalSeats;
 	}
 }
 ?>

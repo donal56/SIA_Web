@@ -1,16 +1,16 @@
 <?php
 	//call model
-	require_once($_SERVER['DOCUMENT_ROOT']."/models/database.php");
-	require_once($_SERVER['DOCUMENT_ROOT']."/models/Boletos.php");
+	require_once("../models/database.php");
+	require_once("../models/Boletos.php");
 	$moBoleto = new moBoletos();
 
 	if(!$_GET){
 		//call view
-		require_once("views/Checkin.phtml");
+		require_once("../views/Checkin.phtml");
 		
 	}else{ 
 		//call view
-		require_once($_SERVER['DOCUMENT_ROOT']."/views/Templates.phtml");
+		require_once("../views/Templates.phtml");
 		
 		switch ($_GET["func"]) {
 			case 0:
@@ -45,5 +45,3 @@
 
 
 ?>
-
-
