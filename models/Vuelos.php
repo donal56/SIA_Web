@@ -18,8 +18,9 @@ LABEL;
 LABEL;
 			
 			$cad= $cad . $this -> printVuelos("Regreso", $str, $clase, $adultos, $niños, $bebes);
-		}
-			
+		}	
+		
+		$cad= $cad . "<button type= 'button' class= 'btnSIA' style= 'float: right; position: relative; right: 5vw; margin-bottom: 5vh' onclick= 'seleccionarAsientos('" . $tipo ."', '" . $origen ."', '" . $destino ."', '" . $adultos ."', '" . $niños ."', '" . $bebes ."', '" . $clase ."', '" . $f1 ."', '" . $f2 . "');'>Continuar &nbsp &#x25b6 </button>";
 		
 		return $cad;
 	}
@@ -31,7 +32,8 @@ LABEL;
 		$connection = new Connection();
 		$query = $connection->getStatement($string);
 		
-		$cad_aux= "<div class= 'subtitle'>" . $titulo .  "</div>";
+		$cad_aux= "<div class= 'subtitle'>" . $titulo .  "</div><form id= 'seleccionarVuelo'>";
+		$factor= 1.0 * intval($adultos) + 0.7 * intval($niños) + 0.5 * intval($bebes);
 		
 		if($query->num_rows !== 0)
 		{	
@@ -46,22 +48,28 @@ LABEL;
 
 				$cad_aux= $cad_aux . "<div class= 'subcuadro'>" . $row['destino'] . "<br>" . $row['horaLlegada'] . "</div>";
 				
-				$cad_aux= $cad_aux . "<div class= 'subcuadro'><span style= 'font-size: 3.5vw; padding-bottom: 5px'>$";
+				$cad_aux= $cad_aux . "<div class= 'subcuadro'><span style= 'font-size: 3.5vw; padding-bottom: 5px' title= '";
 				
 				if($clase == "VIP")
 				{
-					$cad_aux= $cad_aux . $row['precioVIP'];
+					$cad_aux= $cad_aux . "Boleto normal: $" . intval($row['precioVIP']) . "
+Boleto para niños: $" . (intval($row['precioVIP']) * 0.7) . "
+Boleto para bebes: $" . (intval($row['precioVIP']) * 0.5) . "'>$" . (intval($row['precioVIP']) * $factor);
 				}
 				else if ($clase == "Ejecutivo")
 				{
-					$cad_aux= $cad_aux . $row['precioEjecutivo'];
+					$cad_aux= $cad_aux . "Boleto normal: $" . intval($row['precioEjectutivo']) . "
+Boleto para niños: $" . (intval($row['precioEjectutivo']) * 0.7) . "
+Boleto para bebes: $" . (intval($row['precioEjectutivo']) * 0.5) . "'>$" . (intval($row['precioEjectutivo']) * $factor);
 				}
 				else
 				{
-					$cad_aux= $cad_aux . $row['precioTurista'];
+					$cad_aux= $cad_aux . "Boleto normal: $" . intval($row['precioTurista']) . "
+Boleto para niños: $" . (intval($row['precioTurista']) * 0.7) . "
+Boleto para bebes: $" . (intval($row['precioTurista']) * 0.5) . "'>$" . (intval($row['precioTurista']) * $factor);
 				}
 				
-				$cad_aux= $cad_aux . "</span><br><label class= 'radioContainer'>Elegir <input type= 'radio' value= '" . $row['idVuelo'] . "' name= '" . $titulo . "' required><span class= 'circle'></span></label></div></div>";
+				$cad_aux= $cad_aux . "</span><br><label class= 'radioContainer'>Elegir <input type= 'radio' value= '" . $row['idVuelo'] . "' name= '" . $titulo . "' required><span class= 'circle'></span></label></div></div></form>";
 			}
 		}
 		else

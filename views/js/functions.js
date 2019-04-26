@@ -6,6 +6,8 @@ var userEmail;
 $(document).ready(function() 
 {
 	'use strict';	
+	document.getElementById('opPasajeros').value=("0 pasajero(s)");
+	document.getElementById('opPasajeros').readOnly= true;
 	$(".loader").delay(1500).fadeOut("slow");
 });
 
@@ -106,6 +108,7 @@ function showLogin(obj)
 						{
 							document.getElementById("userLabel").innerHTML= email.split('@')[0];
 							userEmail = email;
+							wait(2000);
 							alert("Inicio de sesión exitoso.");
 							menu.unload();
 							menu = null;

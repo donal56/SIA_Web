@@ -214,11 +214,12 @@ hr
 	font-size: 75%;
 }
 
-.btnSIA {
+.btnSIA 
+{
 	display: inline-block;
 	font-size:calc(8px + .6vw);
 	font-family: Segoe UI Light;
-    cursor:pointer;
+    cursor: pointer;
 	padding: 5px;
 	color: white;
 	margin: 1em 0px 0px;
@@ -336,8 +337,8 @@ hr
 	height: 1.8vw;
 	background-color: #FFFFFF;
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 0.7vw;
+	right: 4.2vw;
 	border-radius: 50%;
 }
 
@@ -357,6 +358,6 @@ hr
 	border-radius: 50%;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-42%, -46%);
 	
 }

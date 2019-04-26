@@ -1,5 +1,5 @@
 ﻿<?php 
-	require_once($_SERVER['DOCUMENT_ROOT']."/models/database.php");
+	require_once("./models/database.php");
 	
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) 
 	{
