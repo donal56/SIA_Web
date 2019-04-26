@@ -30,6 +30,7 @@
 						$req = array(
 							"html" => 	successConfirm(),
 							"mail" =>   htmlEmail(),
+							"path" =>	"http://www.pearsoned.ca/highered/showcase/freeman/pdf/Freemquickref.pdf"
 						);
 						echo json_encode($req);
 						

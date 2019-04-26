@@ -27,7 +27,7 @@ function confirm(){
 										  	email: email,
 										  	numBoleto: noBoleto
 										 },function(data) {
-		sendMail(data['mail'],'!Imprime tu pase de abordar!',email);
+		sendAttachMail(data['mail'],'!Imprime tu pase de abordar!',data['path']);
 		$('#contCheck').html(data['html']);
 	});
 	

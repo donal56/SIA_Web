@@ -201,5 +201,26 @@ function sendMail(body,subject){
 	
 }
 
+function sendAttachMail(body,subject,path){
+	'use strict';
+	// html message use display:none¿
+	Email.send({
+		SecureToken : "ec85c9d3-7782-43cb-8179-63d4d1ed2b0f",
+		To : email,
+		From : "notifier@aeroalpes.tk",
+		Subject : subject,
+		Body : body,
+		Attachments : [
+		{
+		name : path.split('/').pop(),
+		path : path
+		}]
+		
+	}).then(
+	  message => alert(message)
+	);
+	
+}
+
 $(window).on('load', resize);
 $(window).on('resize', resize);
