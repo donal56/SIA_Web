@@ -6,7 +6,7 @@ $(document).ready(function(){
 	$.get('controllers/CntrlCheckin.php',(
 											$.param({func: 0})+'&'+ 
 											$(this).serialize()+'&'+
-											$.param({email: userEmail})	  
+											$.param({email: email})	 
 										 ),function(data) {
 		//php "echo" data into a div
 		noBoleto = $('#noBoleto').val();
@@ -22,12 +22,13 @@ $(document).ready(function(){
 
 function confirm(){
 	'use strict';
-	$.get('controllers/CntrlCheckin.php',{	
+	$.getJSON('controllers/CntrlCheckin.php',{	
 											func:1,
-										  	email: userEmail,
+										  	email: email,
 										  	numBoleto: noBoleto
 										 },function(data) {
-    	$('#contCheck').html(data);
+		sendMail(data['mail'],'!Imprime tu pase de abordar!',email);
+		$('#contCheck').html(data['html']);
 	});
 	
 }

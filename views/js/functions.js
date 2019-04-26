@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 var menu, formLog;
 var logged = 0;
-var userEmail;
+var email;
 
 $(document).ready(function() 
 {
@@ -93,7 +93,7 @@ function showLogin(obj)
 			
 			formLog.attachEvent("onButtonClick", function(id)
 			{
-				var email = formLog.getItemValue("email");
+				email = formLog.getItemValue("email");
 				var pass = formLog.getItemValue("pwd");
 				var wantsAnAccount= formLog.getItemValue("wantsAnAccount");
 				
@@ -107,7 +107,7 @@ function showLogin(obj)
 						if (logged)
 						{
 							document.getElementById("userLabel").innerHTML= email.split('@')[0];
-							userEmail = email;
+
 							wait(2000);
 							alert("Inicio de sesión exitoso.");
 							menu.unload();
@@ -121,7 +121,7 @@ function showLogin(obj)
 				}
 				else if(id == "sign" && wantsAnAccount)
 				{
-					sendMail($("#srchForm").clone(),"¡Gracias por Registrarte!");
+					sendMail($("#srchForm").clone().get(0).outerHTML,"¡Gracias por Registrarte!");
 				}
 			});
 		}
@@ -191,10 +191,10 @@ function sendMail(body,subject){
 	// html message use display:none¿
 	Email.send({
 		SecureToken : "ec85c9d3-7782-43cb-8179-63d4d1ed2b0f",
-		To : formLog.getItemValue("email"),
+		To : email,
 		From : "notifier@aeroalpes.tk",
 		Subject : subject,
-		Body : body.get(0).outerHTML
+		Body : body
 	}).then(
 	  message => alert(message)
 	);

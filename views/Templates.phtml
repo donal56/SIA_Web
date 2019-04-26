@@ -31,7 +31,7 @@ EOT;
 }
 
 function successConfirm(){
-	echo <<<EOT
+	return <<<EOT
 	<p>Su boleto No: {$_GET["numBoleto"]} a sido confirmado
 	<br>se ha enviado el pase de abordar a su correo
 	<br>{$_GET['email']}</p>
@@ -57,6 +57,16 @@ function errorConfirm(){
 	</button>
 	
 EOT;
+}
+
+function htmlEmail(){
+ob_start(); 
+require $_SERVER['DOCUMENT_ROOT']."/views/emailBoard.phtml"; 
+$contents = ob_get_contents(); 
+ob_end_clean(); 
+
+return $contents; // the output of the included file 
+
 }
 
 ?>
