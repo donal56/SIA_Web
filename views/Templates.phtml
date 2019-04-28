@@ -61,7 +61,7 @@ EOT;
 
 function htmlEmail(){
 ob_start(); 
-require ".../views/emailBoard.phtml"; 
+require "../views/emailBoard.phtml"; 
 $contents = ob_get_contents(); 
 ob_end_clean(); 
 

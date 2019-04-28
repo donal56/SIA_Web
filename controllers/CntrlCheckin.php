@@ -27,13 +27,16 @@
 			case 1:
 				
 					if($moBoleto->confirmID($_GET["numBoleto"])){
+						$info = $moBoleto->getAllInformation($_GET["numBoleto"]);
+						require_once("../controllers/CntrlBoardPass.php");
+						
 						$req = array(
 							"html" => 	successConfirm(),
 							"mail" =>   htmlEmail(),
-							"path" =>	"http://www.pearsoned.ca/highered/showcase/freeman/pdf/Freemquickref.pdf"
+							"path" =>	'http://'.$_SERVER['HTTP_HOST']."/tcpdf/pdf/".$_GET["numBoleto"].".pdf"
 						);
 						echo json_encode($req);
-						
+					
 					}else{
 						errorConfirm();
 						
