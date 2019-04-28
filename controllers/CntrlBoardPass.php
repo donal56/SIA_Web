@@ -123,13 +123,13 @@ $pdf->MultiCell(70,40, $txt, 1, 'L', 0, 0, 632, 210, true);
 
 $txt = "Asiento\n".$info[0]['noAsiento'];
 $pdf->MultiCell(80,40, $txt, 1, 'L', 0, 0, 220, 270, true);
-$pdf->MultiCell(70,40, $txt, 1, 'L', 0, 0, 712, 260, true);
+$pdf->MultiCell(70,40, $txt, 1, 'L', 0, 0, 720, 260, true);
 
 // ----------------------------information-----------------------------
 
 $txt = "Fecha\n".$info[0]['fecha'];
 $pdf->MultiCell(80,40, $txt, 1, 'L', 0, 0, 340, 150, true);
-$pdf->MultiCell(80,40, $txt, 1, 'L', 0, 0, 712, 210, true);
+$pdf->MultiCell(80,40, $txt, 1, 'L', 0, 0, 707, 210, true);
 
 $txt = "Precio\n".$info[0]['precio'];
 $pdf->MultiCell(80,40, $txt, 1, 'L', 0, 0, 340, 270, true);
@@ -146,6 +146,6 @@ $pdf->lastPage();
 
 // ---------------------------------------------------------
 //Close and output PDF document
-$pdf->Output($_SERVER['DOCUMENT_ROOT'].'/tcpdf/pdf/'.$_GET["numBoleto"].'.pdf', 'I');
+$pdf->Output($_SERVER['DOCUMENT_ROOT'].'/tcpdf/pdf/'.$_GET["numBoleto"].'.pdf', 'F');
 
 ?>
