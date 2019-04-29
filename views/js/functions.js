@@ -3,12 +3,12 @@ var menu, formLog;
 var logged = 0;
 var email;
 
-$(document).ready(function() 
+$(window).on('load',function() 
 {
 	'use strict';	
 	document.getElementById('opPasajeros').value=("0 pasajero(s)");
 	document.getElementById('opPasajeros').readOnly= true;
-	$(".loader").delay(1500).fadeOut("slow");
+	$(".loader").fadeOut("slow");
 });
 
 function initLang() 
@@ -121,7 +121,8 @@ function showLogin(obj)
 				}
 				else if(id == "sign" && wantsAnAccount)
 				{
-					sendMail($("#srchForm").clone().get(0).outerHTML,"¡Gracias por Registrarte!");
+					registerUser();
+					
 				}
 			});
 		}
@@ -184,6 +185,18 @@ function cerrarSesion()
 			}
         }
     });
+}
+
+function registerUser(){
+	'use strict';
+	$.post('controllers/CntrlUsuario.php',{	
+										  	email: email,
+										  	pass: formLog.getItemValue("pwd")
+										 },function(data) {
+		
+		sendMail(data.mail,"¡Gracias por Registrarte!");
+		$('.dhxform_base').html(data.html);
+	},'json');
 }
 
 function sendMail(body,subject){

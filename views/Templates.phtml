@@ -69,4 +69,29 @@ return $contents; // the output of the included file
 
 }
 
+function emailRegisUser(){
+ob_start(); 
+require "../views/emailRegister.phtml"; 
+$contents = ob_get_contents(); 
+ob_end_clean(); 
+
+return $contents; // the output of the included file 
+
+}
+
+function successRegister(){
+	return <<<EOT
+	<p>Su email: {$_GET["email"]} a sido confirmado
+	<br>revise su correo para confirmar!
+	<br>
+	<img style="width:150px" src="views/img/pase.png" alt="check"><br>
+	
+	<button type="button" class="btnSIA" onclick="window.location.replace('/');">
+		Aceptar &nbsp; ▶
+	</button>
+				
+EOT;
+}
+
+
 ?>

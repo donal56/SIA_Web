@@ -31,5 +31,18 @@ LABEL;
 		
 		return true;
 	}
+	
+	public function registerAccount($email,$pass){
+		$connection = new Connection();
+
+		$str = <<<LABEL
+				INSERT INTO clientes (contrasena, email) 
+				VALUES (AES_ENCRYPT('$pass', 'sia2019'),'$email')		
+LABEL;
+		return $connection->getStatement($str);
+			
+		
+	}	
+	
 }
 ?>
