@@ -48,14 +48,7 @@ SELECT 	idBoleto,
         fecha,
         horaSalida,
         origen,
-        destino,
-        clase,
-        CASE aa.clase 
-			WHEN 'Turista' THEN v.precioTurista
-            WHEN 'Ejecutivo' THEN v.precioEjecutivo 
-            WHEN 'VIP' THEN v.precioVIP 
-            ELSE NULL 
-		END AS precio
+        destino 
 FROM boletos b
 INNER JOIN clientes c
 INNER JOIN vuelos v

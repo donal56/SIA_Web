@@ -7,8 +7,8 @@ if($_GET){
 	$barcodeobj = new TCPDFBarcode($_GET["id"], 'C128');
 
 	// output the barcode as PNG image
-	$barcodeobj->getBarcodePNG(3, 60, array(0,0,0));
-
+	$barcodeobj->getBarcodePNG(2, 70, array(0,0,0));
+	
 }
 
 ?>
