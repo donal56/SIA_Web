@@ -10,7 +10,7 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 		vuelo2 = $('input[name="Regreso"]:checked', '#seleccionarVuelo').val(); 
 	}
 	
-	if(vuelo1 || vuelo2)
+	if((tipo === "Redondo") ? (vuelo1 && vuelo2) : vuelo1)
 	{
 		solicitar("views/Asientos.phtml");
 		$.ajax(
@@ -32,11 +32,11 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 					},
 			success: function(response) 
 			{
-			   document.getElementById("formAsientos").innerHTML= response;
+			   document.getElementById("seleccionDeAsientos").innerHTML= response;
 			},
 			error: function(xhr, status, error)
 			{
-			   document.getElementById("formAsientos").innerHTML= xhr.responseText;
+			   document.getElementById("seleccionDeAsientos").innerHTML= xhr.responseText;
 			}
 		});
 	}

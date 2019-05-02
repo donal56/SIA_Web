@@ -1,123 +1,85 @@
 var firstSeatLabel= 1;
+var mapa = [];
+var aux= "";
 
-function initSeater(firstSeat, lastSeat, totalSeats, clase)
+function initSeater(vip, ejecutivo, turista, clase)
 {
-	alert(firstSeat + " " + lastSeat + " " + totalSeats + " " + clase);
+	rellenarMapa(1, vip, "v");
+	rellenarMapa(vip + 1, ejecutivo, "e");
+	rellenarMapa(ejecutivo + 1, turista, "t");
 	
 	 $(document).ready(function() 
 	 {
-	    var $cart = $('#selected-seats'),
-			$counter = $('#counter'),
-			$total = $('#total'),
-			sc = $('#seat-map').seatCharts({
-			map: [
-				'vv_vv',
-				'vv_vv',
-				'ee_ee',
-				'ee_ee',
-				'ee___',
-				'ee_ee',
-				'ee_ee',
-				'ee_ee',
-				'ttttt',
-	      ],
-	      seats: {
-	        v: {
-	          classes : 'first-class',
-	          category: 'VIP'
-	        },
-			e: {
-	          classes : 'second-class',
-	          category: 'Ejecutivo'
-	        },
-	        t: {
-	          classes : 'economy-class', //your custom CSS class
-	          category: 'Turista'
-	        }        
-	      },
-	      naming : 
-		  {
-	        top : false,
-	        getLabel : function (character, row, column) 
+		var sc = $('#seat-map').seatCharts({
+			map: mapa,
+			seats: {
+				v: {
+					classes : 'first-class', //your custom CSS class
+					category: 'VIP'
+				},
+				e: {
+					classes : 'second-class', //your custom CSS class
+					category: 'Ejecutivo'
+				},					
+				t: {
+					classes : 'economy-class', //your custom CSS class
+					category: 'Turista'
+				}
+			},
+			naming : {
+				top : false,
+				getLabel : function (character, row, column) 
+				{
+					return firstSeatLabel++;
+				},
+				getId  : function(character, row, column) 
+				{
+						return (6 * (row - 1) + column);
+				}
+			},
+			legend : 
 			{
-
-	          return firstSeatLabel++;
-	        },
-	      },
-	      legend : {
-	        node : $('#legend'),
-	          items : [
-	          [ 'v', 'Disponible',   'VIP' ],
-	          [ 'e', 'Disponible',   'Ejecutivo'],
-			  [ 't', 'Disponible',   'Turista'],
-	          [ 'f', 'No disponible', 'Reservado']
-	          ]    
-	      },
-	      click: function () 
-		  {
-	        if (this.status() == 'available') 
+				node : $('#legend'),
+				items : [
+					// [ 'v', (clase != 'VIP') ? 'unavailable' : 'available',   'VIP' ],
+					// [ 'e', (clase != 'Ejecutivo') ? 'unavailable' : 'available',   'Ejecutivo'],
+					// [ 't', (clase != 'Turista') ? 'unavailable' : 'available',   'Turista'],
+					// [ 'f', 'unavailable', 'Reservado']
+					[ 'v', 'available',   'VIP' ],
+					[ 'e', 'available',   'Ejecutivo'],
+					[ 't', 'available',   'Turista'],
+					[ 'f', 'unavailable', 'Reservado']
+				]					
+			},
+			click   : function() 
 			{
-	          //let's create a new <li> which we'll add to the cart items
-	          $('<li>'+this.data().category+' Seat # '+this.settings.label+': <b>$'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
-	            .attr('id', 'cart-item-'+this.settings.id)
-	            .data('seatId', this.settings.id)
-	            .appendTo($cart);
+				console.log(this);
+			}});
 
-	          $counter.text(sc.find('selected').length+1);
-
-	          $total.text(recalculateTotal(sc)+this.data().price);
-
-	          return 'selected';
-
-	        } 
-			else if (this.status() == 'selected') 
-			{
-	          //update the counter
-	          $counter.text(sc.find('selected').length-1);
-
-	          $total.text(recalculateTotal(sc)-this.data().price);
-
-	          //remove the item from our cart
-	          $('#cart-item-'+this.settings.id).remove();
-
-	          //seat has been vacated
-	          return 'available';
-	        } 
-			else if (this.status() == 'unavailable') 
-			{
-	          //seat has been already booked
-	          return 'unavailable';
-			} 
-			else 
-			{
-	          return this.style();
-	        }
-	      }
-
-	    });
-
-	    //this will handle "[cancel]" link clicks
-	    $('#selected-seats').on('click', '.cancel-cart-item', function () {
-
-	      //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
-
-	      sc.get($(this).parents('li:first').data('seatId')).click();
-	    });
-
-	    //let's pretend some seats have already been booked
-	    sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+		//let's pretend some seats have already been booked
+		sc.get(['12', '41', '7', '32']).status('unavailable');
 	});
 }
 
-	function recalculateTotal(sc) 
+function rellenarMapa(start, end, symbol)
+{	
+	for(var i= start; i <= end; i++)
 	{
-
-	  var total = 0;
-
-	  //basically find every selected seat and sum its price
-	  sc.find('selected').each(function () 
-	  {
-	    total += this.data().price;
-	  });
-	  return total;
+		(i%3==0 && i%6!=0) ? aux+= symbol + "_" : aux+= symbol;
+		
+		if (i%6==0)
+		{
+			mapa.push(aux);
+			aux= "";
+		}
+		
+		if(symbol== 't' && i== (end - 1))
+		{
+			for (var i= 0; i < (7 - aux.length); i++)
+			{
+				aux+= "_";
+			}
+			mapa.push(aux);
+		}
 	}
+}

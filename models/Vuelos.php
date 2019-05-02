@@ -1,6 +1,8 @@
 <?php
 class moVuelos
 {
+	private $areAvailable= true;
+
 	public function getVuelos($tipo, $origen, $destino, $adultos, $niños, $bebes, $clase, $f1, $f2)
 	{
 		$cad = "";
@@ -20,7 +22,10 @@ LABEL;
 			$cad= $cad . $this -> printVuelos("Regreso", $str, $clase, $adultos, $niños, $bebes);
 		}	
 		
-		$cad= $cad . "<button type= 'button' class= 'btnSIA' style= 'float: right; position: relative; right: 5vw; margin-bottom: 5vh' onclick= \"seleccionarAsientos('" . $tipo ."', '" . $origen ."', '" . $destino ."', '" . $adultos ."', '" . $niños ."', '" . $bebes ."', '" . $clase ."', '" . $f1 ."', '" . $f2 . "');\">Continuar &nbsp &#x25b6 </button>";
+		if ($this -> areAvailable)
+		{
+			$cad= $cad . "<button type= 'button' class= 'btnSIA' style= 'float: right; position: relative; right: 5vw; margin-bottom: 5vh' onclick= \"seleccionarAsientos('" . $tipo ."', '" . $origen ."', '" . $destino ."', '" . $adultos ."', '" . $niños ."', '" . $bebes ."', '" . $clase ."', '" . $f1 ."', '" . $f2 . "');\">Continuar &nbsp &#x25b6 </button>";
+		}
 		
 		return "<form id= 'seleccionarVuelo'>" . $cad . "</form>";
 	}
@@ -58,9 +63,9 @@ Boleto para bebes: $" . (intval($row['precioVIP']) * 0.5) . "'>$" . (intval($row
 				}
 				else if ($clase == "Ejecutivo")
 				{
-					$cad_aux= $cad_aux . "Boleto normal: $" . intval($row['precioEjectutivo']) . "
-Boleto para niños: $" . (intval($row['precioEjectutivo']) * 0.7) . "
-Boleto para bebes: $" . (intval($row['precioEjectutivo']) * 0.5) . "'>$" . (intval($row['precioEjectutivo']) * $factor);
+					$cad_aux= $cad_aux . "Boleto normal: $" . intval($row['precioEjecutivo']) . "
+Boleto para niños: $" . (intval($row['precioEjecutivo']) * 0.7) . "
+Boleto para bebes: $" . (intval($row['precioEjecutivo']) * 0.5) . "'>$" . (intval($row['precioEjecutivo']) * $factor);
 				}
 				else
 				{
@@ -75,6 +80,7 @@ Boleto para bebes: $" . (intval($row['precioTurista']) * 0.5) . "'>$" . (intval(
 		else
 		{
 			$cad_aux = $cad_aux . "<br><br>No hay vuelos disponibles :( <br><br><img src= 'views/img/plane.png' width= 20%><br>";
+			$this -> areAvailable= ($this -> areAvailable && false);
 		}
 		
 		$query -> free();
