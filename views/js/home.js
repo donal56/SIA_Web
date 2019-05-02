@@ -33,7 +33,7 @@ function recuperarVuelos()
 		success: function(response) 
 		{
 		   document.getElementById("vuelosDisponibles").innerHTML= response;
-		},
+	    },
 		error: function(xhr, status, error)
 		{
 		   document.getElementById("vuelosDisponibles").innerHTML= xhr.responseText;
