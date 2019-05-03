@@ -3,23 +3,44 @@ var kid = 0;
 var baby = 0;
 var myPop;
 var calendar;
+var count = 0;
+
+var removedDestin;
 
 $(function()
 {
 	'use strict';
     $('#srchForm').ready(initCalendar());
+	
+	removeDestinfromOrigin();
 });
+
+$( "#origen" ).change(function() {
+	'use strict';
+	$("#destino").prepend(removedDestin);
+	removeDestinfromOrigin();	
+});
+
+function removeDestinfromOrigin(){
+	'use strict';
+	if($("#destino option[value='" + $('#origen option:selected').val() + "']").length !== 0){
+		removedDestin= $('#origen option:selected').clone();
+		$("#destino option[value='" + $('#origen option:selected').val() + "']").remove();
+	}
+	
+}
 
 function recuperarVuelos()
 {
-	
-	solicitar("views/Vuelos.phtml");
-	
-	$.ajax(
-	{
-		method: 'GET',
-		url: 'controllers/CntrlVuelo.php',
-		data: 	{ 
+	'use strict';
+	if(!(document.getElementById("clase").value == 'VIP' && baby > 0)){
+			solicitar("views/Vuelos.phtml");
+		
+		$.ajax(
+			{
+				method: 'GET',
+				url: 'controllers/CntrlVuelo.php',
+				data: 	{ 
 					tipo : $('#tipo').val(), 
 					ori : $('#origen').val(), 
 					des : $('#destino').val(),
@@ -30,15 +51,19 @@ function recuperarVuelos()
 					f1 : $('#opFechaSal').val(), 
 					f2 : $('#opFechaReg').val() 
 				},
-		success: function(response) 
-		{
-		   document.getElementById("vuelosDisponibles").innerHTML= response;
-	    },
-		error: function(xhr, status, error)
-		{
-		   document.getElementById("vuelosDisponibles").innerHTML= xhr.responseText;
-		}
-	});
+				success: function(response) 
+			{
+				document.getElementById("vuelosDisponibles").innerHTML= response;
+			},
+			error: function(xhr, status, error)
+			{
+				document.getElementById("vuelosDisponibles").innerHTML= xhr.responseText;
+			}
+		});
+	}else{
+		alert('no puede llevar bebes en clase VIP')
+	}
+
 }
 
 function initCalendar()
@@ -46,6 +71,19 @@ function initCalendar()
 	'use strict';
 	calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
 	calendar.hideTime();
+	calendar.setSensitiveRange(new Date().toJSON().slice(0,10), null);
+	document.getElementById('opFechaSal').value = new Date().toJSON().slice(0,10);
+}
+
+function setSens(id, k) {
+	'use strict';
+	
+  	if (k == "min") {
+		calendar.setSensitiveRange(document.getElementById(id).value, null);
+	} else if(document.getElementById(id).value != ""){
+		calendar.setSensitiveRange(new Date().toJSON().slice(0,10),document.getElementById(id).value);
+	}
+	
 }
 
 function showPass(inp) 
@@ -86,22 +124,32 @@ function passCount()
 	'use strict';
 	$("button[name='radButton']").click(function() 
 	{
+		
 		switch(this.id)
 		{
 			 case "addAdult":
-   				adult++;
+   				if(count < 10)
+				{	
+					adult++;
+				}
     			break;
 				
 			case "subAdult":
    				if(adult > 0)
 				{	
 					adult--;
+					kid=0;
+					baby=0;
+					
 				}
     			break;
 				
 			case "addKid":
-   				kid++;
-    			break;
+   				if(count < 10 && (adult)*1.5 > (kid/2)+baby)
+				{	
+					kid++;
+				}
+    			break;	
 			case "subKid":
 				if(kid > 0)
 				{
@@ -110,7 +158,10 @@ function passCount()
     			break;
 				
 			case "addBaby":
-   				baby++;
+   				if(count < 10 && (adult)*1.5 > (kid/2)+baby)
+				{	
+					baby++;
+				}
     			break;
 			
 			case "subBaby":
@@ -120,12 +171,13 @@ function passCount()
 				}
     			break;
 		}
-      
+		
+      	
 		$('#pax #lbAdult').text(adult);
  		$('#pax #lbKid').text(kid);
 		$('#pax #lbBaby').text(baby);
 		
-		var count= adult + kid + baby;
+		count= adult + kid + baby;
  		document.getElementById('opPasajeros').value=(count + " pasajero(s)");
 		
 	});
