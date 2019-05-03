@@ -3,13 +3,15 @@ var mapa = [];
 var aux= "";
 
 function initSeater(vip, ejecutivo, turista, clase)
-{
-	rellenarMapa(1, vip, "v");
-	rellenarMapa(vip + 1, ejecutivo, "e");
-	rellenarMapa(ejecutivo + 1, turista, "t");
-	
+{	
 	 $(document).ready(function() 
 	 {
+		'use strict';
+
+		rellenarMapa(1, vip, "v");
+		rellenarMapa(vip + 1, ejecutivo, "e");
+		rellenarMapa(ejecutivo + 1, turista, "t");
+		
 		var sc = $('#seat-map').seatCharts({
 			map: mapa,
 			seats: {
@@ -56,13 +58,14 @@ function initSeater(vip, ejecutivo, turista, clase)
 				console.log(this);
 			}});
 
-		//let's pretend some seats have already been booked
 		sc.get(['12', '41', '7', '32']).status('unavailable');
 	});
 }
 
 function rellenarMapa(start, end, symbol)
 {	
+	'use strict';
+	
 	for(var i= start; i <= end; i++)
 	{
 		(i%3==0 && i%6!=0) ? aux+= symbol + "_" : aux+= symbol;
@@ -71,15 +74,6 @@ function rellenarMapa(start, end, symbol)
 		{
 			mapa.push(aux);
 			aux= "";
-		}
-		
-		if(symbol== 't' && i== (end - 1))
-		{
-			for (var i= 0; i < (7 - aux.length); i++)
-			{
-				aux+= "_";
-			}
-			mapa.push(aux);
 		}
 	}
 }

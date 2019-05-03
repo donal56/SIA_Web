@@ -18,9 +18,10 @@ class moAsientos
 					<div id="legend"></div>
 				</div>
 			</div>
+			<script>
+		       initSeater($vip, $eje , $tur , '$clase');
+			</script>
 LABEL;
-			
-		$cad= $cad . "<script> initSeater(" . $vip . ", " . $eje . ", " . $tur . ", '" . $clase ."'); </script>";
 		
 		return $cad;
 	}
@@ -64,6 +65,23 @@ LABEL;
 		$cad = $cad . "<br><input type= 'button' onClick= \"validate();\" value= 'Continuar'></input></form></div>";
 		
 		return $cad;
+	}
+	
+	public function x($id)
+	{
+		$str= "select noAsiento from boletos where vuelos_idvuelo = " . $id;
+		
+		$connection = new Connection();
+		$result = array();
+		$stm = $connection->getStatement($str); 
+
+		while ($registro= $stm -> fetch_assoc())
+		{
+			$result[] = $registro ;
+		}
+		
+		$stm -> free();
+		return $result;
 	}
 }
 ?>

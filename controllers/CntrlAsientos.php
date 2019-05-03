@@ -26,9 +26,9 @@
 		$v2= $_GET['v2'];
 	}
 	
-	$asientos = $a -> getSeater($clase, $v1);
+	$asientos = $a -> getPasajeros($_GET['pas1'], $_GET['pas2'], $_GET['pas3']);
 	
-	$asientos =  $asientos . $a -> getPasajeros($_GET['pas1'], $_GET['pas2'], $_GET['pas3']);
+	$asientos= $asientos . $a -> getSeater($clase, $v1);
 	
 	echo $asientos;
 ?>

@@ -376,6 +376,7 @@ hr
 	left: 3vw;
 	top: 2vw;
 	width: 40%;
+	float: left;
 }
 
 .bloque input
@@ -384,7 +385,8 @@ hr
 	display: flex;
 	flex-direction: column;
 	border: none;
-	background-color: #EEEEEE;
+	background-color: #DDEEEE;
+	width: 170px;
 	
 }
 	
