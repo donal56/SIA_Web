@@ -79,12 +79,12 @@
 
 		  <label for="fechaSal">
 			 Fecha de Salida
-			 <br><input name= "fechaSal" type="text" id="opFechaSal" readonly> 
+			 <br><input name= "fechaSal" type="text" id="opFechaSal" onclick="setSens('opFechaReg', 'max');" readonly> 
 		 </label>
 
 		  <label for= "fechaReg">
 			 Fecha de Regreso
-			 <br><input name= "fechaReg" type="text" id="opFechaReg" readonly> 
+			 <br><input name= "fechaReg" type="text" id="opFechaReg"  onclick="setSens('opFechaSal', 'min');"  readonly> 
 		 </label>
 
 	</form>

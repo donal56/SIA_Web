@@ -171,7 +171,7 @@ hr
     cursor:pointer;
 }
 
-/* main.phtml styles */
+/* home.phtml styles */
 
 #srchForm 
 {
@@ -209,10 +209,14 @@ hr
 
 #flyOptions input[type= text], select 
 {
-    border:2px solid none; 
+	background: url(../img/row.png) no-repeat 96% 0 white;
+	background-size: contain;
 	width: 90%;
 	font-size: 75%;
+	box-sizing: border-box;
+	-webkit-appearance:  searchfield;
 }
+
 
 .btnSIA 
 {
