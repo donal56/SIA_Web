@@ -71,8 +71,8 @@ function initCalendar()
 	'use strict';
 	calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
 	calendar.hideTime();
-	calendar.setSensitiveRange(new Date().toJSON().slice(0,10), null);
-	document.getElementById('opFechaSal').value = new Date().toJSON().slice(0,10);
+	calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), null);
+	document.getElementById('opFechaSal').value =  new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10);
 }
 
 function setSens(id, k) {
@@ -81,7 +81,7 @@ function setSens(id, k) {
   	if (k == "min") {
 		calendar.setSensitiveRange(document.getElementById(id).value, null);
 	} else if(document.getElementById(id).value != ""){
-		calendar.setSensitiveRange(new Date().toJSON().slice(0,10),document.getElementById(id).value);
+		calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10),document.getElementById(id).value);
 	}
 	
 }
