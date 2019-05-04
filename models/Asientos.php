@@ -9,7 +9,7 @@ class moAsientos
 		$tur= $this -> getLastSeat("Turista", $v);
 		
 		$cad= <<<LABEL
-			<div class="wrapper">
+			<div id="divSeat" class="wrapper" onload="  initSeater($vip, $eje , $tur , '$clase');">
 				<div class="container">
 					<h1>Reserve sus asientos</h1>
 					<div id="seat-map">
@@ -18,9 +18,6 @@ class moAsientos
 					<div id="legend"></div>
 				</div>
 			</div>
-			<script>
-		       initSeater($vip, $eje , $tur , '$clase');
-			</script>
 LABEL;
 		
 		return $cad;

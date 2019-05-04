@@ -39,7 +39,7 @@
 				type="text/css" 
 				href="https://cdn.dhtmlx.com/edge/dhtmlx.css"/>
 		<script type= "text/javascript" 
-				src="https://cdn.dhtmlx.com/edge/dhtmlx.js"></script>
+				src="https://cdn.dhtmlx.com/edge/dhtmlx.js" defer></script>
 				
 		<!--email using smtp-->
 		<script type= "text/javascript" 
@@ -73,14 +73,14 @@
 </div>
 
 <div id= "main">
-
-		<?php 
+	<div id="content">
+		 <?php 
 			require_once("controllers/CntrlRuta.php");
 			//require_once("controllers/CntrlVuelo.php");
 			//require_once("controllers/CntrlCheckin.php");
 
 		?>
-
+	</div>
 		
 	<div id= "footer">
 		<div class = "textInfo">

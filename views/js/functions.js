@@ -21,7 +21,7 @@ function initLang()
 function solicitar(url) 
 {
 	"use strict";
-	$("#main").load(url, function (data) 
+	$("#content").load(url, function (data) 
 	{
 		$(this).html(data);
 	});

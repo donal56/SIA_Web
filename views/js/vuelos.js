@@ -33,6 +33,8 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 			success: function(response) 
 			{
 			   document.getElementById("seleccionDeAsientos").innerHTML= response;
+			   $('#divSeat[onload]').trigger('onload');
+
 			},
 			error: function(xhr, status, error)
 			{

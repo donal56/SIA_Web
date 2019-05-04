@@ -65,8 +65,9 @@ hr
 .langSel						/*Esto deberia ir al reves, para que langSel sea relativo en right a usuario*/
 {
 	position: absolute;
-	right: 140px;
+	right: 170px;
 	margin: 10px;					/*Mal. Esto esta trucado para estar centrado verticalmente*/
+	width: 70px;
 }
 
 .usuario
