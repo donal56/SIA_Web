@@ -2,20 +2,58 @@
 var menu, formLog;
 var logged = 0;
 var email;
+var winMsg;
 
 $(window).on('load',function() 
 {
 	'use strict';	
 	document.getElementById('opPasajeros').value=("0 pasajero(s)");
 	document.getElementById('opPasajeros').readOnly= true;
-	$(".loader").fadeOut("slow");
+	$("#loader").fadeOut("slow");
 });
 
-function initLang() 
+function initDHTMLX() 
 {
 	'use strict';	
 	var langCombo = dhtmlXComboFromSelect("language");
 	langCombo.readonly(true);
+	
+	var panel = new dhtmlXWindows();
+	panel.attachViewportTo("main");
+	winMsg = panel.createWindow('msg',0,0,0,0);
+	winMsg.setMinDimension(250, 250);
+	winMsg.setDimension($(window).width()/2,$(window).height()/2);
+	winMsg.centerOnScreen();
+	winMsg.setModal(true);
+	
+	winMsg.denyMove();
+	winMsg.denyResize();
+	winMsg.denyPark();	
+	winMsg.button('park').hide();
+	winMsg.button('minmax').hide();
+	winMsg.button('close').show();
+
+	
+	$( window ).resize(function() {
+		winMsg.setDimension($(window).width()/2,$(window).height()/2);
+		winMsg.centerOnScreen();
+	});
+
+}
+
+function msgLoading(){
+	"use strict";
+	winMsg.detachObject(true);
+	winMsg.attachObject("winLoader");
+	winMsg.hideHeader();
+}
+
+function msgAlert(title,html){
+	"use strict";
+	winMsg.detachObject(false, "loader");
+	winMsg.setText(title);
+	winMsg.attachHTMLString(html);
+	winMsg.showHeader();
 }
 
 function solicitar(url) 
@@ -59,6 +97,7 @@ function showLogin(obj)
 			menu = new dhtmlXPopup();
 			menu.attachObject("opcionesUsuario");
 			menu.setDimension(90, 65);
+
 		}
 		else
 		{
@@ -76,7 +115,7 @@ function showLogin(obj)
 			
 			formLog.setSkin("material");		
 			formLog.enableLiveValidation(true);
-			
+		
 			formLog.attachEvent("onChange", function(name, command)
 			{
 				if (formLog.isItemChecked(name))
