@@ -28,17 +28,39 @@ hr
     margin: 0px;
 }
 
-.loader 
+#loader 
 {	
-	background: url(../img/plane_load.gif) center no-repeat #fff;
-	background-color: rgba(49,153,218,1);
+	text-align: center;
+	background-color: rgba(49,153,218,.8);
 	width: 100%;
 	height: 100%;
 	position: fixed;
 	left: 0px;
 	top: 0px;
 	z-index: 100;
-	opacity: .8;	
+}
+
+.imgLoader{
+	margin: 0;
+ 	position: absolute;
+  	top: 50%;
+  	left: 50%;
+ 	transform: translate(-50%, -50%);
+	width: 50%;
+	min-width: 100px;
+	max-width: 282px;
+}
+
+.dhxwin_text{
+	font-size:calc(8px + .6vw);
+}
+/*transparent color dhtmlxWindows*/
+div.dhxwin_active{background-color:rgba(255,255,255,0.8) !important; background: transparent;  border-radius: 10px;}
+/* panel transparent */
+div.dhxwin_brd, div.dhx_cell_wins, div.dhx_cell_cont_wins{  background-color: transparent !important; background: transparent; border-radius: 0px 0px 10px 10px ;}
+
+div.dhx_cell_cont_wins{
+	text-align: center;
 }
 
 #header
@@ -65,7 +87,7 @@ hr
 .langSel						/*Esto deberia ir al reves, para que langSel sea relativo en right a usuario*/
 {
 	position: absolute;
-	right: 170px;
+	right: 180px;
 	margin: 10px;					/*Mal. Esto esta trucado para estar centrado verticalmente*/
 	width: 70px;
 }

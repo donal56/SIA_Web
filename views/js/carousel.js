@@ -1,10 +1,21 @@
 var changebox = true;
-var buSelected= setInterval(function(){
+var timerObj;
+var timer = new Timer();
+timer.start();
+
+function Timer() {
 	'use strict';
-	changebox = false;
-	$(".holder_bu_awayR1").trigger( "click" );
-	
-}, 5000);
+   this.start = function() {
+        timerObj = setInterval(function(){
+			changebox = false;
+			$(".holder_bu_awayR1").trigger( "click" );
+		}, 5000);
+    };
+    this.reset = function() {
+        clearInterval(timerObj);
+        this.start();
+    };
+}
 
 
 var Conclave=(function(){
@@ -30,11 +41,13 @@ var Conclave=(function(){
 			};
 			$(".holder_bu").click(function(buid){
 				if(changebox){
+					timer.reset();
 					if( $('#origen option:selected').val() == $(this).text()){
 						$("#origen").prop('selectedIndex',$("#origen")[0].selectedIndex+1);
 						$("#origen").trigger("change");
 					}
 					$('#destino').val($(this).text());
+					
 				}
 				
 				var me=this,id=this.id||buid,joId=$("#"+id),joCN=joId.attr("class").replace(" holder_bu","");

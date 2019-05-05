@@ -3,6 +3,7 @@ var noBoleto;
 $(document).ready(function(){
 	'use strict';
 	$("#datos").submit(function(event){
+	msgLoading();
 	$.get('controllers/CntrlCheckin.php',(
 											$.param({func: 0})+'&'+ 
 											$(this).serialize()+'&'+
@@ -10,7 +11,7 @@ $(document).ready(function(){
 										 ),function(data) {
 		//php "echo" data into a div
 		noBoleto = $('#noBoleto').val();
-     	$('#contCheck').html(data);
+     	msgAlert("Checkin pass...",data);
 	});		
 	// Prevent default form action
     event.preventDefault();
@@ -22,13 +23,13 @@ $(document).ready(function(){
 
 function confirm(){
 	'use strict';
+	msgLoading();
 	$.getJSON('controllers/CntrlCheckin.php',{	
 											func:1,
 										  	email: email,
 										  	numBoleto: noBoleto
 										 },function(data) {
-		sendAttachMail(data['mail'],'!Imprime tu pase de abordar!',data['path']);
-		$('#contCheck').html(data['html']);
+		sendAttachMail('!Imprime tu pase de abordar!',data.mail,data.path,data.html);
 	});
 	
 }

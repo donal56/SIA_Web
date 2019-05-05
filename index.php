@@ -47,9 +47,17 @@
 
 	</head>
 
-<body  onload="initLang();" >
+<body  onload="initDHTMLX();" >
 
-<div class= "loader"></div>
+<div id="loader">
+	<img class="imgLoader" src="views/img/plane_load.gif"  alt="loading">
+	
+	<div id="winLoader" style="display: none; background-color: rgba(49,153,218,.8); height: 101%;">
+		<img class="imgLoader" src="views/img/plane_load.gif"  alt="loading">
+	</div>
+
+</div>
+
 
 <div id= "header">
 		<a href= '/'> <img class= 'logo' src= "views/img/logo1.png" alt= "Logo"> </a>
@@ -68,7 +76,7 @@
 		</span>
 		
 		<div id="opcionesUsuario" style= "display:none; font-family: Segoe UI Semibold;">
-			<a onclick= 'solicitar("views/Checkin.phtml")'>Check-in</a> <hr> <a onclick="cerrarSesion()">Cerrar sesión</a>
+			<a onclick= 'hideLogin();solicitar("views/Checkin.phtml");'>Check-in</a> <hr> <a onclick="cerrarSesion();">Cerrar sesión</a>
 		</div>
 </div>
 

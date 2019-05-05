@@ -2,28 +2,77 @@
 var menu, formLog;
 var logged = 0;
 var email;
+var winMsg;
+var panel;
 
 $(window).on('load',function() 
 {
 	'use strict';	
 	document.getElementById('opPasajeros').value=("0 pasajero(s)");
 	document.getElementById('opPasajeros').readOnly= true;
-	$(".loader").fadeOut("slow");
+	$("#loader").fadeOut("slow");
 });
 
-function initLang() 
+function initDHTMLX() 
 {
 	'use strict';	
 	var langCombo = dhtmlXComboFromSelect("language");
 	langCombo.readonly(true);
+	
+	panel = new dhtmlXWindows();
+	panel.attachViewportTo("main");
+
+}
+
+function generateWindow(){
+	winMsg = panel.createWindow('msg',0,0,0,0);
+	winMsg.setMinDimension(250, 250);
+	winMsg.setDimension($(window).width()/2,$(window).height()/2);
+	winMsg.centerOnScreen();
+	
+	winMsg.denyMove();
+	winMsg.denyResize();
+	winMsg.denyPark();	
+	winMsg.button('park').hide();
+	winMsg.button('minmax').hide();
+	winMsg.button('close').show();
+	winMsg.setDimension($(window).width()/2,$(window).height()/2);
+	winMsg.centerOnScreen();
+	
+	$( window ).resize(function() {
+		if(panel.isWindow('msg')){
+			winMsg.setDimension($(window).width()/2,$(window).height()/2);
+			winMsg.centerOnScreen();
+		}
+		
+	});	
+}
+
+function msgLoading(){
+	"use strict";
+	if(!panel.isWindow('msg')){generateWindow();}
+	winMsg.attachObject(document.getElementById("winLoader").cloneNode(true));
+	winMsg.hideHeader();
+	winMsg.setModal(true);
+	
+}
+
+function msgAlert(title,html){
+	"use strict";
+	if(!panel.isWindow('msg')){generateWindow();}
+	winMsg.setText(title);
+	winMsg.attachHTMLString(html);
+	winMsg.showHeader();
 }
 
 function solicitar(url) 
 {
 	"use strict";
+	msgLoading();
 	$("#content").load(url, function (data) 
 	{
 		$(this).html(data);
+		winMsg.close();
 	});
 }
 
@@ -59,6 +108,7 @@ function showLogin(obj)
 			menu = new dhtmlXPopup();
 			menu.attachObject("opcionesUsuario");
 			menu.setDimension(90, 65);
+
 		}
 		else
 		{
@@ -76,7 +126,7 @@ function showLogin(obj)
 			
 			formLog.setSkin("material");		
 			formLog.enableLiveValidation(true);
-			
+		
 			formLog.attachEvent("onChange", function(name, command)
 			{
 				if (formLog.isItemChecked(name))
@@ -99,7 +149,9 @@ function showLogin(obj)
 				
 				if(id == "sign" && !wantsAnAccount)
 				{
-					//alert("Entrare a la cuenta con los datos: \n" + email + "\n" + pass);
+					msgLoading();
+					hideLogin();
+	
 					formLog.send("controllers/CntrlUsuario.php", "post", function(loader, response)
 					{
 						logged= Number(response);
@@ -109,13 +161,13 @@ function showLogin(obj)
 							document.getElementById("userLabel").innerHTML= email.split('@')[0];
 
 							wait(1000);
-							alert("Inicio de sesión exitoso.");
+							msgAlert("¡Bienvenido!","<h2>Inicio de sesión exitoso.</h2>");
 							menu.unload();
 							menu = null;
 						}
 						else
 						{
-							alert("Correo y/o contraseña incorrectos.");
+							msgAlert("Error..","<h2>Correo y/o contraseña incorrectos.</h2>");
 						}
 					});
 				}
@@ -164,6 +216,7 @@ function wait(ms)
 function cerrarSesion()
 {
 	'use strict';
+	msgLoading();
 	 $.ajax({
         type: "POST",
         url: "controllers/CntrlUsuario.php",
@@ -172,7 +225,7 @@ function cerrarSesion()
 		{
             if(result)
 			{
-				alert("Sesión cerrada");
+				msgAlert("Exito","Sesión cerrada");
 				document.getElementById("userLabel").innerHTML= "Usuario";
 				logged= 0;
 				menu.unload();
@@ -181,7 +234,7 @@ function cerrarSesion()
 			}
 			else
 			{
-				alert("Error al cerrar sesión");
+				msgAlert("Error","Error al cerrar sesión");
 			}
         }
     });
@@ -193,15 +246,13 @@ function registerUser(){
 										  	email: email,
 										  	pass: formLog.getItemValue("pwd")
 										 },function(data) {
-		
-		sendMail(data.mail,"¡Gracias por Registrarte!");
-		$('.dhxform_base').html(data.html);
+		sendMail("¡Gracias por Registrarte!",data.mail,data.html);
 	},'json');
 }
 
-function sendMail(body,subject){
+function sendMail(subject,body,msghtml){
 	'use strict';
-	// html message use display:none¿
+	msgLoading();
 	Email.send({
 		SecureToken : "ec85c9d3-7782-43cb-8179-63d4d1ed2b0f",
 		To : email,
@@ -209,14 +260,14 @@ function sendMail(body,subject){
 		Subject : subject,
 		Body : body
 	}).then(
-	  message => alert(message)
+	  message => emailConfirmMsg(message,msghtml)
 	);
 	
 }
 
-function sendAttachMail(body,subject,path){
+function sendAttachMail(subject,body,path,msghtml){
 	'use strict';
-	// html message use display:none¿
+	msgLoading();
 	Email.send({
 		SecureToken : "ec85c9d3-7782-43cb-8179-63d4d1ed2b0f",
 		To : email,
@@ -230,9 +281,18 @@ function sendAttachMail(body,subject,path){
 		}]
 		
 	}).then(
-	  message => alert(message)
+	  message => emailConfirmMsg(message,msghtml)
 	);
 	
+}
+
+function emailConfirmMsg(msg,successMsg){
+	'use strict';
+	if(msg == "OK"){
+	msgAlert('Email Enviado..',successMsg);
+	}else{
+	msgAlert('Error..',msg);
+	}
 }
 
 $(window).on('load', resize);
