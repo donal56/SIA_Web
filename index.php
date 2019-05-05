@@ -76,7 +76,7 @@
 		</span>
 		
 		<div id="opcionesUsuario" style= "display:none; font-family: Segoe UI Semibold;">
-			<a onclick= 'solicitar("views/Checkin.phtml")'>Check-in</a> <hr> <a onclick="cerrarSesion()">Cerrar sesión</a>
+			<a onclick= 'hideLogin();solicitar("views/Checkin.phtml");'>Check-in</a> <hr> <a onclick="cerrarSesion();">Cerrar sesión</a>
 		</div>
 </div>
 

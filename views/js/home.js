@@ -61,7 +61,7 @@ function recuperarVuelos()
 			}
 		});
 	}else{
-		alert('no puede llevar bebes en clase VIP')
+		msgAlert('Error..','no puede llevar bebes en clase VIP')
 	}
 
 }

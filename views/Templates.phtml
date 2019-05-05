@@ -10,10 +10,6 @@ function ticketChecked(){
 		<img style="width:100%" src="views/img/check.png" alt="check" title="¡Click para Confirmar!">	
 	</button><br>
 	
-	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
-		Regresar &nbsp; ▶
-	</button>
-				
 EOT;
 }
 
@@ -22,10 +18,6 @@ function ticketError(){
 	<img style="width:100px" src="views/img/error.png" alt="check">	
 	
 	<p>No se ha encontrado su boleto con el número: {$_GET["numBoleto"]} </p>
-	
-	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
-		Reintentar &nbsp; ▶
-	</button>
 	
 EOT;
 }
@@ -37,10 +29,6 @@ function successConfirm(){
 	<br>{$_GET['email']}</p>
 	
 	<img style="width:150px" src="views/img/pase.png" alt="check"><br>
-	
-	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
-		Regresar &nbsp; ▶
-	</button>
 				
 EOT;
 }
@@ -51,10 +39,6 @@ function errorConfirm(){
 	
 	<p>Lo sentimos no hemos confirmar su boleto con el número: {$_GET["numBoleto"]} 
 	<br>Contacte al servicio a clientes de AeroAlpes</p>
-	
-	<button type="button" class="btnSIA" onclick="solicitar('views/Checkin.phtml');">
-		Regresar &nbsp; ▶
-	</button>
 	
 EOT;
 }
@@ -81,15 +65,11 @@ return $contents; // the output of the included file
 
 function successRegister(){
 	return <<<EOT
-	<p>Su email: {$_GET["email"]} a sido confirmado
+	<h2>Su email: {$_GET["email"]} a sido confirmado
 	<br>revise su correo para confirmar!
 	<br>
-	<img style="width:150px" src="views/img/pase.png" alt="check"><br>
-	
-	<button type="button" class="btnSIA" onclick="window.location.replace('/');">
-		Aceptar &nbsp; ▶
-	</button>
-				
+	</h2>
+	<img style="width:150px" src="views/img/pase.png" alt="check">			
 EOT;
 }
 

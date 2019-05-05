@@ -57,8 +57,11 @@ hr
 /*transparent color dhtmlxWindows*/
 div.dhxwin_active{background-color:rgba(255,255,255,0.8) !important; background: transparent;  border-radius: 10px;}
 /* panel transparent */
-div.dhxwin_brd, div.dhx_cell_wins, div.dhx_cell_cont_wins{  background-color: transparent !important; background: transparent; border-radius: 5px 7px 10px 10px ;}
+div.dhxwin_brd, div.dhx_cell_wins, div.dhx_cell_cont_wins{  background-color: transparent !important; background: transparent; border-radius: 0px 0px 10px 10px ;}
 
+div.dhx_cell_cont_wins{
+	text-align: center;
+}
 
 #header
 {
@@ -84,7 +87,7 @@ div.dhxwin_brd, div.dhx_cell_wins, div.dhx_cell_cont_wins{  background-color: tr
 .langSel						/*Esto deberia ir al reves, para que langSel sea relativo en right a usuario*/
 {
 	position: absolute;
-	right: 170px;
+	right: 180px;
 	margin: 10px;					/*Mal. Esto esta trucado para estar centrado verticalmente*/
 	width: 70px;
 }
