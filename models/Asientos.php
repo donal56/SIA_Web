@@ -11,7 +11,7 @@ class moAsientos
 		$cad= <<<LABEL
 			<div id="divSeat" class="wrapper" onload="  initSeater($vip, $eje , $tur , '$clase');">
 				<div class="container">
-					<h1>Reserve sus asientos</h1>
+					<h1>Reserve sus asientos ($clase)</h1>
 					<div id="seat-map">
 					<div class="front-indicator">Frente</div>
 				</div>
@@ -66,7 +66,7 @@ LABEL;
 	
 	public function x($id)
 	{
-		$str= "select noAsiento from boletos where vuelos_idvuelo = " . $id;
+		$str= "select noAsiento from boletos where vuelos_idvuelo = " . $id . " and status= 1";
 		
 		$connection = new Connection();
 		$result = array();

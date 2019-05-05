@@ -32,11 +32,11 @@ function initSeater(vip, ejecutivo, turista, clase)
 				top : false,
 				getLabel : function (character, row, column) 
 				{
-					return firstSeatLabel++;
+					return (column => 3 ? ++firstSeatLabel : firstSeatLabel++);
 				},
 				getId  : function(character, row, column) 
 				{
-						return (6 * (row - 1) + column);
+						return (((row > 0) ? 6 * (row - 1) : 0 ) + column);
 				}
 			},
 			legend : 
@@ -54,6 +54,14 @@ function initSeater(vip, ejecutivo, turista, clase)
 				]					
 			},
 			click   : function() 
+			{
+				console.log(this);
+			},
+			blur   : function() 
+			{
+				console.log(this);
+			},
+			focus   : function() 
 			{
 				console.log(this);
 			}});

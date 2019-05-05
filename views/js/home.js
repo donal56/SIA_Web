@@ -15,6 +15,22 @@ $(function()
 	removeDestinfromOrigin();
 });
 
+$('#tipo').change(function () 
+{
+	'use strict';
+	
+	if ($(this).val() === 'Sencillo') 
+	{
+		$("#opFechaReg").hide();
+		$("#lblFechaReg").hide();
+	}
+	else
+	{
+		$("#opFechaReg").show();
+		$("#lblFechaReg").show();
+	}
+});
+
 $( "#origen" ).change(function() {
 	'use strict';
 	$("#destino").prepend(removedDestin);
