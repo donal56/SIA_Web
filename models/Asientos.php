@@ -56,7 +56,7 @@ LABEL;
 		
 		for ($i= 0; $i < ($adultos + $niños + $bebes); $i++)
 		{	
-		$cad= $cad . "<span class= 'divider'>Nombre: <input type= 'text' name= 'name'></input>Asiento: <input type= 'text' name= 'seat'></input>Fecha de Nac.<input type= 'date' name='bday' min='1930-01-01''></span>";
+		$cad= $cad . "<span class= 'divider'>Nombre: <input type= 'text' name= 'name" . $i . "'></input>Asiento: <input type= 'text' name= 'seat" . $i . "'></input>Fecha de Nac.<input id= 'bday' type= 'text'" name= 'bday" . $i . "></span>";
 		}
 		
 		$cad = $cad . "<br><input type= 'button' onClick= \"validate();\" value= 'Continuar'></input></form></div>";
