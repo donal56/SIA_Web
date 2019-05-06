@@ -21,8 +21,10 @@ $('#tipo').change(function ()
 	
 	if ($(this).val() === 'Sencillo') 
 	{
+		$("#opFechaReg").val("");
 		$("#opFechaReg").hide();
 		$("#lblFechaReg").hide();
+		calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), null);
 	}
 	else
 	{

@@ -55,7 +55,7 @@ hr
 	font-size:calc(8px + .6vw);
 }
 /*transparent color dhtmlxWindows*/
-div.dhxwin_active{background-color:rgba(255,255,255,0.8) !important; background: transparent;  border-radius: 10px;}
+div.dhxwin_active{background-color:rgba(255,255,255,0.9) !important; background: transparent;  border-radius: 10px;}
 /* panel transparent */
 div.dhxwin_brd, div.dhx_cell_wins, div.dhx_cell_cont_wins{  background-color: transparent !important; background: transparent; border-radius: 0px 0px 10px 10px ;}
 
