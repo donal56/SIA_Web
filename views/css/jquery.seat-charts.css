@@ -146,16 +146,6 @@ div.seatCharts-seat.available
 	background-color: #B9DEA0;
 }
 
-div.seatCharts-seat.focused 
-{
-	background-color: #76B474;
-}
-
-div.seatCharts-seat.selected 
-{
-	background-color: #E6CAC4;
-}
-
 div.seatCharts-seat.unavailable 
 {
 	background-color: #472B34;
