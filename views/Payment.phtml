@@ -1,0 +1,42 @@
+<link href="css/styles.css" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+
+
+<div class="dhx_cell_cont_wins">
+	<form id="formPay">
+		<span> 
+			<label for="firstName">
+					Nombre
+				 <input name= "firstName" type="text" id="firstName"> 
+			</label>
+
+			<label for="lastName">
+					Apellidos
+				 <input  name= "lastName" type="text" id="lastName"> 
+			</label>
+		 </span>
+		 <br>
+		 <span>
+		 	 <label style="width: 50%" for="cc">
+					Numero de tarjeta <br>
+				 <input style="width: 100%;" name= "cc" type="text" id="cc" placeholder="#"> 
+			 </label>
+		 </span>
+	
+		 <span>
+			 <label for="date">
+					Fecha de expiracion
+				<input style="width: 15%;"  name= "month" type="text" id="month" placeholder="Mes"> 
+				/
+				<input style="width: 15%;" name= "year" type="text" id="year" placeholder="Año"> 
+					CVV
+				 <input style="width: 10%;" name= "CVV" type="text" id="CVV" placeholder="###"> 	
+			 </label>
+		</span>
+	
+		 
+	<button type= "button" class= "btnSIA" style="float: right;" onclick= "pay();">Pagar &nbsp; &#x25b6; </button>
+		 
+	</form>
+
+</div>
