@@ -71,6 +71,7 @@ function initCalendar()
 	'use strict';
 	calendar = new dhtmlXCalendarObject(["opFechaSal","opFechaReg"]);
 	calendar.hideTime();
+	calendar.showToday();
 	calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), null);
 	document.getElementById('opFechaSal').value =  new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10);
 }

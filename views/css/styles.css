@@ -423,4 +423,26 @@ div.dhx_cell_cont_wins{
 	padding: 60px 0px;
 }
 
+/**************payments**************/
 
+#formPay{
+	margin: 2em auto 0px;
+	padding: 1em;
+    width: 80%;
+	overflow: hidden;
+	font-family: Segoe UI;
+	font-size:calc(8px + .8vw);
+  		
+}
+
+#formPay span{
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 5%;
+	box-sizing: border-box;
+}
+
+#formPay label{
+	display: inline-block;
+	width: auto;
+}
