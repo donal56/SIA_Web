@@ -55,13 +55,12 @@ hr
 	font-size:calc(8px + .6vw);
 }
 /*transparent color dhtmlxWindows*/
-div.dhxwin_active{background-color:rgba(255,255,255,0.8) !important; background: transparent;  border-radius: 10px;}
+div.dhxwin_active{background-color:rgba(255,255,255,0.9) !important; background: transparent;  border-radius: 10px;}
 /* panel transparent */
 div.dhxwin_brd, div.dhx_cell_wins, div.dhx_cell_cont_wins{  background-color: transparent !important; background: transparent; border-radius: 0px 0px 10px 10px ;}
 
-div.dhx_cell_cont_wins{
-	text-align: center;
-}
+div.dhx_cell_cont_wins{text-align: center; font-weight: bold;}
+div.dhxwin_text{font-weight: bold;}
 
 #header
 {
@@ -218,6 +217,7 @@ div.dhx_cell_cont_wins{
   	padding: 10px 5px;
 	overflow: inherit;	
 	background-color: #3198DA;
+	border-radius: 5px;
 }
 
 #flyOptions label 
@@ -261,6 +261,7 @@ div.dhx_cell_cont_wins{
 	margin: 1em 0px 0px;
 	border: none;
 	background-color:#3197DA;
+	border-radius: 5px;
 }
 
 #datos .btnSIA { 
@@ -437,23 +438,26 @@ div.dhx_cell_cont_wins{
 /**************payments**************/
 
 #formPay{
-	margin: 2em auto 0px;
+	margin: 1em auto 0px;
 	padding: 1em;
     width: 80%;
 	overflow: hidden;
 	font-family: Segoe UI;
-	font-size:calc(8px + .8vw);
-  		
+	font-size:calc(8px + .6vw);
+	background-color: #BBEAFB;
+	border-radius: 20px;
+		
 }
 
 #formPay span{
 	display: inline-block;
 	width: 100%;
-	margin-bottom: 5%;
+	margin-bottom: 3%;
 	box-sizing: border-box;
 }
 
 #formPay label{
 	display: inline-block;
 	width: auto;
+	font-weight: bold;
 }

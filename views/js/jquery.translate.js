@@ -222,7 +222,11 @@
           es: "Contacto (993) 297 82 61",
           en: "Contact us (993) 297 82 61"
         },
-		
+		"Por favor, ingrese todos los datos": 
+		{
+          es: "Por favor, ingrese todos los datos",
+          en: "Please fill all the data."
+        }	
       }
     };
     settings = $.extend(settings, options || {});
