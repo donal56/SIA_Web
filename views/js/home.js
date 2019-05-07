@@ -18,19 +18,20 @@ $(function()
 $('#tipo').change(function () 
 {
 	'use strict';
+	$("#opFechaReg").val("");
+	calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), null);
 	
 	if ($(this).val() === 'Sencillo') 
 	{
-		$("#opFechaReg").val("");
 		$("#opFechaReg").hide();
 		$("#lblFechaReg").hide();
-		calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), null);
 	}
 	else
 	{
 		$("#opFechaReg").show();
 		$("#lblFechaReg").show();
 	}
+	
 });
 
 $( "#origen" ).change(function() {
@@ -52,36 +53,40 @@ function recuperarVuelos()
 {
 	'use strict';
 	if(!(document.getElementById("clase").value == 'VIP' && baby > 0)){
+		if(!formEmpty("#flyOptions")){
 			solicitar("views/Vuelos.phtml");
-		
-		$.ajax(
-			{
-				method: 'GET',
-				url: 'controllers/CntrlVuelo.php',
-				data: 	{ 
-					tipo : $('#tipo').val(), 
-					ori : $('#origen').val(), 
-					des : $('#destino').val(),
-					pas1 : adult,
-					pas2 : kid,
-					pas3 : baby,
-					clase : $('#clase').val(), 
-					f1 : $('#opFechaSal').val(), 
-					f2 : $('#opFechaReg').val() 
+			$.ajax(
+				{
+					method: 'GET',
+					url: 'controllers/CntrlVuelo.php',
+					data: 	{ 
+						tipo : $('#tipo').val(), 
+						ori : $('#origen').val(), 
+						des : $('#destino').val(),
+						pas1 : adult,
+						pas2 : kid,
+						pas3 : baby,
+						clase : $('#clase').val(), 
+						f1 : $('#opFechaSal').val(), 
+						f2 : $('#opFechaReg').val() 
+					},
+					success: function(response) 
+				{
+					document.getElementById("vuelosDisponibles").innerHTML= response;
 				},
-				success: function(response) 
-			{
-				document.getElementById("vuelosDisponibles").innerHTML= response;
-			},
-			error: function(xhr, status, error)
-			{
-				document.getElementById("vuelosDisponibles").innerHTML= xhr.responseText;
-			}
-		});
+				error: function(xhr, status, error)
+				{
+					document.getElementById("vuelosDisponibles").innerHTML= xhr.responseText;
+				}
+			});
+		}else{
+		msgAlert('Error..','Ingrese todos los datos')
+		}
+		
 	}else{
 		msgAlert('Error..','no puede llevar bebes en clase VIP')
+	
 	}
-
 }
 
 function initCalendar()
@@ -99,7 +104,7 @@ function setSens(id, k) {
 	
   	if (k == "min") {
 		calendar.setSensitiveRange(document.getElementById(id).value, null);
-	} else if(document.getElementById(id).value != ""){
+	} else if(document.getElementById('opFechaReg').value != ""){
 		calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10),document.getElementById(id).value);
 	}
 	
