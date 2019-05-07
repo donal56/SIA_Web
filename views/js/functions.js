@@ -11,10 +11,7 @@ $(window).on('load',function()
 {
 	'use strict';	
 	translator = $('body').translate({lang: "es"});
-	
-	document.getElementById('opPasajeros').value=("0 pasajero(s)");
-	document.getElementById('opPasajeros').readOnly= true;
-
+	document.getElementById('opPasajeros').value=("");
 	$("#loader").fadeOut("slow");
 });
 
