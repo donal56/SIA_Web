@@ -2,12 +2,12 @@
 
 function ticketChecked(){
 	echo <<<EOT
-	<p>Presiona para confirmar su boleto No: {$_GET['numBoleto']} 
-	<br>se enviará el pase de abordar a su correo
+	<p><span class= "trn">Presiona para confirmar su boleto No:</span> {$_GET['numBoleto']} 
+	<br><span class= "trn">se enviará el pase de abordar a su correo</span>
 	<br>{$_GET['email']}</p>
 	
 	<button type="button" class="btnTransparent" onclick="confirm();" style="width:150px" >	
-		<img style="width:100%" src="views/img/check.png" alt="check" title="¡Click para Confirmar!">	
+		<img style="width:100%" src="views/img/check.png" alt="check">	
 	</button><br>
 	
 EOT;
@@ -17,15 +17,15 @@ function ticketError(){
 	echo <<<EOT
 	<img style="width:100px" src="views/img/error.png" alt="check">	
 	
-	<p>No se ha encontrado su boleto con el número: {$_GET["numBoleto"]} </p>
+	<p><span class= "trn">No se ha encontrado su boleto con el número:</span> {$_GET["numBoleto"]} </p>
 	
 EOT;
 }
 
 function successConfirm(){
 	return <<<EOT
-	<p>Su boleto No: {$_GET["numBoleto"]} a sido confirmado
-	<br>se ha enviado el pase de abordar a su correo
+	<p><span class= "trn">El boleto con número</span> {$_GET["numBoleto"]} <span class= "trn">a sido confirmado</span>
+	<br><span class= "trn">se ha enviado el pase de abordar a su correo</span>
 	<br>{$_GET['email']}</p>
 	
 	<img style="width:150px" src="views/img/pase.png" alt="check"><br>
@@ -37,8 +37,8 @@ function errorConfirm(){
 	echo <<<EOT
 	<img style="width:100px" src="views/img/error.png" alt="check">	
 	
-	<p>Lo sentimos no hemos confirmar su boleto con el número: {$_GET["numBoleto"]} 
-	<br>Contacte al servicio a clientes de AeroAlpes</p>
+	<p><span class= "trn">Lo sentimos no hemos confirmar su boleto con el número:</span> {$_GET["numBoleto"]} 
+	<br><span class= "trn">Contacte al servicio a clientes de AeroAlpes</span></p>
 	
 EOT;
 }
@@ -65,8 +65,8 @@ return $contents; // the output of the included file
 
 function successRegister(){
 	return <<<EOT
-	<h2>Su email: {$_GET["email"]} a sido confirmado
-	<br>revise su correo para confirmar!
+	<h2><span class= "trn">Su correo:</span> {$_GET["email"]} <span class= "trn">a sido confirmado</span>
+	<br><span class= "trn">revise su correo para confirmar!</span>
 	<br>
 	</h2>
 	<img style="width:150px" src="views/img/pase.png" alt="check">			

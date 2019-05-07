@@ -11,7 +11,7 @@
 		imagedestroy($bar);
 		imagedestroy($rotate);
 	}else{
-		echo 'error';
+		echo '<span class= "trn">error</span>';
 	}
 
 ?>

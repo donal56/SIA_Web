@@ -11,12 +11,12 @@ $(document).ready(function(){
 										 ),function(data) {
 		//php "echo" data into a div
 		noBoleto = $('#noBoleto').val();
-     	msgAlert("Checkin pass...",data);
+     	msgAlert(translator.get("Check-in"),data);
 	});		
 	// Prevent default form action
     event.preventDefault();
 	event.stopImmediatePropagation();
-   
+  
 	});
 });
 	
@@ -29,7 +29,7 @@ function confirm(){
 										  	email: email,
 										  	numBoleto: noBoleto
 										 },function(data) {
-		sendAttachMail('!Imprime tu pase de abordar!',data.mail,data.path,data.html);
+		sendAttachMail(translator.get('!Imprime tu pase de abordar!'),data.mail,data.path,data.html);
 	});
 	
 }

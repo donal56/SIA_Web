@@ -5,12 +5,12 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 	
 	vuelo1 = $('input[name="Ida"]:checked', '#seleccionarVuelo').val(); 
 	
-	if(tipo === "Redondo")
+	if(tipo === translator.get("Redondo"))
 	{
 		vuelo2 = $('input[name="Regreso"]:checked', '#seleccionarVuelo').val(); 
 	}
 	
-	if((tipo === "Redondo") ? (vuelo1 && vuelo2) : vuelo1)
+	if((tipo === translator.get("Redondo")) ? (vuelo1 && vuelo2) : vuelo1)
 	{
 		solicitar("views/Asientos.phtml");
 		$.ajax(
@@ -44,6 +44,6 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 	}
 	else
 	{
-		alert("Seleccione el vuelo que desee para cada trayecto.");
+		alert(translator.get("Seleccione el vuelo que desee para cada trayecto."));
 	}
 }
