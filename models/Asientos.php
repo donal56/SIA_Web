@@ -11,9 +11,9 @@ class moAsientos
 		$cad= <<<LABEL
 			<div id="divSeat" class="wrapper" onload="  initSeater($vip, $eje , $tur , '$clase');">
 				<div class="container">
-					<h1>Reserve sus asientos ($clase)</h1>
+					<h1><span class= "trn">Reserve sus asientos</span> (<span class= "trn">$clase</span>)</h1>
 					<div id="seat-map">
-					<div class="front-indicator">Frente</div>
+					<div class="front-indicator"><span class= "trn">Frente</span></div>
 				</div>
 					<div id="legend"></div>
 				</div>
@@ -56,10 +56,10 @@ LABEL;
 		
 		for ($i= 0; $i < ($adultos + $niños + $bebes); $i++)
 		{	
-		$cad= $cad . "<span class= 'divider'>Nombre: <input type= 'text' name= 'name" . $i . "'></input>Asiento: <input type= 'text' name= 'seat" . $i . "'></input>Fecha de Nac.<input id= 'bday' type= 'text'" name= 'bday" . $i . "></span>";
+		$cad= $cad . "<span class= 'divider'><span class= 'trn'>Nombre</span>: <input type= 'text' name= 'name" . $i . "'></input><span class= 'trn'>Asiento</span>: <input type= 'text' name= 'seat" . $i . "'></input><span class= 'trn'>Fecha de Nac.</span><input id= 'bday' type= 'text' name= 'bday" . $i . "></span>";
 		}
 		
-		$cad = $cad . "<br><input type= 'button' onClick= \"validate();\" value= 'Continuar'></input></form></div>";
+		$cad = $cad . "<br><input type= 'button' onClick= \"validate();\"><span class= 'trn'>Continuar</span></input></form></div>";
 		
 		return $cad;
 	}

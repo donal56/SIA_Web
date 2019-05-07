@@ -1,3 +1,5 @@
+var pops;
+
 function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clase, f1, f2)
 {
 	'use strict';
@@ -44,6 +46,31 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 	}
 	else
 	{
-		alert(translator.get("Seleccione el vuelo que desee para cada trayecto."));
+		msgAlert(translator.get("Vuelos"), translator.get("Seleccione el vuelo que desee para cada trayecto") + ".");
 	}
+}
+
+function showDetails(inp, precio)
+{
+	'use strict';
+	if(!myPop)
+	{
+		myPop = new dhtmlXPopup();
+	}
+
+	var html= "<span class= 'trn'>Boleto normal</span>: $" + precio + "<br><span class= 'trn'>Boleto para niños</span>: $" + (precio * 0.7) + "<br><span class= 'trn'>Boleto para bebes</span>: $" + (precio * 0.5) . "'>";
+	pops.attachHTML(html);
+
+	var x = window.dhx4.absLeft(inp);
+	var y = window.dhx4.absTop(inp);
+	var w = inp.offsetWidth;
+	var h = inp.offsetHeight;
+	pops.show(x,y,w,h);
+}
+
+function hideDetails()
+{
+	'use strict';
+	pops.unload();
+	pops = null;
 }

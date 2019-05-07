@@ -22,10 +22,10 @@
       lang: "es",
       t: 
 	  {
-        "Usuario&nbsp;": 
+        "Usuario": 
 		{
-          es: "Usuario&nbsp;",
-          en: "User&nbsp;"
+          es: "Usuario",
+          en: "User"
         },
 		"Iniciar sesión": 
 		{
@@ -82,7 +82,7 @@
           es: "Correo y/o contraseña incorrectos.",
           en: "Wrong e-mail and/or password"
         },
-		"Error..":
+		"Error":
 		{
 			es: "Error",
 			en: "Error"
@@ -226,7 +226,257 @@
 		{
           es: "Por favor, ingrese todos los datos",
           en: "Please fill all the data."
-        }	
+        },
+		"Asientos": 
+		{
+          es: "Asientos",
+          en: "Seats"
+        },
+		"Check-in": 
+		{
+          es: "Check-in",
+          en: "Check-in"
+        },
+		"Ingrese sus datos": 
+		{
+          es: "Ingrese sus datos",
+          en: "Fill with your data"
+        },
+		"Número de boleto": 
+		{
+          es: "Número de boleto",
+          en: "Ticket number"
+        },
+		"Continuar": 
+		{
+          es: "Continuar",
+          en: "Continue"
+        },
+		"Consigue tu pase de abordar electronico para ahorrar tiempo": 
+		{
+          es: "Consigue tu pase de abordar electronico para ahorrar tiempo",
+          en: "Get your electronic pass board to save time"
+        },
+		"Confirmado": 
+		{
+          es: "Confirmado",
+          en: "Confirmed"
+        },
+		"Gracias por tu preferencia.": 
+		{
+          es: "Gracias por tu preferencia.",
+          en: "Thanks for your preference"
+        },
+		"Hemos adjuntado a este correo su pase de abordar": 
+		{
+          es: "Hemos adjuntado a este correo su pase de abordar",
+          en: "We have attached your pass board in this mail"
+        },
+		"recuerda": 
+		{
+          es: "recuerda",
+          en: "remember"
+        },
+		"imprimir y tener a la mano su pase para poder abordar su vuelo": 
+		{
+          es: "imprimir y tener a la mano su pase para poder abordar su vuelo",
+          en: "to print and bring your pass so you can board your flight"
+        },
+		"Aeroalpes ®  - Grupo Alpes": 
+		{
+          es: "Aeroalpes ®  - Grupo Alpes",
+          en: "Aeroalpes ®  - Alpes Group"
+        },
+		"Registrado": 
+		{
+          es: "Registrado",
+          en: "Logged in"
+        },
+		"¡Bienvenido a Aeroalpes!": 
+		{
+          es: "¡Bienvenido a Aeroalpes!",
+          en: "Welcome to Aeroalpes!"
+        },
+		"gracias por registrarte": 
+		{
+          es: "gracias por registrarte",
+          en: "thanks for signing up"
+        },
+		"ahora tienes acceso a muchos de nuestros servicios": 
+		{
+          es: "ahora tienes acceso a muchos de nuestros servicios",
+          en: "now you have access to many of our services"
+        },
+		"¡Buen viaje!": 
+		{
+          es: "¡Buen viaje!",
+          en: "Good trip!"
+        },
+		"Vuelos": 
+		{
+          es: "Vuelos",
+          en: "Flights"
+        },
+		"Nombre": 
+		{
+          es: "Nombre",
+          en: "First name"
+        },
+		"Apellidos": 
+		{
+          es: "Apellidos",
+          en: "Last name"
+		},
+		"Número de tarjeta": 
+		{
+          es: "Número de tarjeta",
+          en: "Card number"
+        },
+		"Expiración": 
+		{
+          es: "Expiración",
+          en: "Expiration"
+        },
+		"CVV": 
+		{
+          es: "CVV",
+          en: "CVV"
+        },
+		"Pagar": 
+		{
+          es: "Pagar",
+          en: "Pay"
+        },
+		"Seleccione el vuelo que desee para cada trayecto": 
+		{
+          es: "Seleccione el vuelo que desee para cada trayecto",
+          en: "Select the flight you´ll attend for each trip"
+        },
+		"!Imprime tu pase de abordar!": 
+		{
+          es: "!Imprime tu pase de abordar!",
+          en: "!Print your board pass!"
+        },
+		"Presione para confirmar su boleto con el número": 
+		{
+          es: "Presione para confirmar su boleto con el número",
+          en: "Press to confirm your ticket with the identification number"
+        },
+		"Se enviará el pase de abordar a su correo": 
+		{
+          es: "Se enviará el pase de abordar a su correo",
+          en: "The pass board will be sent to your mail"
+        },
+		"No se encontro el boleto con el número": 
+		{
+          es: "No se encontro el boleto con el número",
+          en: "Not found. Please check the ticket with the identification number"
+        },
+		"El boleto con número": 
+		{
+          es: "El boleto con número",
+          en: "The ticket with the identification number"
+        },
+		"a sido confirmado": 
+		{
+          es: "a sido confirmado",
+          en: "has been confirmed"
+        },
+		"se ha enviado el pase de abordar a su correo": 
+		{
+          es: "se ha enviado el pase de abordar a su correo",
+          en: "the board pass has been sent to your mail"
+        },
+		"Contacte al servicio a clientes de AeroAlpes": 
+		{
+          es: "Contacte al servicio a clientes de AeroAlpes",
+          en: "Please contact AeroAlpes customer service"
+        },
+		"Su correo": 
+		{
+          es: "Su correo",
+          en: "Your e-mail"
+        },
+		"Lo sentimos, no hemos confirmar su boleto con el número": 
+		{
+          es: "Lo sentimos, no hemos confirmar su boleto con el número",
+          en: "We're sorry, we couldn't confirm the ticket with the number"
+        },
+		"a sido confirmado": 
+		{
+          es: "a sido confirmado",
+          en: "has been confirmed"
+        },
+		"revise su correo para confirmar!": 
+		{
+          es: "revise su correo para confirmar!",
+          en: "check your mail to confirm"
+        },
+		"Reserve sus asientos": 
+		{
+          es: "Reserve sus asientos",
+          en: "Reserve your seats"
+        },
+		"Frente": 
+		{
+          es: "Frente",
+          en: "Front"
+        },
+		"Asientos": 
+		{
+          es: "Asientos",
+          en: "Seats"
+        },
+		"Fecha de Nac.": 
+		{
+          es: "Fecha de Nac.",
+          en: "Birth date"
+        },
+		"Continuar": 
+		{
+          es: "Continuar",
+          en: "Continue"
+        },
+		"Ida": 
+		{
+          es: "Ida",
+          en: "Departure"
+        },
+		"Regreso": 
+		{
+          es: "Regreso",
+          en: "Comeback"
+        },
+		"Boleto normal": 
+		{
+          es: "Boleto normal",
+          en: "Normal ticket"
+        },
+		"Boleto para niños": 
+		{
+          es: "Boleto para niños",
+          en: "Kids ticket"
+        },
+		"Boleto para bebes": 
+		{
+          es: "Boleto para bebes",
+          en: "Infant ticket"
+        },
+		"Elegir": 
+		{
+          es: "Elegir",
+          en: "Select"
+        },
+		"No hay vuelos disponibles :(": 
+		{
+          es: "No hay vuelos disponibles :(",
+          en: "There are no flights available :("
+        },
+		"Vuelo":
+		{
+			es: "Vuelo",
+			en: "Flight"
+		}
       }
     };
     settings = $.extend(settings, options || {});

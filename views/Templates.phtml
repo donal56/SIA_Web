@@ -2,8 +2,8 @@
 
 function ticketChecked(){
 	echo <<<EOT
-	<p><span class= "trn">Presiona para confirmar su boleto No:</span> {$_GET['numBoleto']} 
-	<br><span class= "trn">se enviará el pase de abordar a su correo</span>
+	<p><span class= "trn">Presione para confirmar su boleto con el número</span> {$_GET['numBoleto']} 
+	<br><span class= "trn">Se enviará el pase de abordar a su correo</span>
 	<br>{$_GET['email']}</p>
 	
 	<button type="button" class="btnTransparent" onclick="confirm();" style="width:150px" >	
@@ -17,7 +17,7 @@ function ticketError(){
 	echo <<<EOT
 	<img style="width:100px" src="views/img/error.png" alt="check">	
 	
-	<p><span class= "trn">No se ha encontrado su boleto con el número:</span> {$_GET["numBoleto"]} </p>
+	<p><span class= "trn">No se encontro el boleto con el número</span>: {$_GET["numBoleto"]} </p>
 	
 EOT;
 }
@@ -37,7 +37,7 @@ function errorConfirm(){
 	echo <<<EOT
 	<img style="width:100px" src="views/img/error.png" alt="check">	
 	
-	<p><span class= "trn">Lo sentimos no hemos confirmar su boleto con el número:</span> {$_GET["numBoleto"]} 
+	<p><span class= "trn">Lo sentimos, no hemos confirmar su boleto con el número</span>: {$_GET["numBoleto"]} 
 	<br><span class= "trn">Contacte al servicio a clientes de AeroAlpes</span></p>
 	
 EOT;
@@ -65,7 +65,7 @@ return $contents; // the output of the included file
 
 function successRegister(){
 	return <<<EOT
-	<h2><span class= "trn">Su correo:</span> {$_GET["email"]} <span class= "trn">a sido confirmado</span>
+	<h2><span class= "trn">Su correo</span>: {$_GET["email"]} <span class= "trn">a sido confirmado</span>
 	<br><span class= "trn">revise su correo para confirmar!</span>
 	<br>
 	</h2>

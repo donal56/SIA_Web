@@ -75,7 +75,7 @@
 		</div>
 
 		<span class= 'usuario'> 
-			<span id= "userLabel" class= 'trn'>Usuario&nbsp;</span>
+			<span id= "userLabel" class= 'trn'>Usuario</span>&nbsp;
 			<img src= "views/img/man-user.png" alt= "Usuario" height="30" onclick="showLogin(this);" onblur="hideLogin();">
 		</span>
 		

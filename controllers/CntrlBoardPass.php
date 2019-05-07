@@ -9,9 +9,9 @@ $pdf = new TCPDF("L", "px",'A4', true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Aeroalpes');
-$pdf->SetTitle('Pase de abordar');
-$pdf->SetSubject('Grupo alpes');
-$pdf->SetKeywords('Aeroalpes, PDF, sia, pass, board');
+$pdf->SetTitle('Board Pass');
+$pdf->SetSubject('Alpes Group');
+$pdf->SetKeywords('Aeroalpes, PDF, SIA, pass, board');
 
 // remove default header/footer
 $pdf->setPrintHeader(false);
