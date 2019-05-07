@@ -10,55 +10,55 @@
 
 <div id="srchForm">
 	<form id= "flyOptions">
-		 <label for= "tipo" >Tipo<br>
+		 <label for= "tipo"> <span class= 'trn'>Tipo</span> <br>
 		 
 			<select name= "tipo" id= "tipo" readonly>
-				<option value="Sencillo">Sencillo</option>
-				<option value="Redondo">Redondo</option>			
+				<option class= "trn" value= "Sencillo">Sencillo</option>
+				<option class= "trn" value= "Redondo">Redondo</option>			
 			</select>
 
 		 </label>
 
-			 <label for= "origen">Origen<br>
+			 <label for= "origen"><span class= "trn">Origen</span><br>
 			  	<select name= "origen" id= "origen" readonly>
 					<?php
 						foreach ($origins as $origin) 
 						{
-							echo '<option value="'.$origin["origen"].'">'.$origin["origen"].'</option>';
+							echo '<option class= "trn" value="'.$origin["origen"].'">'.$origin["origen"].'</option>';
 						}
 				  	?>		
 				</select>
 			</label>
 			
-			<label for= "destino">Destino<br>
+			<label for= "destino"><span class= 'trn'>Destino</span><br>
 			 	<select name= "destino" id= "destino" readonly>
 					<?php
 						foreach ($destins as $destin) 
 						{
-							echo '<option value="'.$destin["destino"].'">'.$destin["destino"].'</option>';
+							echo '<option class= "trn" value="'.$destin["destino"].'">'.$destin["destino"].'</option>';
 						}
 				  	?>		
 				</select>
 			 </label>
 
 		 <label for= "pasajeros">
-			Pasajeros
+			<span class= "trn">Pasajeros</span>
 			<br><input type="text" id="opPasajeros" onclick="showPass(this);" onFocus="hidePass();" name= "pasajeros" readonly> 
 		
 			<div id="pax" style="display:none;">		
-				<span>Adultos<br>
+				<span><span class= "trn">Adultos</span><br>16+<br>
 					<button id='subAdult' name = 'radButton'>-</button>
 						<label id='lbAdult'>0</label>
 					<button id='addAdult' name = 'radButton'>+</button>
 				</span>
 				
-				<span>Menores <br>
+				<span><span class= "trn">Menores</span><br>3-15<br>
 					<button id='subKid' name = 'radButton'>-</button>
 						<label id='lbKid'>0</label>
 					<button id='addKid' name = 'radButton'>+</button>
 				</span>
 				
-				<span>Bebes <br>
+				<span><span class= "trn">Bebes</span><br><3<br>
 					<button id='subBaby' name = 'radButton'>-</button>
 						<label id='lbBaby'>0</label>
 					<button id='addBaby' name = 'radButton'>+</button>
@@ -68,39 +68,39 @@
 		 </label>
 		 
 		 <label for= "clase">
-			Clase
+			<span class= "trn">Clase</span>
 			<br><select name= "clase" id= "clase" readonly>
-				<option value= "VIP">VIP</option>
-				<option value= "Ejecutivo">Ejecutivo</option>		
-				<option value= "Turista">Turista</option>		
+				<option class= "trn" value= "VIP">VIP</option>
+				<option class= "trn" value= "Ejecutivo">Ejecutivo</option>		
+				<option class= "trn" value= "Turista">Turista</option>		
 				</select>
 
 		 </label>
 
 		  <label for="fechaSal">
-			 Fecha de Salida
+			 <span class= "trn">Fecha de Salida</span>
 			 <br><input name= "fechaSal" type="text" id="opFechaSal" onclick="setSens('opFechaReg', 'max');" readonly> 
 		 </label>
 
 		  <label for= "fechaReg" id= "lblFechaReg" class= 'hide'>
-			 Fecha de Regreso
+			 <span class= "trn">Fecha de Regreso</span>
 			 <br><input name= "fechaReg" type="text" id="opFechaReg" class= 'hide' onclick="setSens('opFechaSal', 'min');"  readonly> 
 		 </label>
 
 	</form>
 
-	<button type= "button" class= "btnSIA" style="float: right;" onclick= "recuperarVuelos();">Buscar Vuelos &nbsp; &#x25b6; </button>
+	<button type= "button" class= "btnSIA" style="float: right;" onclick= "recuperarVuelos();"><span class= "trn">Buscar Vuelos</span> &nbsp; &#x25b6;</button>
 	
 </div>
 
-<p class="bigText">¡Descubre!</p>
+<p class="bigText"><span class= "trn">¡Descubre!</span></p>
 	
 	<div id="wrapper_bu">
 		<?php
 			$i = 1;	
 			foreach ($destins as $destin) {
 				if($i <= 5){
-					echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1">'.$destin["destino"].'</p></div>'."\n";
+					echo '<div id="bu'.$i.'"><p class="txt_Center txt_h1"><span class= "trn">'.$destin["destino"].'</span></p></div>'."\n";
 					$i++;
 				}	
 			}		

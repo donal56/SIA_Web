@@ -4,24 +4,46 @@ var logged = 0;
 var email;
 var winMsg;
 var panel;
+var translator;
+var langCombo;
 
 $(window).on('load',function() 
 {
 	'use strict';	
+	translator = $('body').translate({lang: "es"});
+	
 	document.getElementById('opPasajeros').value=("0 pasajero(s)");
 	document.getElementById('opPasajeros').readOnly= true;
 	$("#loader").fadeOut("slow");
 });
 
+
+
 function initDHTMLX() 
 {
 	'use strict';	
-	var langCombo = dhtmlXComboFromSelect("language");
-	langCombo.readonly(true);
-	
 	panel = new dhtmlXWindows();
 	panel.attachViewportTo("main");
 
+	langCombo = dhtmlXComboFromSelect("language");
+	langCombo.readonly(true);
+	langCombo.disableAutocomplete();
+	
+	langCombo.attachEvent('onChange', function(value, text)
+	{
+		switch(value) 
+		{    	
+			case "es-MX":
+				translator.lang("es");
+				break;
+			case "en-US":
+				translator.lang("en");
+				break;
+		}	
+		actualizarFormLog(true);
+		document.getElementById('opPasajeros').value=(count + " " + translator.get("pasajero(s)"));
+		
+	});
 }
 
 function generateWindow(){
@@ -115,30 +137,32 @@ function showLogin(obj)
 			menu = new dhtmlXPopup();
 			formLog = menu.attachForm	([
 											{type: "settings", position: "label-top"},
-											{type: "fieldset", label: "Iniciar sesión", width: 250, name: "title", list: [ 
-											{type: "input", label: "Correo electrónico", name: "email", required: true, validate: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$", width: 220, style: "background-color: #FAFAFA"},
-											{type: "password", label: "Contraseña", name: "pwd", required: true, validate: "validPass", width: 220, note: {text:"La contraseña debe contener por lo menos 8 carácteres, incluyendo mayúsculas, minúsculas y números.", style: "background-color: #FAFAFA"}},
-											{type: "checkbox", label: "Crear una cuenta nueva", name: "wantsAnAccount", checked: false, position: "label-right"},
-											{type: "button", value: "Iniciar sesión", name: "sign", width: 180}]}
-										]);
-										
-
+											{type: "fieldset", label: translator.get("Iniciar sesión"), width: 250, name: "title", list: [ 
+												{type: "input", label: translator.get("Correo electrónico"), name: "email", required: true, validate: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$", width: 220, style: "background-color: #FAFAFA"},
+												{type: "password", label: translator.get("Contraseña"), name: "pwd", required: true, validate: "validPass", width: 220, info: true, note: {text: translator.get("La contraseña debe contener por lo menos 8 carácteres, incluyendo mayúsculas, minúsculas y números."), style: "background-color: #FAFAFA"}},
+												{type: "checkbox", label: translator.get("Crear una cuenta nueva"), name: "wantsAnAccount", checked: false, position: "label-right"},
+												{type: "button", value: translator.get("Iniciar sesión"), name: "sign", width: 180}]}
+										]);		
 			
 			formLog.setSkin("material");		
 			formLog.enableLiveValidation(true);
 		
 			formLog.attachEvent("onChange", function(name, command)
 			{
-				if (formLog.isItemChecked(name))
-				{
-					formLog.setItemLabel("sign", "Registrarse");	
-					formLog.setItemLabel("title", "Crear una cuenta nueva");				
-				}
-				else
-				{
-					formLog.setItemLabel("sign", "Iniciar sesión");
-					formLog.setItemLabel("title", "Iniciar sesión");
-				}
+				actualizarFormLog(false);
+			});
+			
+			formLog.attachEvent("onInfo", function(name, e)
+			{
+					var t = e.target||e.srcElement;
+
+					// var x = window.dhx.absLeft(t);
+					// var y = window.dhx.absTop(t);
+					// var w = t.offsetWidth;
+					// var h = t.offsetHeight;
+					// myPopup.show(x,y,w,h);
+					
+					alert(translator.get("¿Olvidaste tu contraseña?"));
 			});
 			
 			formLog.attachEvent("onButtonClick", function(id)
@@ -161,13 +185,13 @@ function showLogin(obj)
 							document.getElementById("userLabel").innerHTML= email.split('@')[0];
 
 							wait(1000);
-							msgAlert("¡Bienvenido!","<h2>Inicio de sesión exitoso.</h2>");
+							msgAlert(translator.get("¿Bienvenido!"), "<h2>" + translator.get("Inicio de sesión exitoso.") + "</h2>");
 							menu.unload();
 							menu = null;
 						}
 						else
 						{
-							msgAlert("Error..","<h2>Correo y/o contraseña incorrectos.</h2>");
+							msgAlert(translator.get("Error"), "<h2>" + translator.get("Correo y/o contraseña incorrectos.") + "</h2>");
 						}
 					});
 				}
@@ -225,8 +249,8 @@ function cerrarSesion()
 		{
             if(result)
 			{
-				msgAlert("Exito","Sesión cerrada");
-				document.getElementById("userLabel").innerHTML= "Usuario";
+				msgAlert(translator.get("Error"), translator.get("Sesión cerrada"));
+				document.getElementById("userLabel").innerHTML= translator.get("Usuario");
 				logged= 0;
 				menu.unload();
 				menu = null;
@@ -234,7 +258,7 @@ function cerrarSesion()
 			}
 			else
 			{
-				msgAlert("Error","Error al cerrar sesión");
+				msgAlert(translator.get("Error"),translator.get("Error al cerrar sesión"));
 			}
         }
     });
@@ -246,7 +270,7 @@ function registerUser(){
 										  	email: email,
 										  	pass: formLog.getItemValue("pwd")
 										 },function(data) {
-		sendMail("¡Gracias por Registrarte!",data.mail,data.html);
+		sendMail(translator.get("¡Gracias por Registrarte!"),data.mail,data.html);
 	},'json');
 }
 
@@ -289,9 +313,32 @@ function sendAttachMail(subject,body,path,msghtml){
 function emailConfirmMsg(msg,successMsg){
 	'use strict';
 	if(msg == "OK"){
-	msgAlert('Email Enviado..',successMsg);
+	msgAlert(translator.get("Mensaje enviado"),successMsg);
 	}else{
-	msgAlert('Error..',msg);
+	msgAlert(translator.get("Error"),msg);
+	}
+}
+
+function actualizarFormLog(b)
+{
+	if (formLog.isItemChecked("wantsAnAccount"))
+	{
+		formLog.setItemLabel("sign", translator.get("Registrarse"));	
+		formLog.setItemLabel("title", translator.get("Crear una cuenta nueva"));				
+	}
+	else
+	{
+		formLog.setItemLabel("sign", translator.get("Iniciar sesión"));
+		formLog.setItemLabel("title", translator.get("Iniciar sesión"));
+	}
+	
+	if(b)
+	{
+		formLog.setItemLabel("email", translator.get("Correo electrónico"));
+		formLog.setItemLabel("pwd", translator.get("Contraseña"));
+		formLog.setNote("pwd", {text: translator.get("La contraseña debe contener por lo menos 8 carácteres, incluyendo mayúsculas, minúsculas y números.")});
+		// formLog.setItemValue("pwd", [{info: true}]);
+		formLog.setItemLabel("wantsAnAccount", translator.get("Crear una cuenta nueva"));
 	}
 }
 

@@ -26,6 +26,10 @@
 				type= "text/javascript" 
 				integrity= "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 				crossorigin= "anonymous"></script>
+				
+		<script src= 'views/js/jquery.translate.js'
+				language= 'javascript'
+				type= 'text/javascript'></script>
 		
 		<!--owner-->
 		<link 	rel= "stylesheet" 	
@@ -47,7 +51,7 @@
 
 	</head>
 
-<body  onload="initDHTMLX();" >
+<body onload= "initDHTMLX();">
 
 <div id="loader">
 	<img class="imgLoader" src="views/img/plane_load.gif"  alt="loading">
@@ -62,16 +66,16 @@
 <div id= "header">
 		<a href= '/'> <img class= 'logo' src= "views/img/logo1.png" alt= "Logo"> </a>
 
-		<span class='langSel'>
-			<select id="language" style="width:160%;" mode="image" onchange= "changeLanguage(this.form); style='cursor:pointer'">
+		<div class='langSel'>
+			<select id="language" style="width:160%;" mode="image" onchange= "changeLang(this.value);" style='cursor:pointer'>
 
 				<option value= "es-MX" img_src= "views/img/MX-flag.png">Español</option>
 				<option value= "en-US" img_src= "views/img/US-flag.png">English</option>
 			</select>		
-		</span>
+		</div>
 
 		<span class= 'usuario'> 
-			<span id= "userLabel">Usuario&nbsp;</span>
+			<span id= "userLabel" class= 'trn'>Usuario&nbsp;</span>
 			<img src= "views/img/man-user.png" alt= "Usuario" height="30" onclick="showLogin(this);" onblur="hideLogin();">
 		</span>
 		
@@ -93,9 +97,9 @@
 	<div id= "footer">
 		<div class = "textInfo">
 			<img src="views/img/logo2.png" alt="Logo" style= 'margin-right: 10px'>	
-			Col.Nueva Villahermosa<br>
-			Calle Progreso #120 Piso 7 <br>
-			Contacto (993) 297 82 61
+			<span class= "trn">Col. Nueva Villahermosa</span><br>
+			<span class= "trn">Calle Progreso #120 Piso 7</span><br>
+			<span class= "trn">Contacto (993) 297 82 61</span>
 		</div>
 
 	</div>

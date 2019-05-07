@@ -18,8 +18,8 @@ $(function()
 $('#tipo').change(function () 
 {
 	'use strict';
-	
-	if ($(this).val() === 'Sencillo') 
+
+	if ($(this).val() === translator.get("Sencillo")) 
 	{
 		$("#opFechaReg").hide();
 		$("#lblFechaReg").hide();
@@ -49,7 +49,7 @@ function removeDestinfromOrigin(){
 function recuperarVuelos()
 {
 	'use strict';
-	if(!(document.getElementById("clase").value == 'VIP' && baby > 0)){
+	if(!(document.getElementById("clase").value == translator.get("VIP") && baby > 0)){
 			solicitar("views/Vuelos.phtml");
 		
 		$.ajax(
@@ -76,8 +76,9 @@ function recuperarVuelos()
 				document.getElementById("vuelosDisponibles").innerHTML= xhr.responseText;
 			}
 		});
-	}else{
-		msgAlert('Error..','no puede llevar bebes en clase VIP')
+	}else
+	{
+		msgAlert(translator.get("Error"), translator.get("Nuestras disculpas. No puede llevar bebes en clase VIP."))
 	}
 
 }
@@ -195,7 +196,7 @@ function passCount()
 		$('#pax #lbBaby').text(baby);
 		
 		count= adult + kid + baby;
- 		document.getElementById('opPasajeros').value=(count + " pasajero(s)");
+ 		document.getElementById('opPasajeros').value=(count + " " + translator.get("pasajero(s)"));
 		
 	});
 }

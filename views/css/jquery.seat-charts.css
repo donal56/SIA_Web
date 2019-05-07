@@ -42,14 +42,6 @@ div.seatCharts-row:after {
 	clear: both;
 }
 
-div.seatCharts-seat.selected {
-	background-color: aqua;
-}
-
-div.seatCharts-seat.focused {
-	background-color: #6db131;
-}
-
 div.seatCharts-seat.available {
 	background-color: green;
 }

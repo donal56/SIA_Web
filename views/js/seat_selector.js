@@ -43,14 +43,14 @@ function initSeater(vip, ejecutivo, turista, clase)
 			{
 				node : $('#legend'),
 				items : [
-					// [ 'v', (clase != 'VIP') ? 'unavailable' : 'available',   'VIP' ],
-					// [ 'e', (clase != 'Ejecutivo') ? 'unavailable' : 'available',   'Ejecutivo'],
-					// [ 't', (clase != 'Turista') ? 'unavailable' : 'available',   'Turista'],
-					// [ 'f', 'unavailable', 'Reservado']
-					[ 'v', 'available',   'VIP' ],
-					[ 'e', 'available',   'Ejecutivo'],
-					[ 't', 'available',   'Turista'],
+					[ 'v', (clase != 'VIP') ? 'unavailable' : 'available',   'VIP' ],
+					[ 'e', (clase != 'Ejecutivo') ? 'unavailable' : 'available',   'Ejecutivo'],
+					[ 't', (clase != 'Turista') ? 'unavailable' : 'available',   'Turista'],
 					[ 'f', 'unavailable', 'Reservado']
+					// [ 'v', 'available',   'VIP' ],
+					// [ 'e', 'available',   'Ejecutivo'],
+					// [ 't', 'available',   'Turista'],
+					// [ 'f', 'unavailable', 'Reservado']
 				]					
 			},
 			click   : function() 
