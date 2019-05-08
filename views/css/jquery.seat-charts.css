@@ -140,7 +140,22 @@ div.seatCharts-seat.available
 
 div.seatCharts-seat.unavailable 
 {
-	background-color: #472B34;
+	background-color: #151515;
+}
+
+div.seatCharts-seat.unavailableV
+{
+	background-color: #272727;
+}
+
+div.seatCharts-seat.unavailableE
+{
+	background-color: #434343;
+}
+
+div.seatCharts-seat.unavailableT
+{
+	background-color: #707070;
 }
 
 div.seatCharts-container 

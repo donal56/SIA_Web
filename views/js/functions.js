@@ -6,12 +6,11 @@ var winMsg;
 var panel;
 var translator;
 var langCombo;
-var lgg;
 
 $(window).on('load',function() 
 {
 	'use strict';
-	translator = $('body').translate({lang: lgg});
+	translator = $('body').translate({lang: localStorage.getItem("lang")});
 	document.getElementById('opPasajeros').value=("");
 	$("#loader").fadeOut("slow");
 });
@@ -27,21 +26,22 @@ function initDHTMLX()
 	langCombo = dhtmlXComboFromSelect("language");
 	langCombo.readonly(true);
 	langCombo.disableAutocomplete();
+	langCombo.selectOption(localStorage.getItem('lang') == 'es' ? 0 : 1);
 	
 	langCombo.attachEvent('onChange', function(value, text)
 	{
 		switch(value) 
 		{    	
 			case "es-MX":
-				lgg= "es";
+				localStorage.setItem("lang", "es");
 				break;
 			case "en-US":
-				lgg= "en";
+				localStorage.setItem("lang", "en");
 				break;
 		}	
-		translator.lang(lgg);
+		translator.lang(localStorage.getItem("lang"));
 		actualizarFormLog(true);
-		document.getElementById('opPasajeros').value=(count + " " + translator.get("pasajero(s)"));
+		document.getElementById('opPasajeros').value= "";
 		
 	});
 }

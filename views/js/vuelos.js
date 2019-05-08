@@ -58,7 +58,7 @@ function showDetails(inp, precio)
 		pops = new dhtmlXPopup();
 	}
 
-	var html= "<span class= 'trn'>Boleto normal</span>: $" + precio + "<br><span class= 'trn'>Boleto para niños</span>: $" + (precio * 0.7) + "<br><span class= 'trn'>Boleto para bebes</span>: $" + (precio * 0.5);
+	var html= "<span class= 'trn'>Boleto normal</span>: $" + precio.toFixed(1) + "<br><span class= 'trn'>Boleto para niños</span>: $" + (precio * 0.7).toFixed(1) + "<br><span class= 'trn'>Boleto para bebes</span>: $" + (precio * 0.5).toFixed(1);
 	pops.attachHTML(html);
 
 	var x = window.dhx4.absLeft(inp);
