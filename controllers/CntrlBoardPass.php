@@ -92,6 +92,6 @@ $pdf->lastPage();
 
 // ---------------------------------------------------------
 //Close and output PDF document
-$pdf->Output($_SERVER['DOCUMENT_ROOT'].'/tcpdf/pdf/'.$_GET["numBoleto"].'.pdf', 'F');
+$pdf->Output($_SERVER['DOCUMENT_ROOT'].'/tcpdf/pdf/'.$_REQUEST["numBoleto"].'.pdf', 'F');
 
 ?>

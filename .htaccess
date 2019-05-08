@@ -1,6 +1,6 @@
-﻿Options -Indexes
+
+Options -Indexes
 DirectoryIndex index.php index.html index.htm 
-AddType application/x-httpd-php .phtml
 
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -20,4 +20,5 @@ AddType application/x-httpd-php .phtml
 
   # Others
   ExpiresByType application/pdf "access plus 1 week"
+  
 </IfModule>
