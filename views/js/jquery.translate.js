@@ -262,9 +262,9 @@
           es: "Confirmado",
           en: "Confirmed"
         },
-		"Gracias por tu preferencia.": 
+		"Gracias por su preferencia": 
 		{
-          es: "Gracias por tu preferencia.",
+          es: "Gracias por su preferencia",
           en: "Thanks for your preference"
         },
 		"Hemos adjuntado a este correo su pase de abordar": 
@@ -476,6 +476,16 @@
 		{
 			es: "Vuelo",
 			en: "Flight"
+		},
+		"Pagado":
+		{
+			es: "Pagado",
+			en: "Paid"
+		},
+		"Revise su tarjeta":
+		{
+			es: "Revise su tarjeta",
+			en: "Check your card"
 		}
       }
     };
@@ -516,6 +526,31 @@
     this.g = this.get;
 
 
+
+	this.getl = function(index, lang) {
+      var res = index;
+
+      try {
+        res = t[index][lang];
+      }
+      catch (err) {
+        //not found, return index
+        return index;
+      }
+      
+      if (res)
+        return res;
+      else
+        return index;
+    };
+	
+	
+	
+	this.getlang = function() {
+        return lang;
+    };
+	
+	
     
     //main
     this.find(settings.css).each(function(i) {

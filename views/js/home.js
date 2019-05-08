@@ -19,7 +19,7 @@ $('#tipo').change(function ()
 {
 	'use strict';
 
-	if ($(this).val() === translator.get("Sencillo")) 
+	if ($(this).val() == translator.get("Sencillo")) 
 	{
 		$("#opFechaReg").val("");
 		calendar.setSensitiveRange( new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), null);
@@ -61,13 +61,13 @@ function recuperarVuelos()
 					method: 'GET',
 					url: 'controllers/CntrlVuelo.php',
 					data: 	{ 
-						tipo : $('#tipo').val(), 
-						ori : $('#origen').val(), 
-						des : $('#destino').val(),
+						tipo : translator.get($('#tipo').val(), "es"), 
+						ori : translator.get($('#origen').val(), "es"), 
+						des : translator.get($('#destino').val(), "es"),
 						pas1 : adult,
 						pas2 : kid,
 						pas3 : baby,
-						clase : $('#clase').val(), 
+						clase : translator.get($('#clase').val(), "es"), 
 						f1 : $('#opFechaSal').val(), 
 						f2 : $('#opFechaReg').val() 
 					},
@@ -81,11 +81,11 @@ function recuperarVuelos()
 				}
 			});
 		}else{
-		msgAlert(translator.get('Error..'),translator.get("Por favor, ingrese todos los datos"))
+		msgAlert(translator.get('Error'),translator.get("Por favor, ingrese todos los datos"))
 		}
 		
 	}else{
-		msgAlert(translator.get('Error..'),'no puede llevar bebes en clase VIP')
+		msgAlert(translator.get('Error'),'No puede llevar bebes en clase VIP')
 	
 	}
 }

@@ -6,11 +6,12 @@ var winMsg;
 var panel;
 var translator;
 var langCombo;
+var lgg;
 
 $(window).on('load',function() 
 {
-	'use strict';	
-	translator = $('body').translate({lang: "es"});
+	'use strict';
+	translator = $('body').translate({lang: lgg});
 	document.getElementById('opPasajeros').value=("");
 	$("#loader").fadeOut("slow");
 });
@@ -32,12 +33,13 @@ function initDHTMLX()
 		switch(value) 
 		{    	
 			case "es-MX":
-				translator.lang("es");
+				lgg= "es";
 				break;
 			case "en-US":
-				translator.lang("en");
+				lgg= "en";
 				break;
 		}	
+		translator.lang(lgg);
 		actualizarFormLog(true);
 		document.getElementById('opPasajeros').value=(count + " " + translator.get("pasajero(s)"));
 		
@@ -378,21 +380,20 @@ function pay(){
         (mul = 3 - mul); // (mul = 3 - mul);
     }
    if(formEmpty("#formPay")){
-	    $("#info").text("Ingrese todos los datos");
+	    $("#info").text(translator.get("Por favor, ingrese todos los datos"));
    }else if (((sum%10 === 0) && (sum > 0))){
 	   sendTicket();
    }else{
-	    $("#info").text("Revisa su tarjeta");
+	    $("#info").text(translator.get("Revise su tarjeta"));
    }
 }
 
 function sendTicket(){
 	'use strict';
 	//TODO: post php ticket controller
-	msgAlert("pagado","Gracias por tu preferencia");
+	msgAlert(translator.get("Pagado"),translator.get("Gracias por su preferencia"));
 	
 }
-
 
 $(window).on('load', resize);
 $(window).on('resize', resize);
