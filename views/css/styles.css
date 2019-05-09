@@ -439,17 +439,17 @@ div.dhxwin_text{font-weight: bold;}
 
 #formPay{
 	margin: 1em auto 0px;
-	padding: 1em;
+	padding: 1em ;
     width: 80%;
 	overflow: hidden;
 	font-family: Segoe UI;
-	font-size:calc(8px + .6vw);
+	font-size:calc(6px + .4vw);
 	background-color: #BBEAFB;
-	border-radius: 20px;
+	border-radius: 10px;
 		
 }
 
-#formPay span{
+#formPay div{
 	display: inline-block;
 	width: 100%;
 	margin-bottom: 3%;
