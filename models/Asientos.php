@@ -70,7 +70,7 @@ LABEL;
 		{
 			// do again
 			$cad = $cad . <<<LABEL
-			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $adultos, $niños, $bebes, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></button></form></div>
+			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 5px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $adultos, $niños, $bebes, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></button></form></div>
 LABEL;
 		}
 		

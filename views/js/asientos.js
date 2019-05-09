@@ -4,19 +4,6 @@ var aux= "";
 var arrP;
 var sc;
 
-$(function()
-{
-	'use strict';
-    $('.divider').ready(initSeatCalendars());
-});
-
-function initSeatCalendars()
-{
-	'use strict';
-	calendar = new dhtmlXCalendarObject(["bday0", "bday1"]);
-	calendar.hideTime();
-}
-
 function initSeater(vip, ejecutivo, turista, clase, arr)
 {	
 	'use strict';
@@ -138,12 +125,12 @@ function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1
 						},
 				success: function(response) 
 				{
-				   document.getElementById("procesadorDePagos").innerHTML= response;
+				   
 
 				},
 				error: function(xhr, status, error)
 				{
-				   document.getElementById("procesadorDePagos").innerHTML= xhr.responseText;
+				   
 				}
 			});
 		}
