@@ -7,9 +7,10 @@ class moAsientos
 		$vip= $this -> getLastSeat("VIP", $v);
 		$eje= $this -> getLastSeat("Ejecutivo", $v);
 		$tur= $this -> getLastSeat("Turista", $v);
+		$arr= json_encode($this -> getBookedSeats($v));
 		
 		$cad= <<<LABEL
-			<div id="divSeat" class="wrapper" onload="  initSeater($vip, $eje , $tur , '$clase');">
+		<div id='divSeat' class= 'wrapper' onload= 'initSeater($vip, $eje, $tur, "$clase", $arr)'>
 				<div class="container">
 					<h1><span class= "trn">Reserve sus asientos</span> (<span class= "trn">$clase</span>)</h1>
 					<div id="seat-map">
@@ -17,7 +18,7 @@ class moAsientos
 				</div>
 					<div id="legend"></div>
 				</div>
-			</div>
+			</div> 
 LABEL;
 		
 		return $cad;
@@ -46,7 +47,7 @@ LABEL;
 		return intval($str);
 	}
 	
-	public function getPasajeros($adult, $niñ, $beb)
+	public function getPasajeros($tipo, $origen, $destino, $adult, $niñ, $beb, $clase, $f1, $f2, $v1, $v2, $payment)
 	{
 		$adultos= intval($adult);
 		$niños= intval($niñ);
@@ -56,28 +57,40 @@ LABEL;
 		
 		for ($i= 0; $i < ($adultos + $niños + $bebes); $i++)
 		{	
-		$cad= $cad . "<span class= 'divider'><span class= 'trn'>Nombre</span>: <input type= 'text' name= 'name" . $i . "'></input><span class= 'trn'>Asiento</span>: <input type= 'text' name= 'seat" . $i . "'></input><span class= 'trn'>Fecha de Nac.</span><input id= 'bday' type= 'text' name= 'bday" . $i . "></span>";
+		$cad= $cad . "<span class= 'divider'><span class= 'trn'>Nombre</span>: <input type= 'text' name= 'name" . $i . "'></input><span class= 'trn'>Asiento</span>: <input type= 'text' name= 'seat" . $i . "'></input><span class= 'trn'>Fecha de Nac.</span><input id= 'bday" . $i . "' type= 'date' name= 'bday" . $i . "'></input></span>";
 		}
 		
-		$cad = $cad . "<br><input type= 'button' onClick= \"validate();\"><span class= 'trn'>Continuar</span></input></form></div>";
+		if($payment)
+		{
+			$cad = $cad . <<<LABEL
+			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $pas1, $pas2, $pas3, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></input></form></div>
+LABEL;
+		}
+		else
+		{
+			// do again
+			$cad = $cad . <<<LABEL
+			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $adultos, $niños, $bebes, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></button></form></div>
+LABEL;
+		}
 		
 		return $cad;
 	}
 	
-	public function x($id)
+	public function getBookedSeats($id)
 	{
-		$str= "select noAsiento from boletos where vuelos_idvuelo = " . $id . " and status= 1";
+		$str= "select noAsiento from boletos where vuelos_idvuelo = " . $id;
 		
+		$result = array(); 
 		$connection = new Connection();
-		$result = array();
-		$stm = $connection->getStatement($str); 
-
-		while ($registro= $stm -> fetch_assoc())
-		{
-			$result[] = $registro ;
-		}
+		$stm = $connection->getStatement($str);
 		
-		$stm -> free();
+		for($j= 0; $j < $stm->num_rows; $j++)
+		{		
+			$row = mysqli_fetch_array($stm);
+			$result[$j]=  $row['noAsiento'];
+		}
+
 		return $result;
 	}
 }

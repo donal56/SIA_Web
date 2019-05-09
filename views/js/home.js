@@ -61,9 +61,9 @@ function recuperarVuelos()
 					method: 'GET',
 					url: 'controllers/CntrlVuelo.php',
 					data: 	{ 
-						tipo : translator.get($('#tipo').val(), "es"), 
-						ori : translator.get($('#origen').val(), "es"), 
-						des : translator.get($('#destino').val(), "es"),
+						tipo : translator.getl($('#tipo').val(), "es"), 
+						ori : translator.getl($('#origen').val(), "es"), 
+						des : translator.getl($('#destino').val(), "es"),
 						pas1 : adult,
 						pas2 : kid,
 						pas3 : baby,

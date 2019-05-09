@@ -16,17 +16,19 @@
 	$f2= $_GET['f2'];
 	$v1= $_GET['v1'];
 	$v2;
+	$isRound= false;
 	
 	if(!isset($_GET['v2']))
 	{
-		$v2= $_GET['v2']= '00-00-00';
+		$v2= $_GET['v2']= '00-00-00';		
 	}
 	else
 	{	
 		$v2= $_GET['v2'];
+		$isRound= $isRound xor true;
 	}
 	
-	$asientos = $a -> getPasajeros($_GET['pas1'], $_GET['pas2'], $_GET['pas3']);
+	$asientos = $a -> getPasajeros($tipo, $origen, $destino, $pas1, $pas2, $pas3, $clase, $f1, $f2, $v1, $v2, $isRound);
 	
 	$asientos= $asientos . $a -> getSeater($clase, $v1);
 	

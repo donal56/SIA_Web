@@ -227,10 +227,10 @@
           es: "Por favor, ingrese todos los datos",
           en: "Please fill all the data."
         },
-		"Asientos": 
+		"Asiento": 
 		{
-          es: "Asientos",
-          en: "Seats"
+          es: "Asiento",
+          en: "Seat"
         },
 		"Check-in": 
 		{
@@ -486,6 +486,26 @@
 		{
 			es: "Revise su tarjeta",
 			en: "Check your card"
+		},
+		"Reservado":
+		{
+			es: "Reservado",
+			en: "Booked"
+		},
+		"Por favor, revise que los datos sean correctos":
+		{
+			es: "Por favor, revise que los datos sean correctos",
+			en: "Please check all the information is correct"
+		},
+		"Revise que haya elegido asientos disponibles y que las fechas de nacimiento sean correctas a la categoría de edad":
+		{
+			es: "Revise que haya elegido asientos disponibles y que las fechas de nacimiento sean correctas a la categoría de edad",
+			en: "Confirm you selected seats that are available and birthdates according to the age category"
+		},
+		"Precio":
+		{
+			es: "Precio",
+			en: "Price"
 		}
       }
     };

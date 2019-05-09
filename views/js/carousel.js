@@ -28,7 +28,7 @@ var Conclave=(function(){
 			var buarr=["holder_bu_awayL2","holder_bu_awayL1","holder_bu_center","holder_bu_awayR1","holder_bu_awayR2"];
 			for(var i=1;i<=buarr.length;++i){
 				$("#bu"+i).removeClass().addClass(buarr[i-1]+" holder_bu");
-				document.getElementById("bu"+i).style.backgroundImage = "url(views/img/destinos/" + $("#bu"+i+" p").text().replace(/ /g,'') + ".jpg)";
+				document.getElementById("bu"+i).style.backgroundImage = "url(views/img/destinos/" + translator.getl(($("#bu"+i+" p").text()), 'es').replace(/ /g,'') + ".jpg)";
 			}
 		},
 		clickReg:function(){
