@@ -58,12 +58,12 @@ function generateWindow(){
 	winMsg.button('park').hide();
 	winMsg.button('minmax').hide();
 	winMsg.button('close').show();
-	winMsg.setDimension($(window).width()/2,$(window).height()/2);
+	winMsg.setDimension($(window).width()/2,$(window).height()/1.7);
 	winMsg.centerOnScreen();
 	
 	$( window ).resize(function() {
 		if(panel.isWindow('msg')){
-			winMsg.setDimension($(window).width()/2,$(window).height()/2);
+			winMsg.setDimension($(window).width()/2,$(window).height()/1.7);
 			winMsg.centerOnScreen();
 		}
 		
