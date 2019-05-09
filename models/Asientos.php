@@ -57,7 +57,7 @@ LABEL;
 		
 		for ($i= 0; $i < ($adultos + $niños + $bebes); $i++)
 		{	
-		$cad= $cad . "<span class= 'divider'><span class= 'trn'>Nombre</span>: <input type= 'text' name= 'name" . $i . "'></input><span class= 'trn'>Asiento</span>: <input type= 'text' name= 'seat" . $i . "'></input><span class= 'trn'>Fecha de Nac.</span><input id= 'bday" . $i . "' type= 'text' name= 'bday" . $i . "'></input></span>";
+		$cad= $cad . "<span class= 'divider'><span class= 'trn'>Nombre</span>: <input type= 'text' name= 'name" . $i . "'></input><span class= 'trn'>Asiento</span>: <input type= 'text' name= 'seat" . $i . "'></input><span class= 'trn'>Fecha de Nac.</span><input id= 'bday" . $i . "' type= 'text' name= 'bday" . $i . "' readonly></input></span>";
 		}
 		
 		if($payment)
