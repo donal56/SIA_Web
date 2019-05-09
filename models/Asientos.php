@@ -53,11 +53,11 @@ LABEL;
 		$niños= intval($niñ);
 		$bebes= intval($beb);
 		
-		$cad= "<div class= 'bloque'><form id= 'f1'>";
+		$cad= "<div class= 'bloque'><form id= 'f1' onload='initSeatCalendars()'>";
 		
 		for ($i= 0; $i < ($adultos + $niños + $bebes); $i++)
 		{	
-		$cad= $cad . "<span class= 'divider'><span class= 'trn'>Nombre</span>: <input type= 'text' name= 'name" . $i . "'></input><span class= 'trn'>Asiento</span>: <input type= 'text' name= 'seat" . $i . "'></input><span class= 'trn'>Fecha de Nac.</span><input id= 'bday" . $i . "' type= 'date' name= 'bday" . $i . "'></input></span>";
+		$cad= $cad . "<span class= 'divider'><span class= 'trn'>Nombre</span>: <input type= 'text' name= 'name" . $i . "'></input><span class= 'trn'>Asiento</span>: <input type= 'text' name= 'seat" . $i . "'></input><span class= 'trn'>Fecha de Nac.</span><input id= 'bday" . $i . "' type= 'text' name= 'bday" . $i . "'></input></span>";
 		}
 		
 		if($payment)
@@ -70,7 +70,7 @@ LABEL;
 		{
 			// do again
 			$cad = $cad . <<<LABEL
-			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 5px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $adultos, $niños, $bebes, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></button></form></div>
+			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $adultos, $niños, $bebes, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></button></form></div>
 LABEL;
 		}
 		

@@ -4,6 +4,16 @@ var aux= "";
 var arrP;
 var sc;
 
+function initSeatCalendars()
+{
+	'use strict';
+	var elements= Number(document.forms["f1"].getElementsByTagName("input").length);
+	for (var n= 0; n < elements; n++)
+	{
+		new dhtmlXCalendarObject("bday" + n).hideTime();
+	}
+}
+
 function initSeater(vip, ejecutivo, turista, clase, arr)
 {	
 	'use strict';
