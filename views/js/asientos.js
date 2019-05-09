@@ -132,8 +132,8 @@ function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1
 							clase : clase, 
 							f1 : f1, 
 							f2 : f2,
-							v1 : vuelo1,
-							v2 : vuelo2,
+							v1 : v1,
+							v2 : v2,
 							pasajeros: arrP
 						},
 				success: function(response) 
