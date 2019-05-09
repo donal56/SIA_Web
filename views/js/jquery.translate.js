@@ -506,6 +506,16 @@
 		{
 			es: "Precio",
 			en: "Price"
+		},
+		"Recuperar Contraseña":
+		{
+			es: "Recuperar Contraseña",
+			en: "Recover password"
+		},
+		"Una nueva contraseña sera enviada a tu correro electrónico":
+		{
+			es: "Una nueva contraseña sera enviada a tu correro electrónico",
+			en: "A new password will be sent to your e-mail"
 		}
       }
     };

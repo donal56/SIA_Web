@@ -24,6 +24,15 @@ LABEL;
 		return $_SESSION['loggedin']; 
 	}
 	
+	public function resetPassword($correo)
+	{
+		$connection = new Connection();
+	
+		$str = "UPDATE usuarios SET contrasena= AES_ENCRYPT('" . randomString(15) . "', 'sia2019') WHERE email= '" . $email. "';";				
+
+		return 0; 	
+	}
+	
 	public function exitSession()
 	{
 		$_SESSION['loggedin'] = false;
@@ -32,7 +41,25 @@ LABEL;
 		return true;
 	}
 	
-	public function registerAccount($email,$pass){
+	public function randomString($len)
+	{
+		$randomString = null;
+		
+		if($len < 8)
+		{	
+			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$size = strlen($characters);
+			
+			for ($i = 0; $i < $len; $i++) 
+			{
+				$randomString .= $characters[rand(0, $len - 1)];
+			}
+		}
+		return preg_match('/\ba-zA-Z0-9\b/', $randomString);
+	}
+	
+	public function registerAccount($email,$pass)
+	{
 		$connection = new Connection();
 
 		$str = <<<LABEL

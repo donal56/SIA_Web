@@ -173,7 +173,7 @@ function showLogin(obj)
 					// var h = t.offsetHeight;
 					// myPopup.show(x,y,w,h);
 					
-					alert(translator.get("¿Olvidaste tu contraseña?"));
+					msgAlert(translator.get("¿Olvidaste tu contraseña?"), translator.get("Una nueva contraseña sera enviada a tu correro electrónico") + ".<br><button type= 'button' class= 'btnSIA' onclick= 'recuperarContraseña(\"" + email +"\");'>" + translator.get("Recuperar Contraseña") + "</button>");
 			});
 			
 			formLog.attachEvent("onButtonClick", function(id)
