@@ -120,17 +120,15 @@ function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1
 				url: 'controllers/CntrlPagos.php',
 				data: 	{ 
 							tipo : tipo,
-							ori : origen, 
-							des : destino,
-							pas1 : adultos,
-							pas2 : niños,
-							pas3 : bebes,
+							cantAdult : adultos,
+							cantKid : niños,
+							cantBaby : bebes,
 							clase : clase, 
 							f1 : f1, 
 							f2 : f2,
 							v1 : v1,
-							v2 : v2,
-							pasajeros: arrP
+							v2 : v2
+							//pasajeros: arrP
 						},
 				success: function(response) 
 				{

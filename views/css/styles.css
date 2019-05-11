@@ -437,6 +437,9 @@ div.dhxwin_text{font-weight: bold;}
 
 /**************payments**************/
 
+#details td {
+	text-align:"center";
+}
 #formPay{
 	margin: 1em auto 0px;
 	padding: 1em ;
