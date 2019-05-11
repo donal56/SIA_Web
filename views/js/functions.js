@@ -365,35 +365,7 @@ function actualizarFormLog(b)
 		formLog.setItemLabel("wantsAnAccount", translator.get("Crear una cuenta nueva"));
 	}
 }
-//maybe move to vuelos.js
-function pay(){
-	//msgHTML("Pagos","views/Payment.phtml"); call with this
-	'use strict';
-	var luhn = $('#cc').val();
-	var ca, sum = 0, mul = 1;
-    var len = luhn.length;
-    while (len--)
-    {
-        ca = parseInt(luhn.charAt(len),10) * mul;
-        sum += ca - (ca>9)*9;// sum += ca - (-(ca>9))|9
-          // 1 <--> 2 toggle.
-        (mul = 3 - mul); // (mul = 3 - mul);
-    }
-   if(formEmpty("#formPay")){
-	    $("#info").text(translator.get("Por favor, ingrese todos los datos"));
-   }else if (((sum%10 === 0) && (sum > 0))){
-	   sendTicket();
-   }else{
-	    $("#info").text(translator.get("Revise su tarjeta"));
-   }
-}
 
-function sendTicket(){
-	'use strict';
-	//TODO: post php ticket controller
-	msgAlert(translator.get("Pagado"),translator.get("Gracias por su preferencia"));
-	
-}
 
 $(window).on('load', resize);
 $(window).on('resize', resize);

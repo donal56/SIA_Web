@@ -15,7 +15,7 @@
 		switch ($_REQUEST["func"]) {
 			case 0:
 
-					if($moBoleto->isValidID($_GET["numBoleto"],$_GET["email"])){
+					if($moBoleto->isValidID($_GET["numBoleto"])){
 						ticketChecked();
 
 					}else{

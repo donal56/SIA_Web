@@ -114,7 +114,6 @@ function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1
 	{
 		if (makesSense(adultos, niños, bebes, clase))
 		{		
-			solicitar("views/Payment.phtml");
 			$.ajax(
 			{
 				method: 'GET',
@@ -135,12 +134,12 @@ function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1
 						},
 				success: function(response) 
 				{
-				   
+				   document.getElementById("content").innerHTML = response;
 
 				},
 				error: function(xhr, status, error)
 				{
-				   
+				   document.getElementById("content").innerHTML="Error";
 				}
 			});
 		}

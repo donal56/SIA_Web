@@ -6,12 +6,11 @@ class moBoletos{
 	private $result;
 	
 
-	public function isValidID($boleto,$email){
+	public function isValidID($boleto){
 		
 		$connection = new Connection();
-		$this-> stm = $connection->getStatement("SELECT idBoleto, email FROM boletos 
-												LEFT JOIN clientes ON clientes_idCliente = idCliente 
-												WHERE idBoleto = '$boleto' and email = '$email'");
+		$this-> stm = $connection->getStatement("SELECT idBoleto FROM boletos 
+												WHERE idBoleto = '$boleto' ");
 		if ($this-> stm ->num_rows != null) {
 			return true;
 			$this->stm -> free();
