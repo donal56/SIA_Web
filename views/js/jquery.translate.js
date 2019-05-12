@@ -25,497 +25,585 @@
         "Usuario": 
 		{
           es: "Usuario",
-          en: "User"
+          en: "User",
+		  fr: "Utilisateur"
         },
 		"Iniciar sesión": 
 		{
           es: "Iniciar sesión",
-          en: "Log in"
+          en: "Log in",
+		  fr: "Commencer la session"
         },
 		"Correo electrónico": 
 		{
           es: "Correo electrónico",
-          en: "E-mail"
+          en: "E-mail",
+		  fr: "Courrier électronique"
         },
 		"Contraseña": 
 		{
           es: "Contraseña",
-          en: "Password"
+          en: "Password",
+		  fr: "Mot de passe"
         },
 		"La contraseña debe contener por lo menos 8 carácteres, incluyendo mayúsculas, minúsculas y números.": 
 		{
           es: "La contraseña debe contener por lo menos 8 carácteres, incluyendo mayúsculas, minúsculas y números.",
-          en: "The password must contain at least 8 characters, including uppercase letters, lowercase letters and numbers."
+          en: "The password must contain at least 8 characters, including uppercase letters, lowercase letters and numbers.",
+		  fr: "Le mot de passe doit contenir au moins 8 caractères, y compris les majuscules, les minuscules et les chiffres."
         },
 		"Crear una cuenta nueva": 
 		{
           es: "Crear una cuenta nueva",
-          en: "Create a new account"
-        },
-		"Iniciar sesión": 
-		{
-          es: "Iniciar sesión",
-          en: "Log in"
+          en: "Create a new account",
+		  fr: "Créer un nouveau compte"
         },
 		"Registrarse": 
 		{
           es: "Registrarse",
-          en: "Sign up"
+          en: "Sign up",
+		  fr: "S'inscrire"
         },
 		"¿Olvidaste tu contraseña?": 
 		{
           es: "¿Olvidaste tu contraseña?",
-          en: "Forgot password?"
+          en: "Forgot password?",
+		  fr: "Vous avez oublié votre mot de passe?"
         },
 		"¡Bienvenido!": 
 		{
           es: "¡Bienvenido!",
-          en: "Welcome!"
+          en: "Welcome!",
+		  fr: "Bienvenue!"
         },
-		"Inicio de sesión exitoso.": 
+		"Inicio de sesión exitoso": 
 		{
-          es: "Inicio de sesión exitoso.",
-          en: "Succesful log in;"
+          es: "Inicio de sesión exitoso",
+          en: "Succesful log in;",
+		  fr: "Début de session réussie"
         },
-		"Correo y/o contraseña incorrectos.": 
+		"Correo y/o contraseña incorrectos": 
 		{
-          es: "Correo y/o contraseña incorrectos.",
-          en: "Wrong e-mail and/or password"
+          es: "Correo y/o contraseña incorrectos",
+          en: "Wrong e-mail and/or password",
+		  fr: "Email et / ou mot de passe incorrect"
         },
 		"Error":
 		{
 			es: "Error",
-			en: "Error"
+			en: "Error",
+			fr: "Erreur"
 		},
 		"Sesión cerrada": 
 		{
           es: "Sesión cerrada",
-          en: "Session closed"
+          en: "Session closed",
+		  fr: ""
         },
 		"Error al cerrar sesión": 
 		{
           es: "Error al cerrar sesión",
-          en: "Error login out"
+          en: "Error login out",
+		  fr: "Session fermée"
         },
 		"¡Gracias por Registrarte!": 
 		{
           es: "¡Gracias por Registrarte!",
-          en: "Thanks for signing up!"
+          en: "Thanks for signing up!",
+		  fr: "Merci de vous être inscrit!"
         },
 		"Mensaje enviado": 
 		{
           es: "Mensaje enviado",
-          en: "E-mail sent"
+          en: "E-mail sent",
+		  fr: "Message envoyé"
         },
 		"Sencillo": 
 		{
           es: "Sencillo",
-          en: "One way"
+          en: "One way",
+		  fr: "Aller Simple"
         },
 		"Redondo": 
 		{
           es: "Redondo",
-          en: "Round trip"
+          en: "Round trip",
+		  fr: "Aller retour"
         },
 		"Tipo": 
 		{
           es: "Tipo",
-          en: "Type"
+          en: "Type",
+		  fr: "Type"
         },
 		"Origen": 
 		{
           es: "Origen",
-          en: "Origin"
+          en: "Origin",
+		  fr: "Origine"
         },
 		"Destino": 
 		{
           es: "Destino",
-          en: "Destination"
-        },
-		"Ciudad de México": 
-		{
-          es: "Ciudad de México",
-          en: "Mexico City"
+          en: "Destination",
+		  fr: "Destination"
         },
 		"Pasajeros": 
 		{
           es: "Pasajeros",
-          en: "Passengers"
+          en: "Passengers",
+		  fr: "Passagers"
         },
 		"¡Descubre!": 
 		{
           es: "¡Descubre!",
-          en: "¡Discover!"
+          en: "¡Discover!",
+		  fr: "Découvrez!"
         },
 		"Nuestras disculpas. No puede llevar bebes en clase VIP.":
 		{
 			es: "Nuestras disculpas. No puede llevar bebes en clase VIP.",
-			en: "Our apologies. You can't bring babies in the VIP class."
+			en: "Our apologies. You can't bring babies in the VIP class.",
+			fr: "Nos excuses Vous ne pouvez pas amener des bébés en classe premiere"
 		},
 		"pasajero(s)": 
 		{
           es: "pasajero(s)",
-          en: "passenger(s)"
+          en: "passenger(s)",
+		  fr: "passager(s)"
         },
 		"Adultos": 
 		{
           es: "Adultos",
-          en: "Adults"
+          en: "Adults",
+		  fr: "Adultes"
         },
 		"Menores": 
 		{
           es: "Menores",
-          en: "Minors"
+          en: "Minors",
+		  fr: "Enfants"
         },
 		"Bebes": 
 		{
           es: "Bebes",
-          en: "Infants"
+          en: "Infants",
+		  fr: "Bébés"
         },
 		"Clase": 
 		{
           es: "Clase",
-          en: "Class"
+          en: "Class",
+		  fr: "Classe"
         },
 		"VIP": 
 		{
           es: "VIP",
-          en: "VIP"
+          en: "VIP",
+		  fr: "Premiere"
         },
 		"Ejecutivo": 
 		{
           es: "Ejecutivo",
-          en: "Executive"
+          en: "Executive",
+		  fr: "Exécutif"
         },
 		"Turista": 
 		{
           es: "Turista",
-          en: "Economy class"
+          en: "Economy class",
+		  fr: "Touriste"
         },
 		"Fecha de Salida": 
 		{
           es: "Fecha de Salida",
-          en: "Departing date"
+          en: "Departing date",
+		  fr: "Date de sortie"
         },
 		"Fecha de Regreso": 
 		{
           es: "Fecha de Regreso",
-          en: "Return date"
+          en: "Return date",
+		  fr: "Date de retour"
         },
 		"Buscar Vuelos": 
 		{
           es: "Buscar Vuelos",
-          en: "Search flights"
+          en: "Search flights",
+		  fr: "Rechercher des vols"
         },
 		"Col. Nueva Villahermosa": 
 		{
           es: "Col. Nueva Villahermosa",
-          en: "Suburb Nueva Villahermosa"
+          en: "Suburb Nueva Villahermosa",
+		  fr: "Banlieue Nueva Villahermosa"
         },
 		"Calle Progreso #120 Piso 7": 
 		{
           es: "Calle Progreso #120 Piso 7",
-          en: "Progreso street #120 7th floor"
+          en: "Progreso street #120 7th floor",
+		  fr: "Rue Progreso #120 7éme étage"
         },
 		"Contacto (993) 297 82 61": 
 		{
           es: "Contacto (993) 297 82 61",
-          en: "Contact us (993) 297 82 61"
+          en: "Contact us (993) 297 82 61",
+		  fr: "Contact (993) 297 82 61"
         },
 		"Por favor, ingrese todos los datos": 
 		{
           es: "Por favor, ingrese todos los datos",
-          en: "Please fill all the data."
+          en: "Please fill all the data.",
+		  fr: "S'il vous plaît, entrez toutes les données"
         },
 		"Asiento": 
 		{
           es: "Asiento",
-          en: "Seat"
+          en: "Seat",
+		  fr: "Siège"
         },
 		"Check-in": 
 		{
           es: "Check-in",
-          en: "Check-in"
+          en: "Check-in",
+		  fr: "Check-in"
         },
 		"Ingrese sus datos": 
 		{
           es: "Ingrese sus datos",
-          en: "Fill with your data"
+          en: "Fill with your data",
+		  fr: "Entrez vos données"
         },
 		"Número de boleto": 
 		{
           es: "Número de boleto",
-          en: "Ticket number"
+          en: "Ticket number",
+		  fr: "Numéro de billet"
         },
 		"Continuar": 
 		{
           es: "Continuar",
-          en: "Continue"
+          en: "Continue",
+		  fr: "Continuer"
         },
 		"Consigue tu pase de abordar electronico para ahorrar tiempo": 
 		{
           es: "Consigue tu pase de abordar electronico para ahorrar tiempo",
-          en: "Get your electronic pass board to save time"
+          en: "Get your electronic pass board to save time",
+		  fr: "Obtenez votre carte d'embarquement électronique pour gagner du temps"
         },
 		"Confirmado": 
 		{
           es: "Confirmado",
-          en: "Confirmed"
+          en: "Confirmed",
+		  fr: "Confirmé"
         },
 		"Gracias por su preferencia": 
 		{
           es: "Gracias por su preferencia",
-          en: "Thanks for your preference"
+          en: "Thanks for your preference",
+		  fr: "Merci pour votre choix"
         },
 		"Hemos adjuntado a este correo su pase de abordar": 
 		{
           es: "Hemos adjuntado a este correo su pase de abordar",
-          en: "We have attached your pass board in this mail"
+          en: "We have attached your pass board in this mail",
+		  fr: "Nous avons joint votre carte d'embarquement à cet email."
         },
 		"recuerda": 
 		{
           es: "recuerda",
-          en: "remember"
+          en: "remember",
+		  fr: "souvenir"
         },
 		"imprimir y tener a la mano su pase para poder abordar su vuelo": 
 		{
           es: "imprimir y tener a la mano su pase para poder abordar su vuelo",
-          en: "to print and bring your pass so you can board your flight"
+          en: "to print and bring your pass so you can board your flight",
+		  fr: "imprimez et ayez votre passe sous la main pour pouvoir embarquer sur votre vol"
         },
 		"Aeroalpes ®  - Grupo Alpes": 
 		{
           es: "Aeroalpes ®  - Grupo Alpes",
-          en: "Aeroalpes ®  - Alpes Group"
+          en: "Aeroalpes ®  - Alpes Group",
+		  fr: "Aeroalpes ®  - Alpes Groupe"
         },
 		"Registrado": 
 		{
           es: "Registrado",
-          en: "Logged in"
+          en: "Logged in",
+		  fr: "Enregistré"
         },
 		"¡Bienvenido a Aeroalpes!": 
 		{
           es: "¡Bienvenido a Aeroalpes!",
-          en: "Welcome to Aeroalpes!"
+          en: "Welcome to Aeroalpes!",
+		  fr: "Bienvenue chez Aeroalpes!"
         },
 		"gracias por registrarte": 
 		{
           es: "gracias por registrarte",
-          en: "thanks for signing up"
+          en: "thanks for signing up",
+		  fr: "merci de vous inscrire"
         },
 		"ahora tienes acceso a muchos de nuestros servicios": 
 		{
           es: "ahora tienes acceso a muchos de nuestros servicios",
-          en: "now you have access to many of our services"
+          en: "now you have access to many of our services",
+		  fr: "vous avez maintenant accès à plusieurs de nos services"
         },
 		"¡Buen viaje!": 
 		{
           es: "¡Buen viaje!",
-          en: "Good trip!"
+          en: "Good trip!",
+		  fr: "Bon voyage!"
         },
 		"Vuelos": 
 		{
           es: "Vuelos",
-          en: "Flights"
+          en: "Flights",
+		  fr: "Vols"
         },
 		"Nombre": 
 		{
           es: "Nombre",
-          en: "First name"
+          en: "First name",
+		  fr: "Nom"
         },
 		"Apellidos": 
 		{
           es: "Apellidos",
-          en: "Last name"
+          en: "Last name",
+		  fr: "Nom de famille"
 		},
 		"Número de tarjeta": 
 		{
           es: "Número de tarjeta",
-          en: "Card number"
+          en: "Card number",
+		  fr: "Numéro de carte"
         },
 		"Expiración": 
 		{
           es: "Expiración",
-          en: "Expiration"
+          en: "Expiration",
+		  fr: "Expiration"
         },
 		"CVV": 
 		{
           es: "CVV",
-          en: "CVV"
+          en: "CVV",
+		  fr: "CVV"
         },
 		"Pagar": 
 		{
           es: "Pagar",
-          en: "Pay"
+          en: "Pay",
+		  fr: "Payer"
         },
 		"Seleccione el vuelo que desee para cada trayecto": 
 		{
           es: "Seleccione el vuelo que desee para cada trayecto",
-          en: "Select the flight you´ll attend for each trip"
+          en: "Select the flight you´ll attend for each trip",
+		  fr: "Sélectionnez le vol que vous voulez pour chaque voyage"
         },
 		"!Imprime tu pase de abordar!": 
 		{
           es: "!Imprime tu pase de abordar!",
-          en: "!Print your board pass!"
+          en: "!Print your board pass!",
+		  fr: "Imprimez votre carte d'embarquement!"
         },
 		"Presione para confirmar su boleto con el número": 
 		{
           es: "Presione para confirmar su boleto con el número",
-          en: "Press to confirm your ticket with the identification number"
+          en: "Press to confirm your ticket with the identification number",
+		  fr: "Appuyez sur pour confirmer votre billet avec le numéro"
         },
 		"Se enviará el pase de abordar a su correo": 
 		{
           es: "Se enviará el pase de abordar a su correo",
-          en: "The pass board will be sent to your mail"
+          en: "The pass board will be sent to your mail",
+		  fr: "La carte d'embarquement sera envoyée à votre adresse email"
         },
 		"No se encontro el boleto con el número": 
 		{
           es: "No se encontro el boleto con el número",
-          en: "Not found. Please check the ticket with the identification number"
+          en: "Not found. Please check the ticket with the identification number",
+		  fr: "Le billet avec le numéro n'a pas été trouvé"
         },
 		"El boleto con número": 
 		{
           es: "El boleto con número",
-          en: "The ticket with the identification number"
+          en: "The ticket with the identification number",
+		  fr: "Le billet avec le numéro"
         },
 		"a sido confirmado": 
 		{
           es: "a sido confirmado",
-          en: "has been confirmed"
+          en: "has been confirmed",
+		  fr: "a été confirmé"
         },
 		"se ha enviado el pase de abordar a su correo": 
 		{
           es: "se ha enviado el pase de abordar a su correo",
-          en: "the board pass has been sent to your mail"
+          en: "the board pass has been sent to your mail",
+		  fr: "la carte d'embarquement a été envoyée à votre courrier"
         },
 		"Contacte al servicio a clientes de AeroAlpes": 
 		{
           es: "Contacte al servicio a clientes de AeroAlpes",
-          en: "Please contact AeroAlpes customer service"
+          en: "Please contact AeroAlpes customer service",
+		  fr: "Contacter le service clients AeroAlpes"
         },
 		"Su correo": 
 		{
           es: "Su correo",
-          en: "Your e-mail"
+          en: "Your e-mail",
+		  fr: "Votre mail"
         },
 		"Lo sentimos, no hemos confirmar su boleto con el número": 
 		{
           es: "Lo sentimos, no hemos confirmar su boleto con el número",
-          en: "We're sorry, we couldn't confirm the ticket with the number"
+          en: "We're sorry, we couldn't confirm the ticket with the number",
+		  fr: "Désolé, nous n'avons pas confirmé votre billet avec le numéro"
         },
 		"a sido confirmado": 
 		{
           es: "a sido confirmado",
-          en: "has been confirmed"
+          en: "has been confirmed",
+		  fr: "a été confirmé"
         },
 		"revise su correo para confirmar!": 
 		{
           es: "revise su correo para confirmar!",
-          en: "check your mail to confirm"
+          en: "check your mail to confirm",
+		  fr: "vérifiez votre courrier pour confirmer!"
         },
 		"Reserve sus asientos": 
 		{
           es: "Reserve sus asientos",
-          en: "Reserve your seats"
+          en: "Reserve your seats",
+		  fr: "Réservez vos places"
         },
 		"Frente": 
 		{
           es: "Frente",
-          en: "Front"
+          en: "Front",
+		  fr: "De face"
         },
 		"Asientos": 
 		{
           es: "Asientos",
-          en: "Seats"
+          en: "Seats",
+		  fr: "Places"
         },
 		"Fecha de Nac.": 
 		{
           es: "Fecha de Nac.",
-          en: "Birth date"
+          en: "Birth date",
+		  fr: "Cate de naissance"
         },
 		"Continuar": 
 		{
           es: "Continuar",
-          en: "Continue"
+          en: "Continue",
+		  fr: "Continuer"
         },
 		"Ida": 
 		{
           es: "Ida",
-          en: "Departure"
+          en: "Departure",
+		  fr: "Départ"
         },
 		"Regreso": 
 		{
           es: "Regreso",
-          en: "Comeback"
+          en: "Comeback",
+		  fr: "Reviens"
         },
 		"Boleto normal": 
 		{
           es: "Boleto normal",
-          en: "Normal ticket"
+          en: "Normal ticket",
+		  fr: "Billet normal"
         },
 		"Boleto para niños": 
 		{
           es: "Boleto para niños",
-          en: "Kids ticket"
+          en: "Kids ticket",
+		  fr: "Billet pour enfants"
         },
 		"Boleto para bebes": 
 		{
           es: "Boleto para bebes",
-          en: "Infant ticket"
+          en: "Infant ticket",
+		  fr: "Billet bébé"
         },
 		"Elegir": 
 		{
           es: "Elegir",
-          en: "Select"
+          en: "Select",
+		  fr: "Sélectionner"
         },
 		"No hay vuelos disponibles :(": 
 		{
           es: "No hay vuelos disponibles :(",
-          en: "There are no flights available :("
+          en: "There are no flights available :(",
+		  fr: "Il n'y a pas de vols disponibles :("
         },
 		"Vuelo":
 		{
 			es: "Vuelo",
-			en: "Flight"
+			en: "Flight",
+			fr: "Vol"
 		},
 		"Pagado":
 		{
 			es: "Pagado",
-			en: "Paid"
+			en: "Paid",
+			fr: "Payé"
 		},
 		"Revise su tarjeta":
 		{
 			es: "Revise su tarjeta",
-			en: "Check your card"
+			en: "Check your card",
+			fr: "Vérifiez votre carte"
 		},
 		"Reservado":
 		{
 			es: "Reservado",
-			en: "Booked"
+			en: "Booked",
+			fr: "Réservé"
 		},
 		"Por favor, revise que los datos sean correctos":
 		{
 			es: "Por favor, revise que los datos sean correctos",
-			en: "Please check all the information is correct"
+			en: "Please check all the information is correct",
+			fr: ""
+			
 		},
 		"Revise que haya elegido asientos disponibles y que las fechas de nacimiento sean correctas a la categoría de edad":
 		{
 			es: "Revise que haya elegido asientos disponibles y que las fechas de nacimiento sean correctas a la categoría de edad",
-			en: "Confirm you selected seats that are available and birthdates according to the age category"
+			en: "Confirm you selected seats that are available and birthdates according to the age category",
+			fr: "S'il vous plaît, vérifiez que les données sont correctes"
 		},
 		"Precio":
 		{
 			es: "Precio",
-			en: "Price"
+			en: "Price",
+			fr: "Prix"
 		},
 		"Recuperar Contraseña":
 		{
 			es: "Recuperar Contraseña",
-			en: "Recover password"
+			en: "Recover password",
+			fr: "Récupérer le mot de passe"
 		},
 		"Una nueva contraseña sera enviada a tu correro electrónico":
 		{
 			es: "Una nueva contraseña sera enviada a tu correro electrónico",
-			en: "A new password will be sent to your e-mail"
+			en: "A new password will be sent to your e-mail",
+			fr: "Un nouveau mot de passe sera envoyé à votre email"
 		}
       }
     };
@@ -557,11 +645,11 @@
 
 
 
-	this.getl = function(index, lang) {
+	this.getl = function(index) {
       var res = index;
 
       try {
-        res = t[index][lang];
+        res = t[index]["es"];
       }
       catch (err) {
         //not found, return index

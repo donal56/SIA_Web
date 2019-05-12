@@ -70,6 +70,7 @@
 
 				<option value= "es-MX" img_src= "views/img/MX-flag.png">Español</option>
 				<option value= "en-US" img_src= "views/img/US-flag.png">English</option>
+				<option value= "fr-FR" img_src= "views/img/FR-flag.png">Français</option>
 			</select>		
 		</div>
 

@@ -38,11 +38,20 @@ function initDHTMLX()
 			case "en-US":
 				localStorage.setItem("lang", "en");
 				break;
+			case "fr-FR":
+				localStorage.setItem("lang", "fr");
+				break;
 		}	
 		translator.lang(localStorage.getItem("lang"));
-		actualizarFormLog(true);
-		document.getElementById('opPasajeros').value= "";
-		
+		try
+		{
+			actualizarFormLog(true);
+			document.getElementById('opPasajeros').value= "";
+		}
+		catch(e)
+		{
+			
+		}
 	});
 }
 
@@ -196,13 +205,13 @@ function showLogin(obj)
 							document.getElementById("userLabel").innerHTML= email.split('@')[0];
 
 							wait(1000);
-							msgAlert(translator.get("¿Bienvenido!"), "<h2>" + translator.get("Inicio de sesión exitoso.") + "</h2>");
+							msgAlert(translator.get("¿Bienvenido!"), "<h2>" + translator.get("Inicio de sesión exitoso") + ".</h2>");
 							menu.unload();
 							menu = null;
 						}
 						else
 						{
-							msgAlert(translator.get("Error"), "<h2>" + translator.get("Correo y/o contraseña incorrectos.") + "</h2>");
+							msgAlert(translator.get("Error"), "<h2>" + translator.get("Correo y/o contraseña incorrectos") + ".</h2>");
 						}
 					});
 				}
