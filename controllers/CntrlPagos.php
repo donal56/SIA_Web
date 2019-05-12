@@ -17,7 +17,7 @@
 		
 	
 	echo <<<EOT
-	
+	<script type= "text/javascript" src= "views/js/payment.js"> </script>
 	<div id="details" style="text-align: center; font-size:calc(10px + .5vw);">	
 	<table style="margin: 0 auto;" width="70%" bordercolor="#B8B8B8" cellspacing="5" cellpadding="5">
 		<caption><h2> Detalles de compra </h2></caption>
@@ -48,18 +48,21 @@
 		
 		<tr style="font-weight: bolder; font-size:calc(12px + .7vw);">
 			<td colspan="3" align="right"><span class="trn">Total a pagar:</span></td>
-			<td>$ {$total}</td>
+			<td id="total">$ {$total}</td>
 		</tr>
 		
 		</table>
 	
-		<br><button style="align-self: center" class="btnSIA"><span class="trn">Pagar</span></button>
+		<br><button style="align-self: center" class="btnSIA" onclick="msgHTML('Pagos','views/Payment.phtml');"><span class="trn">Pagar</span>&nbsp; ▶</button>
 
 	</div>
-
 	
 EOT;
 
 	}
+
+if($_POST){
+	
+}
 
 ?>

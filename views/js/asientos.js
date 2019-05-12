@@ -113,7 +113,8 @@ function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1
 	if(!formEmpty("#f1"))
 	{
 		if (makesSense(adultos, niños, bebes, clase))
-		{		
+		{	
+			sessionStorage.pax=JSON.stringify(arrP);
 			$.ajax(
 			{
 				method: 'GET',
@@ -132,7 +133,8 @@ function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1
 						},
 				success: function(response) 
 				{
-				   document.getElementById("content").innerHTML = response;
+					$('#content').html(response);
+
 
 				},
 				error: function(xhr, status, error)
@@ -157,7 +159,7 @@ function makesSense(adultos, niños, bebes, clase)
 	'use strict';
 	
 	var elements = document.forms["f1"].getElementsByTagName("input");
-	var arrP= new Array(adultos + niños + bebes);
+	arrP= new Array(adultos + niños + bebes);
 	var isOK= true;
 	var ac= 0, nc= 0, bc= 0;
 	

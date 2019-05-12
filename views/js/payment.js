@@ -1,18 +1,4 @@
 // JavaScript Document
-function flyPayInfo(){
-	'use strict';
-	$.post('controllers/CntrlPagos.php',(
-									$.param({func: 1})+'&'+ 
-									sessionStorage.paxFom+'&'+
-									sessionStorage.flydetails
-									),function(data) {
-			
-		msgHTML("Pagos","views/Payment.phtml");
-
-	});	
-	
-}
-
 function pay(){
 	'use strict';
 	
@@ -40,11 +26,20 @@ function pay(){
 function sendTicket(){
 	'use strict';
 	//TODO: post php ticket controller
+	$.post('controllers/CntrlPagos.php',(
+									sessionStorage.paxFom+'&'+
+									sessionStorage.flydetails
+									),function(data) {
+			
+		msgAlert('Gracias',"views/Payment.phtml");
+
+	});	
+	
 	msgAlert(translator.get("Pagado"),translator.get("Gracias por su preferencia"));
 		
 }
 
-
+/*
 			sessionStorage.paxFom = $('#f1').serialize();
 			sessionStorage.flydetails= $.param({
 										tipo : tipo,
@@ -71,3 +66,4 @@ function sendTicket(){
 				
 
 									});	
+	*/

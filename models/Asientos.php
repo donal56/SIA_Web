@@ -63,14 +63,14 @@ LABEL;
 		if($payment)
 		{
 			$cad = $cad . <<<LABEL
-			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $pas1, $pas2, $pas3, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></input></form></div>
+			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $pas1, $pas2, $pas3, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span> &nbsp; ▶</input></form></div>
 LABEL;
 		}
 		else
 		{
 			// do again
 			$cad = $cad . <<<LABEL
-			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $adultos, $niños, $bebes, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span></button></form></div>
+			<br><button type= 'button' class= 'btnSIA' style= 'padding-bottom: 10px' onclick= "procederAlPago('$tipo', '$origen', '$destino', $adultos, $niños, $bebes, '$clase', '$f1', '$f2', $v1, $v2)"><span class= 'trn'>Continuar</span> &nbsp; ▶</button></form></div>
 LABEL;
 		}
 		

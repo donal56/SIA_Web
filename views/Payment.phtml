@@ -1,8 +1,9 @@
+<!doctype html>
 <div id= 'procesadorDePagos'>
 	<form id="formPay">
 		<div>
 			 <label style="width: 50%" for="price">
-					Precio Total
+					<span class= "trn">Precio Total</span>
 				<input style="width: 50%;" name= "price" type="text" id="price" placeholder="$" readonly> 
 			</label>
 		</div>
@@ -47,3 +48,4 @@
 		<button type= "button" class= "btnSIA" style="float: right;" onclick= "pay();"><span class= "trn">Pagar</span> &nbsp; &#x25b6; </button>
 	</form>
 </div>
+<script>document.getElementById("price").value = document.getElementById("total").innerText;</script>
