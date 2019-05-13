@@ -25,18 +25,44 @@ function pay(){
 
 function sendTicket(){
 	'use strict';
+	msgLoading();
 	//TODO: post php ticket controller
 	$.post('controllers/CntrlPagos.php',(
-									sessionStorage.paxFom+'&'+
-									sessionStorage.flydetails
+										$.param({
+										idFly: sessionStorage.idFly,
+										arrP : sessionStorage.pax,
+										cantAdult:sessionStorage.cantAdult,
+										cantKid:sessionStorage.cantKid,
+										cantBaby:sessionStorage.cantBaby,
+										})
 									),function(data) {
 			
-		msgAlert('Gracias',"views/Payment.phtml");
+		msgAlert('Gracias',data);
+		winMsg.button('close').hide();
 
 	});	
 	
-	msgAlert(translator.get("Pagado"),translator.get("Gracias por su preferencia"));
+	
+//	msgAlert(translator.get("Pagado"),translator.get("Gracias por su preferencia"));
 		
+}
+
+function printTicket(){
+	msgLoading();
+	//TODO: post php ticket controller
+	$.post('controllers/CntrlPagos.php',(
+										$.param({
+										print:"web",
+										idFly: sessionStorage.idFly,	
+										tipoCC:"tet",
+										CC:"xxxxx",
+										paydate:"test"
+										})
+									),function(data) {
+			
+		window.location.href = data;
+
+	});	
 }
 
 /*

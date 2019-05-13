@@ -1,4 +1,7 @@
 <?php
+session_save_path("../sessions"); 
+ini_set('session.gc_probability', 1);
+session_start();
 	//call model
 	require_once("../models/database.php");
 	require_once("../models/Pagos.php");
@@ -6,12 +9,17 @@
 	$pago = new moPagos();
 
 	if($_GET){
-	
+		$_SESSION['idFly'] = $_GET['v1'];
+		$_SESSION['cantAdult'] = $_GET['cantAdult'];
+		$_SESSION['cantKid'] = $_GET['cantKid'];
+		$_SESSION['cantBaby'] = $_GET['cantBaby'];
+		
 		$price = $pago -> getPrice($_GET['v1'],$_GET['clase'])[0][0];
-		$priceA = $_GET['cantAdult']*$price;
-		$priceK = $_GET['cantKid']*$price*.75;
-		$priceB = $_GET['cantBaby']*$price*.5;
-		$total = $priceA+$priceK+$priceB;
+		
+		$_SESSION['priceA'] = $priceA = $_GET['cantAdult']*$price;
+		$_SESSION['priceK'] = $priceK = $_GET['cantKid']*$price*.75;
+		$_SESSION['priceB'] = $priceB = $_GET['cantBaby']*$price*.5;
+		$_SESSION['totalPrice'] = $total = $priceA+$priceK+$priceB;
 		$iva = $total*.16;
 		$base= $total-$iva;
 		
@@ -36,7 +44,7 @@
 		<tr>
 			<td><span class="trn">{$_GET['cantKid']} Menores</span></td>
 			<td>$ $priceK </td>
-			<td><span class="trn">IVA 16%</span></td>
+			<td><span class="trn">impuesto</span></td>
 			<td>$ $iva</td>
 		</tr>
 		<tr>
@@ -63,6 +71,72 @@ EOT;
 
 if($_POST){
 	
+	if(!isset($_POST['print'])){
+		require_once("../views/Templates.phtml");
+
+		$vuelo = $_POST['idFly'];
+		$arrP= $_SESSION['arrP'] = json_decode($_POST['arrP']);
+
+		foreach ($arrP as $pax) {
+			$fullname=explode(" ", $pax[0]);
+			$mat = array_pop($fullname);
+			$pat = array_pop($fullname);
+			$name = implode(" ", $fullname);
+
+			//Register clientes
+			$cliente = $pago -> registerPax($pat,$mat,$name,$pax[2]);
+
+			$id = strtoupper("N".dechex($vuelo+$cliente));
+			//Register ticket
+			$pago -> registerTicket($id,$pax[1],$cliente,$vuelo);
+
+		}
+
+		echo payTicket();
+		
+	}else{
+		if($_POST['print']=="web"){
+			$modal ="Sencillo";
+			$cantAdult=$_SESSION['cantAdult'];
+			$cantKid=$_SESSION['cantKid'];
+			$cantBaby=$_SESSION['cantBaby'];
+			$priceAdult=$_SESSION['priceA'];
+			$priceKid=$_SESSION['priceK'];
+			$priceBaby=$_SESSION['priceB'];
+			$totalPrice=$_SESSION['totalPrice'];
+			
+			$idVuelo=$_POST['idFly'];
+			
+			$origen="Villahermosa";
+			$destino="Cancun";
+			$fecha="2019-08-12";
+			$HoraS="18:00";
+			$HoraL="12:00";
+			$modelo="nose";
+
+			
+			$tname="yo mero";
+			$tlast;
+			$tnac;
+			$ttel;
+
+			$arrAdul;
+			$arrKid;
+			$arrBaby;
+			$idCliente;
+
+	
+			$tipoCC="tet";
+			$CC="xxxxx";
+			$paydate="test";
+
+		}else{
+			//desktop
+		}
+		
+		require_once("../controllers/CntrlTicketPDF.php");
+	}
+		
 }
 
 ?>

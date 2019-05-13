@@ -73,5 +73,15 @@ function successRegister(){
 EOT;
 }
 
-
+function payTicket(){
+	return <<<EOT
+	<p><span class= "trn">Su pago</span><span class= "trn"> a sido confirmado</span>
+	<br><span class= "trn">A continuacion obtenga su boleto</span>
+	<button type="button" class="btnTransparent"  style="width:100%" onclick="printTicket();" style="width:150px" >	
+		<img style="width:150px" src="views/img/printer.gif" alt="check">	
+	</button><br>
+				
+EOT;
+	
+}
 ?>

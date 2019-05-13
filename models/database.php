@@ -18,6 +18,17 @@ class Connection
 		$this -> connect ->close();
 	
 		return $result;
-	}		
+	}	
+	
+	public function getStatementID($que)
+	{
+		$this->getConnect(); 
+		$this->connect -> query("SET NAMES utf8");   
+		$this->connect -> query($que);
+		$result = $this -> connect ->insert_id;
+		$this -> connect ->close();
+	
+		return $result;
+	}
 }
 ?>

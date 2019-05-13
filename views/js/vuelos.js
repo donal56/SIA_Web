@@ -14,7 +14,7 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 	
 	if((tipo === translator.get("Redondo")) ? (vuelo1 && vuelo2) : vuelo1)
 	{
-		solicitar("views/Asientos.phtml");
+		msgLoading();
 		$.ajax(
 		{
 			method: 'GET',
@@ -32,16 +32,31 @@ function seleccionarAsientos(tipo, origen, destino, adultos, niños, bebes, clas
 						v1 : vuelo1,
 						v2 : vuelo2
 					},
+			beforeSend: function() {
+				$("#content").load("views/Asientos.phtml", function (data) 
+				{
+					$(this).html(data);
+			
+				});
+				
+			},
 			success: function(response) 
 			{
-			   document.getElementById("seleccionDeAsientos").innerHTML= response;
-			   $('#f1[onload]').trigger('onload');
-			   $('#divSeat[onload]').trigger('onload');
+
+				$("#seleccionDeAsientos").html(response).promise().then(function(){
+					 $('#f1[onload]').trigger('onload');
+					 $('#divSeat[onload]').trigger('onload');
+				
+				 });
 
 			},
 			error: function(xhr, status, error)
 			{
 			   document.getElementById("seleccionDeAsientos").innerHTML= xhr.responseText;
+			},
+			complete: function(xhr, status, error)
+			{
+			   winMsg.close();
 			}
 		});
 	}

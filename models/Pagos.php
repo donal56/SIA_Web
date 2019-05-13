@@ -16,6 +16,23 @@ class moPagos
 			return $this->result;
 		}
 	
+	public function registerPax($pat,$mat,$name,$nac){
+		$connection = new Connection();
+		
+		return $connection->getStatementID("INSERT INTO clientes (apellidoP,apellidoM,nombre,fechaNC) VALUES ('$pat','$mat','$name','$nac');");
+	}
+	
+	public function registerTicket($id,$asiento,$cliente,$vuelo){
+		$connection = new Connection();
+		
+		if ($connection->getStatement("INSERT INTO boletos (idBoleto,noAsiento,status,clientes_idCliente,vuelos_idvuelo) VALUES ('$id','$asiento',0,'$cliente','$vuelo');")) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 }
 
 ?>

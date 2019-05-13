@@ -26,7 +26,7 @@
 			</label>
 		</div>
 		 
-			 <br>
+	
 		<div>
 			<label style="width: 50%" for="cc">
 					<span class= "trn">Número de tarjeta</span><br>
@@ -44,8 +44,14 @@
 				<input style="width: 10%;" name= "CVV" type="text" id="CVV" placeholder="###"> 	
 			</label>
 		</div>
+		<div>
+			<label style="width: 30%" for="tel">
+					<span class= "trn">Telefono</span><br>
+				<input style="width: 100%;" name= "tel" type="text" id="tel" placeholder="#"> 
+			</label>
+		</div>
 		
-		<button type= "button" class= "btnSIA" style="float: right;" onclick= "pay();"><span class= "trn">Pagar</span> &nbsp; &#x25b6; </button>
+		<button type= "button" class= "btnSIA" style="float: right;margin:0px;" onclick= "pay();"><span class= "trn">Pagar</span> &nbsp; &#x25b6; </button>
 	</form>
 </div>
 <script>document.getElementById("price").value = document.getElementById("total").innerText;</script>

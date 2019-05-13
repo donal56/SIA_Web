@@ -17,6 +17,7 @@ function initSeatCalendars()
 function initSeater(vip, ejecutivo, turista, clase, arr)
 {	
 	'use strict';
+	
 	var a= new Array();
 	
 	for(var i= 0; i < arr.length; i++)
@@ -27,7 +28,6 @@ function initSeater(vip, ejecutivo, turista, clase, arr)
 	 $(document).ready(function() 
 	 {
 		'use strict';
-
 		rellenarMapa(1, vip, "v");
 		rellenarMapa(vip + 1, ejecutivo, "e");
 		rellenarMapa(ejecutivo + 1, turista, "t");
@@ -110,16 +110,21 @@ function rellenarMapa(start, end, symbol)
 
 function procederAlPago(tipo, origen, destino, adultos, niños, bebes, clase, f1, f2, v1, v2)
 {
+	'use strict';
 	if(!formEmpty("#f1"))
 	{
 		if (makesSense(adultos, niños, bebes, clase))
 		{	
 			sessionStorage.pax=JSON.stringify(arrP);
+			sessionStorage.idFly=v1;
+			sessionStorage.cantAdult=adultos;
+			sessionStorage.cantKid=niños;
+			sessionStorage.cantBaby=bebes;
 			$.ajax(
 			{
 				method: 'GET',
 				url: 'controllers/CntrlPagos.php',
-				data: 	{ 
+				data: 	{ 	
 							tipo : tipo,
 							cantAdult : adultos,
 							cantKid : niños,
