@@ -16,7 +16,7 @@ $(window).on('load',function()
 	document.getElementById('opPasajeros').value=("");
 	$("#loader").fadeOut("slow");
 	
-	$('#content').on("DOMSubtreeModified",function(){
+	$('#content').on("DOMSubtreeModified",function(ev){
     	if(eve !== true) // This will prevent event triggering more then once
         {
             eve = true;
@@ -25,6 +25,13 @@ $(window).on('load',function()
 				eve = false;
 			}, 300);
         }
+	ev.bubbles = false;
+    ev.cancelBubble = true;
+    ev.defaultPrevented = true;
+    ev.preventDefault();
+    ev.stopPropagation();
+
+
 	});
  
 });
