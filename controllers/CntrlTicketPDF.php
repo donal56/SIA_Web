@@ -20,7 +20,7 @@ $pdf->setPrintFooter(false);
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$pdf->SetMargins(PDF_MARGIN_LEFT*3.2, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
 
 // set auto page breaks
 $pdf->SetAutoPageBreak(false, 0);
@@ -60,24 +60,24 @@ $pdf->MultiCell(5,"", $cantAdult, $brd, 'L', 0, 0, 72, 95);
 $pdf->MultiCell(5,"", $cantKid, $brd, 'L', 0, 0, 72, 100);
 $pdf->MultiCell(5,"", $cantBaby, $brd, 'L', 0, 0, 72, 105);
 
-$pdf->MultiCell(20,"", $priceAdult, $brd, 'L', 0, 0, 112, 95);
-$pdf->MultiCell(20,"", $priceKid, $brd, 'L', 0, 0, 112, 100);
-$pdf->MultiCell(20,"", $priceBaby, $brd, 'L', 0, 0, 112, 105);
+$pdf->MultiCell(20,"", $_SESSION['priceA'], $brd, 'L', 0, 0, 112, 95);
+$pdf->MultiCell(20,"", $_SESSION['priceK'], $brd, 'L', 0, 0, 112, 100);
+$pdf->MultiCell(20,"", $_SESSION['priceB'], $brd, 'L', 0, 0, 112, 105);
 
-$pdf->MultiCell(20,"", $totalPrice, $brd, 'L', 0, 0, 180, 110);
+$pdf->MultiCell(20,"", $_SESSION['totalPrice'], $brd, 'L', 0, 0, 180, 110);
 
-$pdf->MultiCell(20,"", $totalPrice, $brd, 'L', 0, 0, 180, 153);
+$pdf->MultiCell(20,"", $_SESSION['totalPrice'], $brd, 'L', 0, 0, 180, 153);
 
 // ----------------------------details-----------------------------
 
-$pdf->MultiCell(50,"", $origen, $brd, 'L', 0, 0, 55,190);
-$pdf->MultiCell(50,"", $destino, $brd, 'L', 0, 0, 55,196);
-$pdf->MultiCell(50,"", $fecha, $brd, 'L', 0, 0, 55,202);
-$pdf->MultiCell(50,"", $HoraS, $brd, 'L', 0, 0, 55,208);
-$pdf->MultiCell(50,"", $HoraL, $brd, 'L', 0, 0, 55,214);
-$pdf->MultiCell(50,"", $modelo, $brd, 'L', 0, 0, 55,220);
+$pdf->MultiCell(50,"", $info[0]['origen'], $brd, 'L', 0, 0, 55,190);
+$pdf->MultiCell(50,"", $info[0]['destino'], $brd, 'L', 0, 0, 55,196);
+$pdf->MultiCell(50,"", $info[0]['fecha'], $brd, 'L', 0, 0, 55,202);
+$pdf->MultiCell(50,"", $info[0]['horaSalida'], $brd, 'L', 0, 0, 55,208);
+$pdf->MultiCell(50,"", $info[0]['horaLlegada'], $brd, 'L', 0, 0, 55,214);
+$pdf->MultiCell(50,"", $info[0]['modelo'], $brd, 'L', 0, 0, 55,220);
 
-
+unset($info);
 //---------------------------------------------new page-------------------------------------------------
 //------------------------------------------------------------------------------------------------------
 
@@ -90,31 +90,40 @@ $pdf->Image("../views/img/ticketP2.png", 0, 0,210);
 $pdf->MultiCell(130,"", $tname, $brd, 'L', 0, 0, 70, 22);
 $pdf->MultiCell(130,"", $tlast, $brd, 'L', 0, 0, 70, 28);
 $pdf->MultiCell(110,"", $tnac, $brd, 'L', 0, 0, 90, 34);
-$pdf->MultiCell(130,"", $ttel, $brd, 'L', 0, 0, 70, 40);
+$pdf->MultiCell(130,"", $_POST['tel'], $brd, 'L', 0, 0, 70, 40);
 
 
 // ----------------------------adult-----------------------------
-$pdf->SetXY(PDF_MARGIN_LEFT*3.2,50);
+$pdf->SetXY(PDF_MARGIN_LEFT,55);
 foreach ($arrAdul as $adult) {
-	$pdf->Cell(150, 0, $adult, $brd,1);
+	$diff = abs(strtotime(date('Y-m-d')) - strtotime($adult[2]));
+	$years = floor($diff / (365*60*60*24));
+	$infoPax = $adult[0]." |Asiento:".$adult[1]." |Edad:".$years." |BOLETO:".$adult[3];
+	$pdf->Cell(150, 0, $infoPax, $brd,1);
 }
-
+unset($arrAdul); 
 // ----------------------------kid-----------------------------
-$pdf->SetXY(PDF_MARGIN_LEFT*3.2,96);
+$pdf->SetXY(PDF_MARGIN_LEFT,102);
 foreach ($arrKid as $kid) {
-	$pdf->Cell(150, 0, $kid, $brd,1);
+	$diff = abs(strtotime(date('Y-m-d')) - strtotime($kid[2]));
+	$years = floor($diff / (365*60*60*24));
+	$infoPax = $kid[0]." |Asiento: ".$kid[1]." |Edad: ".$years." |BOLETO: ".$kid[3];
+	$pdf->Cell(150, 0, $infoPax, $brd,1);
 }
-
+unset($arrKid); 
 // ----------------------------baby-----------------------------
-$pdf->SetXY(PDF_MARGIN_LEFT*3.2,121);
+$pdf->SetXY(PDF_MARGIN_LEFT,126);
 foreach ($arrBaby as $baby) {
-	$pdf->Cell(150, 0, $baby, $brd,1);
+	$diff = abs(strtotime(date('Y-m-d')) - strtotime($baby[2]));
+	$years = floor($diff / (365*60*60*24));
+	$infoPax = $baby[0]."|Asiento: ".$baby[1]." |Edad: ".$years." |BOLETO:".$baby[3];
+	$pdf->Cell(150, 0, $infoPax, $brd,1);
 }
-
+unset($arrBaby); 
 // ----------------------------pay-----------------------------
-$pdf->MultiCell(130,"", $tipoCC, $brd, 'L', 0, 0, 70, 156);
-$pdf->MultiCell(130,"", $CC, $brd, 'L', 0, 0, 70, 162);
-$pdf->MultiCell(130,"", $paydate, $brd, 'L', 0, 0, 70, 168);
+$pdf->MultiCell(130,"", $_POST["tipoCC"], $brd, 'L', 0, 0, 70, 156);
+$pdf->MultiCell(130,"", $_POST["CC"], $brd, 'L', 0, 0, 70, 162);
+$pdf->MultiCell(130,"", $_POST["payDate"], $brd, 'L', 0, 0, 70, 168);
 
 
 // move pointer to last page
@@ -122,6 +131,6 @@ $pdf->lastPage();
 
 // ---------------------------------------------------------
 //Close and output PDF document
-$pdf->Output($_SERVER['DOCUMENT_ROOT'].'/tcpdf/pdf/ticket/'.$idCliente.'.pdf', 'I');
+$pdf->Output($_SERVER['DOCUMENT_ROOT'].'/tcpdf/pdf/ticket/'.$_SESSION['idTitular'].'.pdf', 'F');
 
 ?>

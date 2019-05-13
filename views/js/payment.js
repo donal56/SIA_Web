@@ -25,6 +25,16 @@ function pay(){
 
 function sendTicket(){
 	'use strict';
+	
+	if(document.getElementById('cc').value.substr(0,1)=="5"){
+		sessionStorage.ccType="MasterCard";
+	}else{
+		sessionStorage.ccType="VISA";
+	}
+
+	sessionStorage.cc = "XXXXXXXXXXX"+document.getElementById('cc').value.substr(16 -4);
+	sessionStorage.tel =document.getElementById('tel').value;
+	
 	msgLoading();
 	//TODO: post php ticket controller
 	$.post('controllers/CntrlPagos.php',(
@@ -48,48 +58,22 @@ function sendTicket(){
 }
 
 function printTicket(){
+	'use strict';
 	msgLoading();
+
 	//TODO: post php ticket controller
 	$.post('controllers/CntrlPagos.php',(
 										$.param({
 										print:"web",
 										idFly: sessionStorage.idFly,	
-										tipoCC:"tet",
-										CC:"xxxxx",
-										paydate:"test"
+										tipoCC:sessionStorage.ccType,
+										CC:sessionStorage.cc,
+										payDate: new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10),
+										tel:sessionStorage.tel
 										})
 									),function(data) {
-			
-		window.location.href = data;
+			winMsg.close();
+			window.location.href = data;
 
 	});	
 }
-
-/*
-			sessionStorage.paxFom = $('#f1').serialize();
-			sessionStorage.flydetails= $.param({
-										tipo : tipo,
-										cantAdult : adultos,
-										cantKid : niños,
-										cantBaby: bebes,
-										clase : clase, 
-										fechaAct : new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), 
-										idvuelo : v1
-										});
-			
-			$.post('controllers/CntrlPagos.php',(
-									$.param({
-										tipo : tipo,
-										cantAdult : adultos,
-										cantKid : niños,
-										cantBaby: bebes,
-										clase : clase, 
-										fechaAct : new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000)).toJSON().slice(0,10), 
-										idvuelo : v1
-										})
-									),function(data) {
-			
-				
-
-									});	
-	*/

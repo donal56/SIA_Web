@@ -1,6 +1,9 @@
 <?php
 class moPagos
 {
+	private $stm;
+	private $result;
+	
 	public function getPrice($id,$class){
 	
 		$connection = new Connection();
@@ -32,6 +35,31 @@ class moPagos
 			return false;
 		}
 	}
+	
+	public function getFlyinfo($idVuelo){	
+		$connection = new Connection();
+		$this->result = array();
+		
+		$query= <<<EOT
+		
+		SELECT origen,destino,fecha,horaSalida,horaLlegada,modelosAvion_idModelo AS modelo
+		FROM vuelos 
+			LEFT JOIN aviones ON aviones_idAvion = idAvion
+			LEFT JOIN modelosAvion ON modelosAvion_idModelo = idModelo
+			LEFT JOIN rutas ON rutas_idRuta = idRuta
+	   WHERE idVuelo =$idVuelo;
+EOT;
+		
+		$this-> stm = $connection->getStatement($query);
+		
+			while ($row = $this-> stm -> fetch_assoc()){
+				$this->result[] = $row ;
+			}
+
+			$this->stm -> free();
+			return $this->result;	
+	}
+	
 	
 }
 

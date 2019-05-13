@@ -6,13 +6,27 @@ var winMsg;
 var panel;
 var translator;
 var langCombo;
+var eve=false;
 
 $(window).on('load',function() 
 {
 	'use strict';
 	translator = $('body').translate({lang: localStorage.getItem("lang")});
+	translator.lang(localStorage.getItem("lang"));
 	document.getElementById('opPasajeros').value=("");
 	$("#loader").fadeOut("slow");
+	
+	$('#content').on("DOMSubtreeModified",function(){
+    	if(eve !== true) // This will prevent event triggering more then once
+        {
+            eve = true;
+			setTimeout(function(){ 
+				translator.lang(localStorage.getItem("lang"));
+				eve = false;
+			}, 300);
+        }
+	});
+ 
 });
 
 

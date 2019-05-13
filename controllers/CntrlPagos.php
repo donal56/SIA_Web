@@ -71,26 +71,27 @@ EOT;
 
 if($_POST){
 	
+	
 	if(!isset($_POST['print'])){
 		require_once("../views/Templates.phtml");
 
 		$vuelo = $_POST['idFly'];
 		$arrP= $_SESSION['arrP'] = json_decode($_POST['arrP']);
 
-		foreach ($arrP as $pax) {
+		foreach ($arrP as &$pax) {
 			$fullname=explode(" ", $pax[0]);
 			$mat = array_pop($fullname);
 			$pat = array_pop($fullname);
 			$name = implode(" ", $fullname);
-
 			//Register clientes
-			$cliente = $pago -> registerPax($pat,$mat,$name,$pax[2]);
-
-			$id = strtoupper("N".dechex($vuelo+$cliente));
+			$_SESSION['idTitular'] = $cliente = $pago -> registerPax($pat,$mat,$name,$pax[2]);
+			unset($fullname,$pat,$mat,$name);
+			$pax[3] = strtoupper("N".dechex($vuelo+$cliente*2));
 			//Register ticket
-			$pago -> registerTicket($id,$pax[1],$cliente,$vuelo);
-
+			$pago -> registerTicket($pax[3],$pax[1],$cliente,$vuelo);
 		}
+		$_SESSION['arrP']=$arrP;
+		unset($arrP,$vuelo);
 
 		echo payTicket();
 		
@@ -100,41 +101,52 @@ if($_POST){
 			$cantAdult=$_SESSION['cantAdult'];
 			$cantKid=$_SESSION['cantKid'];
 			$cantBaby=$_SESSION['cantBaby'];
-			$priceAdult=$_SESSION['priceA'];
+
+			$idVuelo=$_POST['idFly'];
+			$info= $pago->getFlyinfo($idVuelo);
+/*			
+			$priceAdult=;
 			$priceKid=$_SESSION['priceK'];
 			$priceBaby=$_SESSION['priceB'];
-			$totalPrice=$_SESSION['totalPrice'];
+			$totalPrice=;
 			
-			$idVuelo=$_POST['idFly'];
+			$origen=;
+			$destino=;
+			$fecha=;
+			$HoraS=;
+			$HoraL=;
+			$modelo=;
+			$tipoCC=;
+			$CC=;
+			$paydate=;
+*/
+			$arrP=$_SESSION['arrP'];
 			
-			$origen="Villahermosa";
-			$destino="Cancun";
-			$fecha="2019-08-12";
-			$HoraS="18:00";
-			$HoraL="12:00";
-			$modelo="nose";
-
+			$fullname=explode(" ", $arrP[0][0]);
+			$tlast = array_pop($fullname);
+			$tlast =array_pop($fullname)." ".$tlast;
+			$tname = implode(" ", $fullname);
+			unset($fullname);
 			
-			$tname="yo mero";
-			$tlast;
-			$tnac;
-			$ttel;
+			$tnac= $arrP[0][2];
+			
+			$arrAdul =array_slice($arrP,0, $cantAdult);
+			$arrKid = array_slice($arrP,$cantAdult, $cantKid);
+			$arrBaby = array_slice($arrP,$cantAdult+$cantKid, $cantBaby);
+			
+			unset($arrP);
+			
 
-			$arrAdul;
-			$arrKid;
-			$arrBaby;
-			$idCliente;
 
-	
-			$tipoCC="tet";
-			$CC="xxxxx";
-			$paydate="test";
+
 
 		}else{
 			//desktop
 		}
-		
 		require_once("../controllers/CntrlTicketPDF.php");
+		
+		echo "/tcpdf/pdf/ticket/{$_SESSION['idTitular']}.pdf";
+		session_destroy();
 	}
 		
 }

@@ -3,6 +3,7 @@ var mapa = [];
 var aux= "";
 var arrP;
 var sc;
+var selectedInput;
 
 function initSeatCalendars()
 {
@@ -12,6 +13,13 @@ function initSeatCalendars()
 	{
 		new dhtmlXCalendarObject("bday" + n).hideTime();
 	}
+	selectedInput= $("input[name=seat0]")[0];
+	
+	$("input[name^='seat']").on('click', function(e) { 
+
+			selectedInput=$(this)[0];
+	});
+	
 }
 
 function initSeater(vip, ejecutivo, turista, clase, arr)
@@ -75,8 +83,22 @@ function initSeater(vip, ejecutivo, turista, clase, arr)
 			},
 			click   : function() 
 			{
-				console.log(this);
-				return this.style();
+
+				if (this.status() == 'available'&& this.settings.data.category == translator.get(clase)) {
+					selectedInput.style.color='black';
+					selectedInput.value=this.settings.label;
+					selectedInput.id=this.settings.label;
+					return 'selected';
+					
+				} else if (this.status() == 'selected') {
+					$("input[id='"+this.settings.label+"']").val("");
+					return 'available';
+					
+				} else {
+					selectedInput.style.color='red';
+					return this.style();
+				}
+				
 			},
 			blur   : function() 
 			{
@@ -174,7 +196,7 @@ function makesSense(adultos, niños, bebes, clase)
 		var s = elements[k*3+1].value;
 		var b = elements[k*3+2].value;
 	
-		if(sc.get(s).status() !== 'available' || typeof sc.get(s) === "undefined" || sc.get(s).settings.data.category !== clase)
+		if(sc.get(s).status() !== 'selected' || typeof sc.get(s) === "undefined" || sc.get(s).settings.data.category !== translator.get(clase))
 		{
 			isOK= false;
 			console.log("Fallo en el asiento " + s);
